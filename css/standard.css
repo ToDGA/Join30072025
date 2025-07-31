@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+:root {
+    --darkblue-color: #2A3647;
+    --lightblue-color: #29ABE2;
+    --darkblue-click-color: #091931;
+  }
+  
+/* From Checklist */
+button {
+    cursor: pointer;
+    background-color: var(--darkblue-color);
+}
+
+button:hover {
+    background-color: var(--lightblue-color);
+    transition: ease-in-out 150ms;
+}
+
+button:active {
+    background-color: var(--darkblue-click-color);
+    transition: ease-in-out 150ms;
+}
+
+button, input {
+    border: unset;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block{
+  display: block;
+}
+
+
