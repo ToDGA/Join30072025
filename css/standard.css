@@ -6,9 +6,22 @@
 }
 
 :root {
-    --darkblue-color: #2A3647;
+    --white-color: #fff;
+    --darkblue-light-color: #2A3647;
     --lightblue-color: #29ABE2;
-    --darkblue-click-color: #091931;
+    --darkblue-color: #091931;
+    --low-color: #7AE229;
+    --medium-color: #FF7A00;
+    --urgent-color: #FF3D00;
+    --story-color: #0038ff;
+    --technical-color: #1fd7c1;
+    --sidebar-color: #cdcdcd;
+    --light-grey-color: #f6f7f8;
+    --medium-grey-color: #e7e7e7;
+    --dark-grey-color: #a8a8a8;
+    --placeholder-grey-color: #d1d1d1;
+    --subtitle-color: #2a3647;
+    --required-color: #ff8190;
   }
   
 /* From Checklist */
@@ -23,7 +36,7 @@ button:hover {
 }
 
 button:active {
-    background-color: var(--darkblue-click-color);
+    background-color: var(--lightblue-color);
     transition: ease-in-out 150ms;
 }
 
