@@ -1,0 +1,23 @@
+.main-header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 128px;
+  padding-top: 120px;
+}
+
+.main-header h1 {
+  font-size: 61px;
+  font-weight: bold;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-right: 2px solid blue;
+  border-color: var(--lightblue-color);
+}
+
+.main-header span {
+  font-size: 27px;
+  align-self: center;
+  color: var(--dark-grey-color);
+  padding-left: 12px;
+  padding-right: 12px;
+}
