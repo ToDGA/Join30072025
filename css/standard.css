@@ -60,3 +60,7 @@ a {
 .width-100 {
   width: 100%;
 } 
+
+.padding-left-128 {
+  padding-left: 128px;
+}

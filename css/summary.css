@@ -21,3 +21,13 @@
   padding-left: 12px;
   padding-right: 12px;
 }
+
+.icon-container {
+  background-color: var(--darkblue-light-color);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
