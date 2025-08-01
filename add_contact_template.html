@@ -50,20 +50,31 @@
             border-radius: 3px;
         }
 
-        .input-add-contact-container {
-            width: 650px;
+        .contact-circle-container {
+            width: 200px;
             height: 592px;
             background-color: var(--white-color);
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
         }
-
 
         .contact-circle {
             height: 100px;
             width: 100px;
             border-radius: 50%;
-            background-color: var(--lightblue-color);
+            background-color: var(--medium-color);
+        }
+
+        .contact-circle-text {
+            color: var(--white-color);
+            font-weight: 500;
+            font-size: 47px;
+        }
+
+        .input-add-contact-container {
+            width: 450px;
+            height: 592px;
+            background-color: var(--white-color);
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
         }
 
         .input-circle-container {
@@ -88,7 +99,8 @@
             padding-bottom: 15px;
             padding-left: 24px;
             gap: 10px;
-            border-width: 1px;}
+            border-width: 1px;
+        }
 
 
         .contact-delete {
@@ -117,12 +129,14 @@
             <span class="edit-headline">Edit contact</span>
             <div class="contact-progress-bar"></div>
         </div>
+        <div class="contact-circle-container d-flex-c">
+            <div class="contact-circle d-flex-c">
+                <span class="contact-circle-text">AM</span>
+            </div>
+        </div>
         <div class="input-add-contact-container">
-            <span>x</span>
             <div class="input-circle-container">
-                <div class="contact-circle d-flex-c">
-                    <span>FW</span>
-                </div>
+                <span>x</span>
                 <form action="">
                     <div>
                         <input type="text" placeholder="Name">
