@@ -54,3 +54,27 @@ a {
 .d-block{
   display: block;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.d-flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-c-c {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-c-c-fs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
