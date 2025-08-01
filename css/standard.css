@@ -25,16 +25,13 @@
 /* From Checklist */
 button {
     cursor: pointer;
-    background-color: var(--darkblue-color);
 }
 
 button:hover {
-    background-color: var(--lightblue-color);
     transition: ease-in-out 150ms;
 }
 
 button:active {
-    background-color: var(--lightblue-color);
     transition: ease-in-out 150ms;
 }
 

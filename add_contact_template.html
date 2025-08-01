@@ -32,6 +32,24 @@
             padding: 0 0 160px 40px;
         }
 
+        .edit-headline {
+            font-size: 61px;
+            font-weight: 700;
+            padding: 32px 0 16px 0;
+        }
+
+        .contact-logo {
+            width: 48px;
+            height: 56px;
+        }
+
+        .contact-progress-bar {
+            width: 90px;
+            height: 3px;
+            background-color: var(--lightblue-color);
+            border-radius: 3px;
+        }
+
         .input-add-contact-container {
             width: 650px;
             height: 592px;
@@ -40,22 +58,55 @@
             border-bottom-right-radius: 30px;
         }
 
-        .edit-headline {
-            font-size: 61px;
-            font-weight: 700;
-            padding: 32px 0 16px 0;
-        }
 
-        .contact-logo {
-            width: 56px;
-            height: 64px;
-        }
-
-        .contact-progress-bar {
-            width: 90px;
-            height: 3px;
+        .contact-circle {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
             background-color: var(--lightblue-color);
-            border-radius: 3px;
+        }
+
+        .input-circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-contact-buttons {
+            gap: 24px;
+        }
+
+        .contact-delete,
+        .contact-save {
+            font-size: 21px;
+            width: 113px;
+            height: 55px;
+            border-radius: 8px;
+            opacity: 1;
+            padding-top: 15px;
+            padding-right: 24px;
+            padding-bottom: 15px;
+            padding-left: 24px;
+            gap: 10px;
+            border-width: 1px;}
+
+
+        .contact-delete {
+            font-weight: 400;
+            background-color: var(--white-color);
+            color: var(--darkblue-light-color);
+            border: 1px solid var(--darkblue-light-color);
+        }
+
+        .contact-save {
+            font-weight: bold;
+            background-color: var(--darkblue-color);
+            color: var(--white-color);
+        }
+
+        .contact-save-icon {
+            width: 16px;
+            height: 16px;
         }
     </style>
 </head>
@@ -66,7 +117,34 @@
             <span class="edit-headline">Edit contact</span>
             <div class="contact-progress-bar"></div>
         </div>
-        <div class="input-add-contact-container"></div>
+        <div class="input-add-contact-container">
+            <span>x</span>
+            <div class="input-circle-container">
+                <div class="contact-circle d-flex-c">
+                    <span>FW</span>
+                </div>
+                <form action="">
+                    <div>
+                        <input type="text" placeholder="Name">
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email">
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <input type="tel" placeholder="Phone">
+                        <img src="" alt="">
+                    </div>
+                </form>
+            </div>
+            <div class="edit-contact-buttons d-flex-c">
+                <button class="contact-delete">Delete</button>
+                <button class="contact-save d-flex-c">Save
+                    <img class="contact-save-icon" src="./assets/img/add_task_check.svg" alt="done">
+                </button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
