@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/standard.css" />
     <link rel="stylesheet" href="./css/color.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./css/summary.css">
+    <link rel="stylesheet" href="./css/summary.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body>
@@ -21,42 +21,82 @@
     </div>
     <main class="width-100">
       <div class="headercontainer">
-      <header class="header">
-        <div class="title-container">
-          <p>Kanban Project Management Tool</p>
-        </div>
-      </header>
-    </div>
+        <header class="header">
+          <div class="title-container">
+            <p>Kanban Project Management Tool</p>
+          </div>
+        </header>
+      </div>
 
-    <section>
-      <header class="main-header">
-        <h1>Join 360</h1>
-        <span>Key Metrics at a Glance</span>
-      </header>
-      <main class="summary-main">
-        <section class="summary-container">
-          <div class="icon-container">
-            <img src="./assets/img/summary_to_do_pencil.svg" alt="">
-          </div>
-          <div class="summary-text">
-            <span class="task-count">1</span>
-            <span>To-Do</span>
-          </div>
+      <section class="">
+        <header class="main-header">
+          <h1>Join 360</h1>
+          <span>Key Metrics at a Glance</span>
+        </header>
+        <section class="d-flex">
+          <section class="summary-left">
+          <section class="summary-head-footer">
+            <div class="summary-container">
+              <div class="icon-container subtitle-color">
+                <img src="./assets/img/summary_to_do_pencil.svg" alt="" />
+              </div>
+              <div class="summary-text">
+                <span class="task-count">1</span>
+                <span>To-Do</span>
+              </div>
+            </div>
+            <div class="summary-container">
+              <div class="icon-container subtitle-color">
+                <img src="./assets/img/summary_done_checkmark.svg" alt="" />
+              </div>
+              <div class="summary-text">
+                <span class="task-count">1</span>
+                <span>Done</span>
+              </div>
+            </div>
+          </section>
+          <section class="summary-mid">
+            <div class="summary-container">
+              <div class="border-right d-flex">
+                <div class="icon-container urgent">
+                <img src="./assets/img/summary_urgent_sign.svg" alt="" />
+              </div>
+              <div class="summary-text">
+                <span class="task-count">1</span>
+                <span>Urgent</span>
+              </div>
+              </div>
+              <div class="summary-text">
+                <span class="date">October 16,2022</span>
+                <span>Upcoming Deadline</span>
+              </div>
+            </div>
+          </section>
+          <section class="summary-head-footer">
+            <div class="summary-container">
+              <div class="summary-text">
+                <span class="task-count">5</span>
+                <span>Tasks in Board</span>
+              </div>
+            </div>
+            <div class="summary-container">
+              <div class="summary-text">
+                <span class="task-count">2</span>
+                <span>Tasks in Progress</span>
+              </div>
+            </div>
+            <div class="summary-container">
+              <div class="summary-text">
+                <span class="task-count">2</span>
+                <span>Awaiting Feedback</span>
+              </div>
+            </div>
+          </section>
         </section>
-        <section class="summary-container">
-          <div class="icon-container">
-            <img src="./assets/img/summary_to_do_pencil.svg" alt="">
-          </div>
-          <div class="summary-text">
-            <span class="task-count">1</span>
-            <span>To-Do</span>
-          </div>
+        <section class="summary-right">
+          <span class="greeting-box">Good Morning!</span>
         </section>
-        
-      </main>
-    </section>
+      </section>
     </main>
-
-    
   </body>
 </html>

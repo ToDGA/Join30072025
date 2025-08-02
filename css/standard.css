@@ -61,3 +61,6 @@ a {
   width: 100%;
 } 
 
+.d-flex {
+  display: flex;
+}
