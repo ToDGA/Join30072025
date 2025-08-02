@@ -18,18 +18,19 @@
         }
 
         .add-contact-container {
-            width: 1050px ;
+            width: 1212px ;
             height: 592px;
         }
 
+        /* Edit Container */
         .edit-add-contact-container {
-            width: 400px;
+            width: 453px;
             height: 592px;
             background-color: var(--darkblue-light-color);
             color: var(--white-color);
             border-top-left-radius: 30px;
             border-bottom-left-radius: 30px;
-            padding: 0 0 160px 40px;
+            padding-left: 32px;
         }
 
         .edit-headline {
@@ -48,10 +49,12 @@
             height: 3px;
             background-color: var(--lightblue-color);
             border-radius: 3px;
+            margin-bottom: 128px;
         }
 
+        /* Circle Container */
         .contact-circle-container {
-            width: 200px;
+            width: 259px;
             height: 592px;
             background-color: var(--white-color);
         }
@@ -69,18 +72,33 @@
             font-size: 47px;
         }
 
+        /* Input Container */
         .input-add-contact-container {
-            width: 450px;
+            width: 500px;
             height: 592px;
             background-color: var(--white-color);
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
         }
 
-        .input-circle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .close-contact-img {
+            height: 14px;
+            width: 14px;
+        }
+
+        .input-contact-container {
+            border: 1px solid var(--darkblue-light-color);
+            border-radius: 10px;
+            padding-top: 13px;
+            padding-right: 21px;
+            padding-bottom: 13px;
+            padding-left: 21px;
+            font-size: 20px;
+        }
+
+        .contact-input-icon {
+            height: 16px;
+            width: 16px;
         }
 
         .edit-contact-buttons {
@@ -124,40 +142,48 @@
 </head>
 <body>
     <div class="add-contact-container d-flex-c">
+
+        <!-- Edit Contact -->
         <div class="edit-add-contact-container d-flex-c-c-fs">
             <img class="contact-logo" src="./assets/icons/Join_logo 2.svg" alt="">
             <span class="edit-headline">Edit contact</span>
             <div class="contact-progress-bar"></div>
         </div>
+
+        <!-- Contact Circle -->
         <div class="contact-circle-container d-flex-c">
             <div class="contact-circle d-flex-c">
                 <span class="contact-circle-text">AM</span>
             </div>
         </div>
-        <div class="input-add-contact-container">
-            <div class="input-circle-container">
-                <img src="./assets/img/contact-close.svg" alt="Close">
+
+        <!-- Input Content -->
+        <div class="input-add-contact-container d-flex-c-c">
+            <div>
+                <img class="close-contact-img c-pointer" src="./assets/img/contact-close.svg" alt="Close">
             </div>
-            <form action="">
-                <div>
-                    <input type="text" placeholder="Name">
-                    <img src="./assets/img/contact-person.svg" alt="Person">
+            <div>
+                <form class="" action="">
+                    <div class="input-contact-container">
+                        <input type="text" placeholder="Name">
+                        <img class="contact-input-icon" src="./assets/img/contact-person.svg" alt="Person">
+                    </div>
+                    <div class="input-contact-container">
+                        <input type="email" placeholder="Email">
+                        <img class="contact-input-icon" src="./assets/img/contact-mail.svg" alt="Email">
+                    </div>
+                    <div class="input-contact-container">
+                        <input type="tel" placeholder="Phone">
+                        <img class="contact-input-icon" src="./assets/img/contact-call.svg" alt="Phone">
+                    </div>
+                </form>
+            
+                <div class="edit-contact-buttons d-flex-c">
+                    <button class="contact-delete">Delete</button>
+                    <button class="contact-save d-flex-c">Save
+                        <img class="contact-save-icon" src="./assets/img/add_task_check.svg" alt="done">
+                    </button>
                 </div>
-                <div>
-                    <input type="email" placeholder="Email">
-                    <img src="./assets/img/contact-mail.svg" alt="Email">
-                </div>
-                <div>
-                    <input type="tel" placeholder="Phone">
-                    <img src="./assets/img/contact-call.svg" alt="Phone">
-                </div>
-            </form>
-        
-            <div class="edit-contact-buttons d-flex-c">
-                <button class="contact-delete">Delete</button>
-                <button class="contact-save d-flex-c">Save
-                    <img class="contact-save-icon" src="./assets/img/add_task_check.svg" alt="done">
-                </button>
             </div>
         </div>
     </div>
