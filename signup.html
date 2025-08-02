@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+
+    <!-- ICON TITLE -->
+    <link rel="icon" href="./assets/img/Capa 1.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/color.css" />
+    <link rel="stylesheet" href="./css/standard.css" />
+    <link rel="stylesheet" href="./signup.css" />
+  </head>
+  <body>
+    <div class="signup-page">
+      <header class="signup-header">
+        <img
+          src="./assets/img/Capa 2.svg"
+          alt="Join logo"
+          class="logo"
+          style="width: 60px"
+        />
+      </header>
+
+      <main class="signup-main">
+        <div class="signup-box">
+          <div class="signup-title-row">
+            <img src="./assets/img/Vector.svg" alt="Back" class="back-arrow" />
+            <h1>Sign up</h1>
+          </div>
+          <div class="underline"></div>
+
+          <form id="signup-form">
+            <div class="input-group">
+              <input type="text" placeholder="Name" required />
+              <img
+                src="./assets/img/person.svg"
+                class="input-icon"
+                alt="Name"
+              />
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email" required />
+              <img src="./assets/img/mail.svg" class="input-icon" alt="Email" />
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" required />
+              <img
+                src="./assets/img/lock.svg"
+                class="input-icon"
+                alt="Password"
+              />
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Confirm Password" required />
+              <img
+                src="./assets/img/lock.svg"
+                class="input-icon"
+                alt="Confirm Password"
+              />
+            </div>
+
+            <label class="checkbox-wrapper">
+              <input type="checkbox" required />
+              I accept the <a href="#">Privacy policy</a>
+            </label>
+
+            <button type="submit" class="signup-btn">Sign up</button>
+          </form>
+        </div>
+      </main>
+
+      <footer class="signup-footer">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal notice</a>
+      </footer>
+    </div>
+    <script src="signup.js"></script>
+  </body>
+</html>
