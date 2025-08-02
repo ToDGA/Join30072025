@@ -1,6 +1,8 @@
 /* === BASE === */
-body {
+body, html {
   margin: 0;
+  padding: 0;
+  height: 100%;
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   background-color: #f6f7f8;
@@ -17,15 +19,16 @@ body {
 
 /* === HEADER === */
 .login-header {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 30px 40px;
+  align-items: flex-start;
+  padding: 32px 24px;             
+  width: 100%;
+  max-width: 80%;
 }
 
 .logo {
-  height: 78px;
-  width: 64px;
+  width: 87px;
 }
 
 .signup-text {
@@ -46,48 +49,46 @@ body {
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* === MAIN === */
 .login-main {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 80px;
 }
 
 /* === LOGIN BOX === */
 .login-box {
   background: white;
-  width: 652px;
-  height: 449px;
-  padding: 48px 115px;
+  height: 400px;
+  width: 50vw;
   border-radius: 30px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 20px;
 }
 
 .login-box h1 {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   margin: 0;
 }
 
 .underline {
+  width: 122px;
   height: 3px;
-  width: 60px;
-  background-color: #29abe2;
-  margin: 0 auto 30px auto;
-  border-radius: 2px;
+  background-color: #29ABE2;
 }
 
 /* === FORM === */
 form#login-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -101,12 +102,10 @@ form#login-form {
 }
 
 .input-group input {
-  width: 100%;
-  padding: 14px 44px 14px 16px;
+  height: 10px;
+  padding: 14px 90px 14px 16px;
   font-size: 16px;
-  border: 1px solid #D1D1D1;
   border-radius: 10px;
-  box-sizing: border-box;
 }
 
 .input-icon {
@@ -127,26 +126,24 @@ form#login-form {
   margin-top: 12px;
 }
 
-.login-btn,
-.guest-btn {
-  flex: 1;
-  padding: 14px 0;
+.login-btn, .guest-btn {
+  height: 48px;
   font-size: 16px;
-  font-weight: 600;
+  padding: 0 24px;
   border-radius: 8px;
-  cursor: pointer;
+  font-weight: 600;
 }
 
 .login-btn {
-  background-color: #2a3647;
+  background-color: #2A3647;
   color: white;
   border: none;
 }
 
 .guest-btn {
-  background: transparent;
-  border: 1px solid #2a3647;
-  color: #2a3647;
+  background: white;
+  border: 1px solid #2A3647;
+  color: #2A3647;
 }
 
 /* === FOOTER === */
@@ -169,10 +166,10 @@ form#login-form {
   color: #29abe2;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .login-box {
-    width: 100%;
-    max-width: 460px;
+    width: 76%;
+    max-width: 400px;
     margin: 0 auto;
     padding: 47px 32px;
     background: white;
@@ -185,20 +182,30 @@ form#login-form {
   }
 
   .login-header {
+    flex-direction: row; 
+    justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    text-align: center;
+    padding: 16px 20px;
+    width: 100%;
   }
 
-  .signup-text {
+  .signup-text.signup-down {
+    display: none;
+  }
+
+  .signup-text.signup-up {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
+    margin: 24px auto 0 auto;
     font-size: 14px;
   }
 
-  .signup-down {
-    display: none;
+  .logo {
+    width: 60px;
+    margin: 0;
   }
 
   .signup-btn {
@@ -207,7 +214,10 @@ form#login-form {
   }
 
   .login-main {
-    margin-top: 32px;
+    margin-top: 16px;
+    padding: 0 16px;
+    width: 100%;
+    display: grid;
   }
 
   .login-footer {
