@@ -98,20 +98,23 @@ form#login-form {
 .input-group {
   position: relative;
   width: 100%;
-  margin-bottom: 0;
+  max-width: 600px; 
+  margin-bottom: 20px;
 }
 
 .input-group input {
-  height: 10px;
-  padding: 14px 90px 14px 16px;
+  width: 100%;
+  padding: 14px 48px 14px 16px; 
   font-size: 16px;
   border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .input-icon {
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 14px;
   transform: translateY(-50%);
   height: 20px;
   pointer-events: none;
@@ -126,24 +129,46 @@ form#login-form {
   margin-top: 12px;
 }
 
-.login-btn, .guest-btn {
+.login-btn {
+  background-color: #2A3647;
+  color: white;
+  border: none;
   height: 48px;
   font-size: 16px;
   padding: 0 24px;
   border-radius: 8px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.login-btn {
-  background-color: #2A3647;
-  color: white;
-  border: none;
+.login-btn:hover {
+  background-color: #29ABE2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(41, 171, 226, 0.3);
 }
 
 .guest-btn {
   background: white;
-  border: 1px solid #2A3647;
+  border: 2px solid #2A3647;
   color: #2A3647;
+  height: 48px;
+  font-size: 16px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.guest-btn:hover {
+  border-color: #29ABE2;
+  color: #29ABE2;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(41, 171, 226, 0.2);
 }
 
 /* === FOOTER === */
@@ -164,6 +189,59 @@ form#login-form {
 
 .login-footer a:hover {
   color: #29abe2;
+}
+
+/* === INPUT STATES === */
+.input-group input:focus {
+  border: 2px solid #4a90e2;
+  outline: none;
+  background-color: #fff;
+}
+
+.input-group input.error {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+  padding-left: 4px;
+  display: none;
+  font-weight: 500;
+}
+
+/* === TOGGLE PASSWORD ICON === */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
+
+.toggle-password-icon:hover {
+  opacity: 1;
 }
 
 @media (max-width: 580px) {
@@ -215,7 +293,6 @@ form#login-form {
 
   .login-main {
     margin-top: 16px;
-    padding: 0 16px;
     width: 100%;
     display: grid;
   }
