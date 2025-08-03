@@ -5,30 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join</title>
 
-  <!-- ICON TITLE -->
   <link rel="icon" href="./assets/img/Capa 1.svg" type="image/icon type" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="./css/color.css" />
-  <link rel="stylesheet" href="./css/standard.css" />
-  <link rel="stylesheet" href="./css/responsive.css" />
   <link rel="stylesheet" href="./css/login.css" />
-  <link rel="stylesheet" href="./css/IntroLogo.css">
+  <link rel="stylesheet" href="./css/IntroLogo.css" />
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/responsive.css">
   <link rel="stylesheet" href="./assets/fonts/fonts.css">
 </head>
 <body>
-  <div class="login-page">
+
+  <!-- Intro Logo -->
+  <div class="intro-screen" id="intro">
+    <img src="./assets/img/Capa 2.svg" alt="Join Logo" class="intro-logo" />
+  </div>
+
+  <!-- Main Content -->
+  <div class="login-page" id="loginPage">
     <header class="login-header">
-      <img src="./assets/img/Capa 2.svg" alt="Join logo" class="logo" />
+        <img src="./assets/img/Capa 2.svg" alt="Join logo" class="logo" />
       <div class="signup-text signup-down">
         <span>Not a Join user?</span>
         <a href="signup.html" class="signup-btn">Sign up</a>
       </div>
     </header>
-
-    <!-- INTRO LOGO ANIMATION -->
-  <div class="intro-screen" id="intro">
-    <img src="./assets/img/Capa 2.svg" alt="Join Logo" class="intro-logo" />
-  </div>
 
     <main class="login-main">
       <div class="login-box">
@@ -51,19 +50,18 @@
           </div>
         </form>
       </div>
+      <div class="signup-text signup-up">
+        <span>Not a Join user?</span>
+        <a href="signup.html" class="signup-btn">Sign up</a>
+      </div>
     </main>
-    <div class="signup-text signup-up">
-      <span>Not a Join user?</span>
-      <a href="./signup.html" class="signup-btn">Sign up</a>
-    </div>
 
     <footer class="login-footer">
-      <a href="./privacy_policy.html">Privacy Policy</a>
-      <a href="./legal_notice.html">Legal notice</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Legal notice</a>
     </footer>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-

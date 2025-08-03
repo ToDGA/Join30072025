@@ -1,12 +1,22 @@
 window.addEventListener("DOMContentLoaded", () => {
   const intro = document.getElementById("intro");
-  const loginPage = document.querySelector(".login-page");
+  const loginPage = document.getElementById("loginPage");
+
+  if (!intro || !loginPage) return;
 
   setTimeout(() => {
     loginPage.style.opacity = "1";
-  }, 900); 
+  }, 2600);
+
+  setTimeout(() => {
+    intro.classList.add("white-bg");
+  }, 2700);
+
+  setTimeout(() => {
+    intro.style.opacity = "0";
+  }, 3100);
 
   setTimeout(() => {
     intro.style.display = "none";
-  }, 2000);
+  }, 3500);
 });

@@ -33,15 +33,7 @@ body {
   padding-left: 132px;
 }
 
-.frame{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
 .capa2{
   width:100px;
   height:121px;
-  padding-top:64px;
-  padding-bottom:64px;
 }
