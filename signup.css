@@ -160,6 +160,58 @@ form#signup-form {
   color: #29abe2;
 }
 
+/* === INPUT STATES === */
+.input-group input:focus {
+  border: 2px solid #4a90e2;
+  outline: none;
+  background-color: #fff;
+}
+
+.input-group input.error {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+  padding-left: 4px;
+  display: none;
+  font-weight: 500;
+}
+
+/* === TOGGLE PASSWORD ICON === */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
+
+.toggle-password-icon:hover {
+  opacity: 1;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 480px) {
   .signup-box {

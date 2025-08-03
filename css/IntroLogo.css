@@ -1,12 +1,18 @@
 .intro-screen {
   position: fixed;
   inset: 0;
-  background-color: #f6f7f8; 
+  background-color: #f6f7f8;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: background-color 0.5s ease, opacity 1s ease;
+  opacity: 1;
+  transition: background-color 0.5s ease;
+}
+
+.logo {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .intro-logo {
@@ -16,8 +22,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  animation: moveLogoToCorner 2.5s ease-in-out forwards;
   z-index: 10000;
+  animation: moveLogoToCorner 2s ease forwards;
 }
 
 @keyframes moveLogoToCorner {
@@ -27,33 +33,23 @@
     transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    top: 40px;
-    left: 40px;
-    transform: translate(0, 0) scale(0.18);
+    top: -5%;
+    left: 5%;
+    transform: translate(0, 0) scale(0.28);
   }
-}
-
-@keyframes fadeOutIntro {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.intro-screen.white-bg {
-  background-color: white; 
 }
 
 .login-page {
+  display: flex;
+  flex-direction: column;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 
 @media (max-width: 480px) {
   .intro-logo {
-    width: 160px;
-    height: auto;
-    animation: moveLogoToCornerMobile 2.5s ease-in-out forwards;
+    animation: moveLogoToCornerMobile 1s ease forwards;
+    z-index: 10001;
   }
 
   @keyframes moveLogoToCornerMobile {
@@ -63,9 +59,13 @@
       transform: translate(-50%, -50%) scale(1);
     }
     100% {
-      top: 20px;
-      left: 20px;
-      transform: translate(0, 0) scale(0.2);
+      top: -80px;
+      left: -60px;
+      transform: translate(0, 0) scale(0.25);
     }
+  }
+  
+  #intro {
+    background-color: #2A3647;
   }
 }
