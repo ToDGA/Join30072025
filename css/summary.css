@@ -2,6 +2,12 @@ body {
   background-color: var(--light-grey-color);
 }
 
+.main-body {
+display: flex;
+flex-direction: row;
+width: 100%;
+}
+
 .main-header {
   display: flex;
   flex-direction: row;

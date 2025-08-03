@@ -57,3 +57,6 @@ a {
   display: block;
 }
 
+.d-flex {
+  display: flex;
+}
