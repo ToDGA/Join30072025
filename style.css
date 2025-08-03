@@ -42,9 +42,3 @@ body {
   width: 100px;
   height: 121px;
 }
-
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
