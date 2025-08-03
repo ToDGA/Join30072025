@@ -66,7 +66,7 @@ body {
 
 .summary-container:hover {
   background-color: var(--darkblue-light-color);
-  transition: ease-in-out 100ms;
+  transition: ease-out 100ms;
   scale: 1.05;
 }
 
@@ -76,7 +76,6 @@ body {
 
 .summary-container:hover .icon-container {
   background-color: var(--white-color);
-  transition: ease-in-out 100ms;
 }
 
 .summary-container:hover .icon-container img {
@@ -85,6 +84,17 @@ body {
 
 .summary-container:hover .task-count {
   color: var(--white-color);
+}
+
+.summary-container:hover .urgent-container {
+  background-color: var(--darkblue-light-color);
+  color: white;
+}
+
+.summary-container:hover .summary-mid-right {
+  background-color: var(--darkblue-light-color);
+  color: white;
+  border-left: 2px solid var(--white-color);
 }
 
 .summary-text {
@@ -132,19 +142,28 @@ body {
   background-color: var(--darkblue-light-color);
 }
 
-.border-right {
-  border-right: 2px solid var(--dark-grey-color);
-  padding-right: 80px;
+.summary-mid-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--darkblue-light-color);
+  border-left: 2px solid var(--dark-grey-color);
+  padding-left: 80px;
+  padding: 20px 20px 20px 60px;
+}
+
+.summary-mid-right:hover {
+  background-color: var(--darkblue-light-color);
+  transition: background-color 50ms ease-in-out;
 }
 
 .border-right:hover {
   border-right: 2px solid var(--white-color);
-  transition: ease-in-out 100ms;
+  transition: ease-in-out 0ms;
 }
 
 .date {
   font-size: 24px;
-  color: black;
   font-weight: bold;
 }
 
@@ -164,4 +183,11 @@ body {
 
 .gap-16 {
   gap: 16px;
+}
+
+.urgent-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0px 24px;
 }
