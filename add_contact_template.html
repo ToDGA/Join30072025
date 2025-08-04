@@ -79,6 +79,18 @@
             background-color: var(--white-color);
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
+            padding: 52px 52px 52px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-close-container {
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 64px;
         }
 
         .close-contact-img {
@@ -87,22 +99,36 @@
         }
 
         .input-contact-container {
-            border: 1px solid var(--darkblue-light-color);
+            border: 1px solid var(--placeholder-grey-color);
             border-radius: 10px;
-            padding-top: 13px;
-            padding-right: 21px;
-            padding-bottom: 13px;
-            padding-left: 21px;
-            font-size: 20px;
+            padding: 6px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 27px;
         }
 
-        .contact-input-icon {
-            height: 16px;
-            width: 16px;
+        input {
+            height: 40px;
+            font-size: 20px;
+            width: 90%;
+        }
+
+        input:focus {
+            outline: none;   
+            border: none;    
+        }
+
+
+        input::placeholder {
+            font-size: 20px;
         }
 
         .edit-contact-buttons {
             gap: 24px;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 64px;
         }
 
         .contact-delete,
@@ -111,11 +137,7 @@
             width: 113px;
             height: 55px;
             border-radius: 8px;
-            opacity: 1;
-            padding-top: 15px;
-            padding-right: 24px;
-            padding-bottom: 15px;
-            padding-left: 24px;
+            padding: 15px 24px;
             gap: 10px;
             border-width: 1px;
         }
@@ -128,16 +150,32 @@
             border: 1px solid var(--darkblue-light-color);
         }
 
+        .contact-delete:hover {
+            border-color: var(--lightblue-color);
+            color: var(--lightblue-color);
+        }
+
         .contact-save {
             font-weight: bold;
             background-color: var(--darkblue-color);
             color: var(--white-color);
         }
 
-        .contact-save-icon {
+        .contact-save:hover {
+            background-color: var(--lightblue-color);
+        }
+
+        .contact-save-icon, 
+        .contact-input-icon {
             width: 16px;
             height: 16px;
         }
+
+        .contact-delete:hover,
+        .contact-save:hover {
+            box-shadow: 0px 4px 4px 0px #00000040;
+            scale: 1.02;
+        }   
     </style>
 </head>
 <body>
@@ -158,12 +196,12 @@
         </div>
 
         <!-- Input Content -->
-        <div class="input-add-contact-container d-flex-c-c">
-            <div>
+        <div class="input-add-contact-container">
+            <div class="contact-close-container">
                 <img class="close-contact-img c-pointer" src="./assets/img/contact-close.svg" alt="Close">
             </div>
-            <div>
-                <form class="" action="">
+            <div style="width: 100%;">
+                <form action="">
                     <div class="input-contact-container">
                         <input type="text" placeholder="Name">
                         <img class="contact-input-icon" src="./assets/img/contact-person.svg" alt="Person">
@@ -173,12 +211,12 @@
                         <img class="contact-input-icon" src="./assets/img/contact-mail.svg" alt="Email">
                     </div>
                     <div class="input-contact-container">
-                        <input type="tel" placeholder="Phone">
+                        <input type="number" placeholder="Phone">
                         <img class="contact-input-icon" src="./assets/img/contact-call.svg" alt="Phone">
                     </div>
                 </form>
             
-                <div class="edit-contact-buttons d-flex-c">
+                <div class="edit-contact-buttons">
                     <button class="contact-delete">Delete</button>
                     <button class="contact-save d-flex-c">Save
                         <img class="contact-save-icon" src="./assets/img/add_task_check.svg" alt="done">
