@@ -55,9 +55,11 @@
         }
 
         .contact-circle {
-            height: 100px;
-            width: 100px;
+            height: 120px;
+            width: 120px;
             border-radius: 50%;
+            border: 3px solid var(--white-color);
+            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
             background-color: var(--medium-color);
             transform: translateY(-56px);
         }
@@ -72,7 +74,7 @@
         .add-contact-person-container {
             height: 120px;
             width: 120px;
-            border-radius: 60px;
+            border-radius: 50%;
             background-color: var(--placeholder-grey-color);
             border: 3px solid var(--white-color);
             box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
@@ -181,6 +183,14 @@
             font-weight: bold;
             background-color: var(--darkblue-color);
             color: var(--white-color);
+        }
+
+        .add-contact-save {
+            width: 220px;
+        }
+
+        .add-contact-delete {
+            width: 126px;
         }
 
         .contact-save:hover {
