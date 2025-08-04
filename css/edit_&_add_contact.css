@@ -1,3 +1,4 @@
+        /* #####Overlay style#### */
         body {
             background-color: rgba(0, 0, 0, 0.2);
             display: flex;
@@ -6,12 +7,13 @@
             height: 100vh;
         }
 
+        /* ####Main Container #### */
         .add-contact-container {
             width: 1212px ;
             height: 592px;
         }
 
-        /* Edit + Add Contact styles */
+    /* ####Edit + Add Contact styles#### */
         .edit-add-contact-container {
             width: 453px;
             height: 592px;
@@ -47,7 +49,7 @@
             margin-bottom: 128px;
         }
 
-        /* Circle Container */
+        /* ####Circle Container #### */
         .contact-circle-container {
             width: 259px;
             height: 592px;
@@ -70,7 +72,7 @@
             font-size: 47px;
         }
 
-        /* Add Contact img styles */
+        /* #####Add Contact img container###### */
         .add-contact-person-container {
             height: 120px;
             width: 120px;
@@ -88,7 +90,7 @@
 
         }
 
-        /* Close style */
+        /* #####Close style ##### */
         .contact-close-container {
             width: 100%;
             top: 0;
@@ -109,7 +111,7 @@
             background-color: var(--placeholder-grey-color);
         }
 
-        /* Input Style */
+        /* #####Input Style##### */
         .input-add-contact-container {
             width: 500px;
             height: 592px;
@@ -155,7 +157,7 @@
             margin-top: 64px;
         }
 
-        /* Button Styles */
+        /* ####Button Styles #### */
         .contact-delete,
         .contact-save {
             font-size: 21px;
