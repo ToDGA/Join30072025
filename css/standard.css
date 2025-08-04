@@ -27,16 +27,13 @@
 /* From Checklist */
 button {
     cursor: pointer;
-    background-color: var(--darkblue-color);
 }
 
 button:hover {
-    background-color: var(--lightblue-color);
     transition: ease-in-out 150ms;
 }
 
 button:active {
-    background-color: var(--lightblue-color);
     transition: ease-in-out 150ms;
 }
 
@@ -44,10 +41,20 @@ button, input {
     border: unset;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 a {
-  color: var(--white-color);
   text-decoration: none;
   cursor: pointer;
+}
+
+.w100 {
+  width: 100%;
 }
 
 .d-none {
@@ -58,6 +65,30 @@ a {
   display: block;
 }
 
-.d-flex {
+.c-pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-flex-c {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-c-c {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-c-c-fs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
