@@ -205,9 +205,17 @@
 
         .contact-delete:hover,
         .contact-save:hover {
-            box-shadow: 0px 4px 4px 0px #00000040;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
             scale: 1.02;
         }  
+
+        .contact-delete:hover .fill-hover {
+            filter: brightness(0) saturate(100%) invert(74%) sepia(12%) saturate(2613%) hue-rotate(177deg) brightness(101%) contrast(92%);
+        }
+
+        .fill-hover:hover {
+            filter: brightness(0) saturate(100%) invert(74%) sepia(12%) saturate(2613%) hue-rotate(177deg) brightness(101%) contrast(92%);
+        }
         
         .contact-delete:active,
         .contact-save:active {
