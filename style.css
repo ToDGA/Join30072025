@@ -1,31 +1,31 @@
-body { 
+body {
   display: flex;
   overflow: hidden;
   margin: 0;
- }
+}
 
 .header {
   border-bottom: 0.2rem solid rgb(236, 236, 236);
   box-shadow: 0 4px 2px -2px rgb(238, 237, 237);
   color: black;
   height: 100px;
-  width:100%
+  width: 100%;
 }
 
 .headercontainer {
   display: flex;
   flex: 1;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .sidebar {
   width: 200px;
-  height: 100vh; 
+  height: 100vh;
   flex-shrink: 0;
-  background-color: #2A3647;
+  background-color: #2a3647;
 }
 
-.title-container{
+.title-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -33,15 +33,15 @@ body {
   padding-left: 132px;
 }
 
-.frame{
+.frame {
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
-.capa2{
-  width:100px;
-  height:121px;
-  padding-top:64px;
-  padding-bottom:64px;
+.capa2 {
+  width: 100px;
+  height: 121px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
