@@ -1,18 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join</title>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join</title>
 
-    <!-- ICON TITLE -->
-    <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="./css/color.css" />
-    <link rel="stylesheet" href="./css/standard.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-  </head>
-  <body></body>
+  <link rel="icon" href="./assets/icons/Join_logo 1.svg" type="image/x-icon"/>
+  <link rel="stylesheet" href="./assets/fonts/fonts.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/standard.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/add_task.css">
+</head>
+<body>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <div class="logo"><img src="./assets/icons/Join_logo 2.svg" alt="Logo"/></div>
+      <nav>
+        <a href="#">Summary</a>
+        <a class="active" href="#">Add Task</a>
+        <a href="#">Board</a>
+        <a href="#">Contacts</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal notice</a>
+      </div>
+    </aside>
+    <div class="content">
+      <header class="header">
+        <p>Kanban Project Management Tool</p>
+        <div class="user-circle">SM</div>
+      </header>
+      <div class="add-task-container">
+        <h1>Add Task</h1>
+        <form class="task-form">
+          <div class="form-left">
+            <label for="title">Title<span class="required">*</span></label>
+            <input type="text" id="title" placeholder="Enter a title" required/>
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Enter a Description"></textarea>
+            <label for="due-date">Due date<span class="required">*</span></label>
+            <div class="date-wrapper">
+              <input type="text" id="due-date" placeholder="dd/mm/yyyy" required/>
+              <img src="./assets/img/add_task_due_date_calendar_icon.svg" class="icon-calendar"/>
+            </div>
+          </div>
+          <div class="form-divider"></div>
+          <div class="form-right">
+            <label>Priority</label>
+            <div class="priority-options">
+              <button type="button" class="priority urgent selected">
+                Urgent <img src="./assets/img/red_<<.svg" alt="Urgent Arrow"/>
+              </button>
+              <button type="button" class="priority medium">
+                Medium <img src="./assets/img/=_for yellow.svg" alt="equal sign"/>
+              </button>
+              <button type="button" class="priority low">
+                Low <img src="./assets/img/green_>>.svg" alt="Low Arrow"/>
+              </button>
+            </div>
+            <label>Assigned to</label>
+            <div class="dropdown full-expandable assigned-to">
+              <div class="dropdown-toggle">Select contacts to assign <img src="./assets/img/arrow_drop_down.svg"/></div>
+              <div class="dropdown-menu"></div>
+            </div>
+            <label>Category<span class="required">*</span></label>
+            <div class="dropdown full-expandable category-select">
+              <div class="dropdown-toggle">Select task category <img src="./assets/img/arrow_drop_down.svg"/></div>
+              <div class="dropdown-menu"></div>
+            </div>
+            <label>Subtasks</label>
+            <div class="subtasks">
+              <input type="text" id="subtask-input" placeholder="Add new subtask"/>
+              <div class="subtask-icons">
+                <img src="./assets/img/Subtasks icons11.svg" id="subtask-add-icon"/>
+                <img src="./assets/img/iconoir_cancel.svg" id="subtask-cancel-icon" style="display: none;"/>
+                <img src="./assets/img/check.svg" id="subtask-confirm-icon" style="display: none;"/>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="form-footer">
+          <div class="footer-left">
+            <span class="required">*</span> This field is required
+          </div>
+          <div class="form-actions">
+            <button class="clear-btn">Clear</button>
+            <button class="create-btn">Create Task</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#"><img src="./assets/img/home.svg"><span>Summary</span></a>
+    <a href="#" class="active"><img src="./assets/img/add.svg"><span>Add Task</span></a>
+    <a href="#"><img src="./assets/img/board.svg"><span>Board</span></a>
+    <a href="#"><img src="./assets/img/contacts.svg"><span>Contacts</span></a>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="add_task.js"></script>
+</body>
 </html>
