@@ -1,1 +1,9 @@
+@media (max-width: 900px) {
+  .hide-footer {
+    display: none;
+  }
 
+  .sidebar {
+    display: none !important;
+  }
+}
