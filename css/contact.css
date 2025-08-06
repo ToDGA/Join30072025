@@ -17,7 +17,7 @@ html, body {
     min-width: 456px;
     /* width: 36.775%; */
     display: flex;
-    align-items: flex-start; 
+    align-items: center; 
     flex-direction: column;
     background-color: var(--white-color);
     overflow-y: auto;
@@ -89,4 +89,36 @@ html, body {
     background-color: var(--light-grey-color);
     height: 100%;
     width: 100%;
+}
+
+/* Schöner Custom Scrollbar */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #e0e0e0;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #e8e8e8;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #29ABE2 0%, #2A3647 100%);
+  border: 1px solid #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e8cc7 0%, #1e2a35 100%);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #1976a3 0%, #151e28 100%);
 }
