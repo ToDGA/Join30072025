@@ -2,4 +2,8 @@
   .hide-footer {
     display: none;
   }
+
+  .sidebar {
+    display: none !important;
+  }
 }
