@@ -45,7 +45,7 @@ html, body {
     padding-right: 36px;
     padding-bottom: 17px;
     padding-left: 36px;
-    margin-top: 8px;
+    margin-bottom: 8px;
     font-weight: 400;
     font-size: 20px;
     border-bottom: solid var(--placeholder-grey-color) 1px;
@@ -55,9 +55,20 @@ html, body {
     width: 352px;
     height: 78px;
     border-radius: 10px;
-    padding: 15px 24px 15px 24px;
+    padding: 16px 24px 16px 24px;
     gap: 35px;
     display: flex;
+}
+
+.personal-ad a {
+    color: var(--mail-color);
+}
+
+.personal-ad:hover {
+    background-color: var(--darkblue-light-color);
+    color: white;
+    cursor: pointer;
+    scale: 1.02;
 }
 
 .person-circle {
@@ -69,6 +80,7 @@ html, body {
     font-weight: 400;
     border: 2px solid var(--white-color);
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .personal-data {
@@ -89,6 +101,35 @@ html, body {
     background-color: var(--light-grey-color);
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-team-container {
+    height: 73px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 17.5px;
+    margin: 88px 0 0 40px;
+}
+
+.bar {
+    height: 59px;
+    width: 3px;
+    border-radius: 3px;
+    background-color: var(--lightblue-color);
+}
+
+.contact-team-container p {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.contact-team-container h1 {
+    font-size: 61px;
+    font-weight: 700;
 }
 
 /* Schöner Custom Scrollbar */
