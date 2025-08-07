@@ -1,8 +1,14 @@
 /* HTML/Body Höhe definieren */
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+}
+
+/* Global */
+
+.fs-b-16 {
+    font-size: 16px;
+    font-weight: 700;
+    font-style: bold;
 }
 
 /* Main Content Layout */
@@ -87,7 +93,7 @@ html, body {
     font-weight: 400;
 }
 
-.personal-data span {
+.person-name {
     padding-bottom: 5px;
     font-size: 20px;
 }
@@ -102,7 +108,8 @@ html, body {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding: 88px 0 0 40px;
 }
 
 .contact-team-container {
@@ -112,7 +119,7 @@ html, body {
     justify-content: flex-start;
     align-items: center;
     gap: 17.5px;
-    margin: 88px 0 0 40px;
+    margin-bottom: 40px;
 }
 
 .bar {
@@ -130,6 +137,51 @@ html, body {
 .contact-team-container h1 {
     font-size: 61px;
     font-weight: 700;
+}
+
+.contact-form-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.contact-form-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 47px;
+    font-weight: 500;
+    border: 2px solid var(--white-color);
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--medium-color);
+    color: var(--white-color);
+    margin-right: 64px;
+}
+
+.contact-form-name {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.contact-form-edit-delete {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.contact-form-edit-delete img {
+    height: 18.25px;
+    width: 18.25px;
+}
+
+.contact-info {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
 }
 
 /* Schöner Custom Scrollbar */
