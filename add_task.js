@@ -11,6 +11,12 @@ const categories = [
   { name: "Design", color: "#ffc107" },
 ];
 
+fetch('sidebarheader.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('sidebar-header').innerHTML = html;
+    });
+
 document.addEventListener('DOMContentLoaded', () => {
   flatpickr("#due-date", { dateFormat: "d/m/Y" });
 
