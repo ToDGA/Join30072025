@@ -23,7 +23,7 @@ body {
   flex-direction: column; 
 }
 
-logo-img {
+.logo-img {
   width: 25px !important;
   height: 30px !important;
   max-width: 25px;
