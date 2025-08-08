@@ -1,16 +1,16 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
-html, body {
+/* html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: #f6f7f8;
   font-family: 'Inter', sans-serif;
-}
+} */
 
 .form-divider {
   width: 1px;
@@ -22,7 +22,7 @@ html, body {
   color: red;
 }
 
-.main-layout {
+/* .main-layout {
   display: flex;
   height: 100vh;
 }
@@ -47,7 +47,7 @@ html, body {
 
 .sidebar nav a.active {
   background: #091931;
-}
+} */
 
 .content {
   flex: 1;
