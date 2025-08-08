@@ -200,7 +200,7 @@ body {
   padding: 0px 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
 
   .summary-right {
     display: none;
@@ -286,5 +286,18 @@ body {
   .msg-box {
     font-size: 12px;
     padding-left: 12px;
+  }
+}
+
+@media (min-width:1023px) and (max-width: 1440px) {
+
+  .summary-left {
+    padding-left: 64px;
+    padding-top: 32px;
+    padding-right: 64px;
+  }
+
+  .greeting-box {
+    font-size: 40px;
   }
 }
