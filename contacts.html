@@ -1,226 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-    <link rel="stylesheet" href="./css/contact.css" />
-    <link rel="stylesheet" href="./css/standard.css">
-    <title>Join</title>
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="frame">
-        <div class="capa2">
-          <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
-        </div>
-      </div>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <li>
-            <button class="nav-item" onclick="goToPage('./summary.html')">
-              <span class="icon">
-                <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
-              </span>
-              <span class="text">Summary</span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="nav-item active"
-              onclick="goToPage('./add_task.html')"
-            >
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_add_task_icon.svg"
-                  alt="Add Task"
-                />
-              </span>
-              <span class="text">Add Task</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./board.html')">
-              <span class="icon">
-                <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
-              </span>
-              <span class="text">Board</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./contacts.html')">
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_contact_calendar_icon.svg"
-                  alt="Contacts"
-                />
-              </span>
-              <span class="text">Contacts</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="hide-footer"></div>
-      <div class="bottom-links">
-        <a href="#" class="bottom-link">Privacy Policy</a>
-        <a href="#" class="bottom-link">Legal notice</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="./css/contact.css" />
+  <link rel="stylesheet" href="./css/standard.css">
+  <title>Join</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="frame">
+      <div class="capa2">
+        <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
       </div>
     </div>
-
-    <div class="headercontainer">
-      <header class="header">
-        <div class="title-container">
-          <p>Kanban Project Management Tool</p>
-        </div>
-        <div class="header-right">
-          <div class="help-icon">?</div>
-          <div class="user-avatar">SM</div>
-        </div>
-      </header>
-
-      <!-- maincontent -->
-      <div class="main-content">
-        <div class="contact-list-container">
-          <button class="add-contact-btn">Add new contact
-            <img class="add-contact-img" src="./assets/img/contact_add.svg" alt="Add Contact">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li>
+          <button class="nav-item" onclick="goToPage('./summary.html')">
+            <span class="icon">
+              <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
+            </span>
+            <span class="text">Summary</span>
           </button>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span class="person-name">Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
+        </li>
+        <li>
+          <button class="nav-item active" onclick="goToPage('./add_task.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
+            </span>
+            <span class="text">Add Task</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" onclick="goToPage('./board.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
+            </span>
+            <span class="text">Board</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" onclick="goToPage('./contacts.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
+            </span>
+            <span class="text">Contacts</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="hide-footer"></div>
+    <div class="bottom-links">
+      <a href="#" class="bottom-link">Privacy Policy</a>
+      <a href="#" class="bottom-link">Legal notice</a>
+    </div>
+  </div>
+
+  <div class="headercontainer">
+    <header class="header">
+      <div class="title-container">
+        <p class="title">Kanban Project Management Tool</p>
+      </div>
+      <div class="header-right">
+        <div class="help-icon">?</div>
+        <div class="user-avatar">SM</div>
+      </div>
+    </header>
+
+    <!-- maincontent -->
+    <div class="main-content">
+      <div class="contact-list-container">
+        <button class="add-contact-btn">Add new contact
+          <img class="add-contact-img" src="./assets/img/contact_add.svg" alt="Add Contact">
+        </button>
+        <div class="first-letter-container">A</div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
           </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
+          <div class="personal-data">
+            <span class="person-name">Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
           </div>
         </div>
-        <div class="show-contact-container">
-          <div class="contact-team-container">
-            <h1>Contacts</h1>
-            <div class="bar"></div>
-            <p>Better with a team</p>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
           </div>
-          <div class="contact-form-control">
-            <div class="contact-form-circle d-flex-c">TW</div>
-            <div class="contact-form-description">
-              <h1 class="contact-form-name">Tantjana Wolf</h1>
-              <div class="contact-form-edit-delete">
-                <div class="d-flex-c">
-                  <img src="./assets/img/contact-main-edit.svg" alt="Edit">
-                  <span>Edit</span>
-                </div>
-                <div class="d-flex-c">
-                  <img src="./assets/img/contact-main-delete.svg" alt="Delete">
-                  <span>Delete</span>
-                </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="first-letter-container">A</div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="first-letter-container">A</div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+        <div class="first-letter-container">A</div>
+        <div class="personal-ad">
+          <div class="person-circle d-flex-c">
+            AS
+          </div>
+          <div class="personal-data">
+            <span>Anja Schulz</span>
+            <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="show-contact-container">
+        <div class="contact-team-container">
+          <h1>Contacts</h1>
+          <div class="bar"></div>
+          <p>Better with a team</p>
+        </div>
+        <div class="contact-form-control">
+          <div class="contact-form-circle d-flex-c">TW</div>
+          <div class="contact-form-description">
+            <h1 class="contact-form-name">Tantjana Wolf</h1>
+            <div class="contact-form-edit-delete">
+              <div class="d-flex-c">
+                <img src="./assets/img/contact-main-edit.svg" alt="Edit">
+                <span>Edit</span>
+              </div>
+              <div class="d-flex-c">
+                <img src="./assets/img/contact-main-delete.svg" alt="Delete">
+                <span>Delete</span>
               </div>
             </div>
           </div>
-          <span  class="contact-info">Contact information</span>
-          <div>
-            <h3 class="fs-b-16">Email</h3>
-            <a href="mailto:anja.schulz@example.com">anja.schulz@example.com</a>
-          </div>
-          <div>
-            <h3 class="fs-b-16">Phone</h3>
-            <a href="tel:+49123456789">+49 123 456789</a>
-          </div>
+        </div>
+        <span class="contact-info">Contact information</span>
+        <div>
+          <h3 class="fs-b-16">Email</h3>
+          <a href="mailto:anja.schulz@example.com">anja.schulz@example.com</a>
+        </div>
+        <div>
+          <h3 class="fs-b-16">Phone</h3>
+          <a href="tel:+49123456789">+49 123 456789</a>
         </div>
       </div>
     </div>
+  </div>
+  <div class="footer">
+    <nav class="footer-nav">
+      <a href="summary.html" class="footer-nav-item">
+        <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
+        <span>Summary</span>
+      </a>
+      <a href="add_tasks.html" class="footer-nav-item active">
+        <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
+        <span>Add Task</span>
+      </a>
+      <a href="board.html" class="footer-nav-item">
+        <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
+        <span>Board</span>
+      </a>
+      <a href="contact.html" class="footer-nav-item">
+        <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
+        <span>Contacts</span>
+      </a>
+    </nav>
+  </div>
 
-    <script>
-      function goToPage(page) {
-        window.location.href = page;
-      }
-    </script>
-  </body>
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+
 </html>
