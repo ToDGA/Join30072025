@@ -258,6 +258,13 @@
             }
         }
 
+        @media (min-width: 1080px) {
+            .add-contact-close-container-mobile,
+            .edit-contact-close-container-mobile {
+                display: none;
+            }
+        }
+
         @media (max-width: 1080px) {
             .add-contact-container {
                 height: 760px;
