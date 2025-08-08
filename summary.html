@@ -1,106 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join</title>
 
-    <!-- ICON TITLE -->
-    <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
 
-    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-    <link rel="stylesheet" href="./css/standard.css" />
-    <link rel="stylesheet" href="./css/color.css" />
-    <link rel="stylesheet" href="./css/summary.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-  </head>
-  <body>
-    <!-- <div class="sidebar">
-      <div class="frame">
-        <div class="capa1">
-          <img src="./assets/icons/Join_logo 2.svg">
-        </div>
+  <!-- ICON TITLE -->
+  <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
+
+  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="./css/standard.css" />
+  <link rel="stylesheet" href="./css/color.css" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/summary.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="frame">
+      <div class="capa2">
+        <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
       </div>
     </div>
-    <div class="headercontainer">
-      <header class="header">
-        <div class="title-container">
-          <p>Kanban Project Management Tool</p>
-        </div> -->
-      </header>
-          <main>
-            <section>
-              <header class="main-header">
-                <h1>Join 360</h1>
-                <span>Key Metrics at a Glance</span>
-                <div class="border-bottom"></div>
-              </header>
-              <section class="d-flex">
-                <section class="summary-left">
-                  <section class="summary-head-footer">
-                    <a href="./board.html" class="summary-container">
-                      <div class="icon-container background-color">
-                        <img src="./assets/img/summary_to_do_pencil.svg" alt="" />
-                      </div>
-                      <div class="summary-text">
-                        <span class="task-count">1</span>
-                        <span>To-Do</span>
-                      </div>
-                    </a>
-                    <a href="./board.html" class="summary-container">
-                      <div class="icon-container background-color">
-                        <img src="./assets/img/summary_done_checkmark.svg" alt="" />
-                      </div>
-                      <div class="summary-text">
-                        <span class="task-count">1</span>
-                        <span>Done</span>
-                      </div>
-                    </a>
-                  </section>
-                  <section class="summary-mid">
-                    <a href="./board.html" class="summary-container">
-                      <div class="urgent-container">
-                        <div class="icon-container-urgent urgent">
-                          <img src="./assets/img/summary_urgent_sign.svg" alt="" />
-                        </div>
-                        <div class="summary-text">
-                          <span class="task-count">1</span>
-                          <span>Urgent</span>
-                        </div>
-                      </div>
-                      <div class="summary-mid-right">
-                        <span class="date">October 16,2022</span>
-                        <span class="msg-box">Upcoming Deadline</span>
-                      </div>
-                    </a>
-                  </section>
-                  <section class="summary-head-footer">
-                    <a href="./board.html" class="summary-container">
-                      <div class="summary-text">
-                        <span class="task-count">5</span>
-                        <span class="text-align-center">Tasks in <br> Board</span>
-                      </div>
-                    </a>
-                    <a href="./board.html" class="summary-container">
-                      <div class="summary-text">
-                        <span class="task-count">2</span>
-                        <span class="text-align-center">Tasks in <br> Progress</span>
-                      </div>
-                    </a>
-                    <a href="./board.html" class="summary-container">
-                      <div class="summary-text">
-                        <span class="task-count">2</span>
-                        <span class="text-align-center">Awaiting Feedback</span>
-                      </div>
-                    </a>
-                  </section>
-                </section>
-                <section class="summary-right">
-                  <span class="greeting-box">Good Morning!</span>
-                </section>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li>
+          <a href="summary.html" class="nav-item">
+            <span class="icon">
+              <img src="./assets/img/sidebar_board_icon.svg" alt="Summary" />
+            </span>
+            <span class="text">Summary</span>
+          </a>
+        </li>
+        <li>
+          <a href="add_task.html" class="nav-item active">
+            <span class="icon">
+              <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
+            </span>
+            <span class="text">Add Task</span>
+          </a>
+        </li>
+        <li>
+          <a href="board.html" class="nav-item">
+            <span class="icon">
+              <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
+            </span>
+            <span class="text">Board</span>
+          </a>
+        </li>
+        <li>
+          <a href="contacts.html" class="nav-item">
+            <span class="icon">
+              <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
+            </span>
+            <span class="text">Contacts</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="bottom-links">
+      <a href="./privacy_policy.html" class="bottom-link">Privacy Policy</a>
+      <a href="./legal_notice.html" class="bottom-link">Legal notice</a>
+    </div>
+  </div>
+
+  <div class="headercontainer">
+    <header class="header">
+      <div class="title-container">
+        <p>Kanban Project Management Tool</p>
+      </div>
+      <div class="header-right">
+        <div class="help-icon">?</div>
+        <div class="user-avatar">SM</div>
+      </div>
+    </header>
+    <div class="main-content">
+      <main>
+        <section>
+          <header class="main-header">
+            <h1>Join 360</h1>
+            <span>Key Metrics at a Glance</span>
+            <div class="border-bottom"></div>
+          </header>
+          <section class="d-flex">
+            <section class="summary-left">
+              <section class="summary-head-footer">
+                <a href="./board.html" class="summary-container">
+                  <div class="icon-container background-color">
+                    <img src="./assets/img/summary_to_do_pencil.svg" alt="" />
+                  </div>
+                  <div class="summary-text">
+                    <span class="task-count">1</span>
+                    <span>To-Do</span>
+                  </div>
+                </a>
+                <a href="./board.html" class="summary-container">
+                  <div class="icon-container background-color">
+                    <img src="./assets/img/summary_done_checkmark.svg" alt="" />
+                  </div>
+                  <div class="summary-text">
+                    <span class="task-count">1</span>
+                    <span>Done</span>
+                  </div>
+                </a>
               </section>
-          </main>
+              <section class="summary-mid">
+                <a href="./board.html" class="summary-container">
+                  <div class="urgent-container">
+                    <div class="icon-container-urgent urgent">
+                      <img src="./assets/img/summary_urgent_sign.svg" alt="urgent_sign" />
+                    </div>
+                    <div class="summary-text">
+                      <span class="task-count">1</span>
+                      <span>Urgent</span>
+                    </div>
+                  </div>
+                  <div class="summary-mid-right">
+                    <span class="date">October 16,2022</span>
+                    <span class="msg-box">Upcoming Deadline</span>
+                  </div>
+                </a>
+              </section>
+              <section class="summary-head-footer">
+                <a href="./board.html" class="summary-container">
+                  <div class="summary-text">
+                    <span class="task-count">5</span>
+                    <span class="text-align-center">Tasks in <br> Board</span>
+                  </div>
+                </a>
+                <a href="./board.html" class="summary-container">
+                  <div class="summary-text">
+                    <span class="task-count">2</span>
+                    <span class="text-align-center">Tasks in <br> Progress</span>
+                  </div>
+                </a>
+                <a href="./board.html" class="summary-container">
+                  <div class="summary-text">
+                    <span class="task-count">2</span>
+                    <span class="text-align-center">Awaiting Feedback</span>
+                  </div>
+                </a>
+              </section>
+            </section>
+            <section class="summary-right">
+              <span class="greeting-box">Good Morning!</span>
+            </section>
+          </section>
+      </main>
 
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
