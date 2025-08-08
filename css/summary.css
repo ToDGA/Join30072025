@@ -15,7 +15,7 @@ body {
 .main-header {
   display: flex;
   flex-direction: row;
-  padding-left: 128px;
+  padding-left: 56px;
   padding-top: 80px;
 }
 
@@ -55,7 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-left: 128px;
+  padding-left: 96px;
   padding-top: 64px;
 }
 
