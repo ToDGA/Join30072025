@@ -17,7 +17,7 @@
   color: red;
 }
 
-.main-layout {
+/* .main-layout {
   display: flex;
   height: 100vh;
 }
@@ -42,7 +42,7 @@
 
 .sidebar nav a.active {
   background: #091931;
-}
+} */
 
 .content {
   flex: 1;

@@ -1,86 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-    <title>Join</title>
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="frame">
-        <div class="capa2">
-          <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
-        </div>
-      </div>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <li>
-            <button class="nav-item" onclick="goToPage('./summary.html')">
-              <span class="icon">
-                <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
-              </span>
-              <span class="text">Summary</span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="nav-item active"
-              onclick="goToPage('./add_task.html')"
-            >
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_add_task_icon.svg"
-                  alt="Add Task"
-                />
-              </span>
-              <span class="text">Add Task</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./board.html')">
-              <span class="icon">
-                <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
-              </span>
-              <span class="text">Board</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./contacts.html')">
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_contact_calendar_icon.svg"
-                  alt="Contacts"
-                />
-              </span>
-              <span class="text">Contacts</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="hide-footer"></div>
-      <div class="bottom-links">
-        <a href="#" class="bottom-link">Privacy Policy</a>
-        <a href="#" class="bottom-link">Legal notice</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+  <title>Join</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="frame">
+      <div class="capa2">
+        <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
       </div>
     </div>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li>
+          <button class="nav-item" onclick="goToPage('./summary.html')">
+            <span class="icon">
+              <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
+            </span>
+            <span class="text">Summary</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item active" onclick="goToPage('./add_task.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
+            </span>
+            <span class="text">Add Task</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" onclick="goToPage('./board.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
+            </span>
+            <span class="text">Board</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" onclick="goToPage('./contacts.html')">
+            <span class="icon">
+              <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
+            </span>
+            <span class="text">Contacts</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="hide-footer"></div>
+    <div class="bottom-links">
+      <a href="#" class="bottom-link">Privacy Policy</a>
+      <a href="#" class="bottom-link">Legal notice</a>
+    </div>
+  </div>
 
-    <div class="headercontainer">
-      <header class="header">
-        <div class="title-container">
-          <p>Kanban Project Management Tool</p>
-        </div>
-        <div class="header-right">
-          <div class="help-icon">?</div>
-          <div class="user-avatar">SM</div>
-        </div>
-      </header>
-      <div class="main-content">
-        <!-- Main content area -->
+  <div class="headercontainer">
+    <header class="header">
+      <div class="title-container">
+        <p class="title">Kanban Project Management Tool</p>
+        <img class="header-logo" src="./assets/icons/Join_logo 1.svg" alt="Join Logo">
       </div>
+      <div class="header-right">
+        <div class="help-icon">?</div>
+        <div class="user-avatar">SM</div>
+      </div>
+    </header>
+    <div class="main-content">
+      <!-- Main content area -->
+    </div>
+    <div class="footer">
+      <nav class="footer-nav">
+        <a href="summary.html" class="footer-nav-item">
+          <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
+          <span>Summary</span>
+        </a>
+        <a href="add_task.html" class="footer-nav-item active">
+          <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
+          <span>Add Task</span>
+        </a>
+        <a href="board.html" class="footer-nav-item">
+          <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
+          <span>Board</span>
+        </a>
+        <a href="contacts.html" class="footer-nav-item">
+          <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
+          <span>Contacts</span>
+        </a>
+      </nav>
     </div>
 
     <script>
@@ -88,5 +106,6 @@
         window.location.href = page;
       }
     </script>
-  </body>
+</body>
+
 </html>
