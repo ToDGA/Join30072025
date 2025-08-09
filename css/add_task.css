@@ -1,16 +1,16 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
-html, body {
+/* html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: #f6f7f8;
   font-family: 'Inter', sans-serif;
-}
+} */
 
 .form-divider {
   width: 1px;
@@ -22,7 +22,7 @@ html, body {
   color: red;
 }
 
-.main-layout {
+/* .main-layout {
   display: flex;
   height: 100vh;
 }
@@ -47,7 +47,7 @@ html, body {
 
 .sidebar nav a.active {
   background: #091931;
-}
+} */
 
 .content {
   flex: 1;
@@ -78,12 +78,12 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh; 
   padding: 48px 60px;
 }
 
 .task-form {
   display: flex;
+  padding-top: 70px;
   gap: 40px;
 }
 
@@ -118,6 +118,24 @@ input[type="text"], textarea {
 .priority-options {
   display: flex;
   gap: 10px;
+}
+
+.priority.urgent:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.priority.medium:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.priority.low:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .priority {
@@ -231,14 +249,22 @@ input[type="text"], textarea {
 .form-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
+  padding-top: 140px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.form-actions button img {
+  width: 14px;
+  height: 14px;
 }
 
 .clear-btn, .create-btn {
-  padding: 10px 16px;
+  padding: 12px 25px;
   border-radius: 8px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -311,6 +337,20 @@ input[type="text"], textarea {
 
 .category-option .name {
   flex-grow: 1;
+}
+
+.clear-btn:hover {
+  border-color: #29ABE2;
+  color: #29ABE2;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.create-btn:hover {
+  background: #29ABE2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 945px) {
