@@ -54,7 +54,6 @@
   font-weight: 400;
 }
 
-/* Media Query für kleine Bildschirme */
 @media (max-width: 900px) {
   .title {
     display: none;
