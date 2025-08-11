@@ -82,4 +82,24 @@
   p {
     display: none;
   }
+
+  .header-left {
+    display: !important block;
+  }
+}
+
+.header-left {
+  align-items: center;
+  display: none;
+}
+
+.header-logo {
+  width: 55px;
+  height: 55px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  cursor: pointer;
 }
