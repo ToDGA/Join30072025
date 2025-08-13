@@ -1,3 +1,9 @@
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 .footer {
   display: none;
   position: fixed;
@@ -86,7 +92,7 @@
   .header-left {
     display: !important block;
   }
-}
+}}
 
 .header-left {
   align-items: center;
