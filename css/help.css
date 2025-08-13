@@ -1,0 +1,45 @@
+.headercontainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-content {
+    padding: 80px 80px 64px 80px;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.headlne-container {
+    margin-bottom: 24px;
+    font-size: 30px;
+}
+
+.help-arrow {
+    cursor: pointer;
+}
+
+.help-arrow:hover {
+    scale: 1.2;
+    transition: ease-in-out 150ms;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+span {
+    color: var(--lightblue-color);
+}
+
+.f-27-b {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.mbt-16 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
