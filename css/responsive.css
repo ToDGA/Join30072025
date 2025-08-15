@@ -19,9 +19,9 @@
 .footer-nav {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start; /* Changed from center to flex-start */
+  align-items: flex-start;
   height: 100%;
-  padding-top: 12px; /* Add top padding to position items nicely */
+  padding-top: 12px;
 }
 
 .footer-nav-item {
@@ -49,8 +49,6 @@
   margin-bottom: 4px;
   filter: brightness(0) invert(1);
 }
-
-
 
 .footer-nav-item span {
   font-size: 10px;
