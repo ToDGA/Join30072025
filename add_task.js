@@ -1,6 +1,3 @@
-'use strict';
-
-// ---- Дані ----
 const contacts = [
   { initials: "SM", name: "Sofia Müller (You)", color: "#00BEE8" },
   { initials: "AM", name: "Anton Mayer",        color: "#FF7A00" },
@@ -13,38 +10,59 @@ const categories = [
   { name: "User Story",     color: "#8fd58a" },
 ];
 
-// Вибрані значення
 const selected = {
-  contacts: new Set(),      // індекси
-  category: null            // індекс або null
+  contacts: new Set(),
+  category: null
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   if (window.flatpickr) flatpickr('#due-date', { dateFormat: 'd/m/Y' });
-
-  // Пріоритет
   document.querySelectorAll('.priority').forEach((btn) => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.priority').forEach((b) => b.classList.remove('selected'));
       btn.classList.add('selected');
     });
   });
-
-  // Рендер меню
   renderContacts();
   renderCategories();
-
-  // Підвішуємо прості дропдауни (тільки по тригеру)
   setupDropdownToggles();
-
-  // Ініціалізація чипів-плейсхолдерів
   ensureChipsContainers();
-
-  // Сабтаски (іконки)
   setupSubtasks();
 });
 
-// ---------- Рендер Assigned to ----------
+document.addEventListener('DOMContentLoaded', function () {
+  function checkMobile() {
+    const mobile = window.innerWidth <= 945;
+    const helpEls = document.querySelectorAll(
+      '.header .help, .header .help-icon, .header [aria-label="Help"], .header button[title="Help"], .header .question-mark'
+    );
+    for (let i = 0; i < helpEls.length; i++) {
+      helpEls[i].style.display = mobile ? 'none' : '';
+    }
+
+    const header = document.querySelector('.header');
+    if (!header) return;
+    let brand = header.querySelector('.brand');
+    if (mobile) {
+      if (!brand) {
+        brand = document.createElement('div');
+        brand.className = 'brand';
+        const img = document.createElement('img');
+        img.className = 'brand-logo';
+        img.alt = 'Logo';
+        img.src = 'assets/img/Capa 2.svg';
+        img.style.width = '45px';
+        brand.appendChild(img);
+        header.insertBefore(brand, header.firstChild);
+      }
+    } else {
+      if (brand) header.removeChild(brand);
+    }
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
+
 function renderContacts() {
   const menu = document.querySelector('.dropdown.assigned-to .dropdown-menu');
   if (!menu) return;
@@ -69,7 +87,6 @@ function renderContacts() {
       if (cb.checked) selected.contacts.add(idx);
       else selected.contacts.delete(idx);
       updateAssignedChips();
-      // не закриваємо меню
     });
 
     row.appendChild(avatar);
@@ -79,7 +96,6 @@ function renderContacts() {
   });
 }
 
-// ---------- Рендер Category ----------
 function renderCategories() {
   const menu = document.querySelector('.dropdown.category-select .dropdown-menu');
   if (!menu) return;
@@ -100,7 +116,6 @@ function renderCategories() {
     const cb = document.createElement('input');
     cb.type = 'checkbox';
     cb.addEventListener('change', () => {
-      // одиночний вибір: знімаємо інші
       if (cb.checked) {
         selected.category = idx;
         menu.querySelectorAll('input[type="checkbox"]').forEach((other) => {
@@ -110,7 +125,6 @@ function renderCategories() {
         selected.category = null;
       }
       updateCategoryChip();
-      // не закриваємо меню
     });
 
     row.appendChild(dot);
@@ -120,21 +134,17 @@ function renderCategories() {
   });
 }
 
-// ---------- Тригер відкриття/закриття (лише по кліку на .dropdown-toggle) ----------
 function setupDropdownToggles() {
   document.querySelectorAll('.dropdown.full-expandable').forEach((dd) => {
     const toggle = dd.querySelector('.dropdown-toggle');
     if (!toggle) return;
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      dd.classList.toggle('open'); // відкриваємо / закриваємо тільки тут
+      dd.classList.toggle('open');
     });
   });
-
-  // Нічого НЕ закриваємо по кліку поза / Esc — просто не додаємо таких слухачів
 }
 
-// ---------- Чипи (відображення вибраного) ----------
 function ensureChipsContainers() {
   const assignedDD = document.querySelector('.dropdown.assigned-to');
   const categoryDD = document.querySelector('.dropdown.category-select');
@@ -142,12 +152,14 @@ function ensureChipsContainers() {
   if (assignedDD && !document.querySelector('.assigned-chips')) {
     const wrap = document.createElement('div');
     wrap.className = 'chips assigned-chips';
+    wrap.style.display = 'flex';
     assignedDD.insertAdjacentElement('afterend', wrap);
   }
 
   if (categoryDD && !document.querySelector('.category-chips')) {
     const wrap = document.createElement('div');
     wrap.className = 'chips category-chips';
+    wrap.style.display = 'flex';
     categoryDD.insertAdjacentElement('afterend', wrap);
   }
 }
@@ -156,7 +168,6 @@ function updateAssignedChips() {
   const box = document.querySelector('.assigned-chips');
   if (!box) return;
   box.innerHTML = '';
-  // показуємо кружечки з ініціалами
   contacts.forEach((c, idx) => {
     if (!selected.contacts.has(idx)) return;
     const chip = document.createElement('div');
@@ -189,7 +200,6 @@ function updateCategoryChip() {
   box.appendChild(chip);
 }
 
-// ---------- Subtasks ----------
 function setupSubtasks() {
   const input = document.getElementById('subtask-input');
   const plus = document.getElementById('subtask-add-icon');
