@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   background-color: #2a3647;
-  height: 80px; /* Increased from 60px */
+  height: 90px; /* Increased from 60px */
   z-index: 1000;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -41,17 +41,18 @@
 .footer-nav-item.active {
   background-color: black;
   border-radius: 16px;
+  height: 80px;
 }
 
 .footer-nav-item img {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   margin-bottom: 4px;
   filter: brightness(0) invert(1);
 }
 
 .footer-nav-item span {
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 400;
 }
 
