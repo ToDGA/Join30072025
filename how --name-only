@@ -1,0 +1,19 @@
+[33mcommit 04c5e0f9638c5dbd44e0bece829522aec46c90f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: Tobias Domagala <domagalatobias@gmail.comm>
+Date:   Mon Aug 11 13:13:19 2025 +0200
+
+    fix: removing title on smaller screens
+
+[1mdiff --git a/css/responsive.css b/css/responsive.css[m
+[1mindex 08bbcc8..27ec999 100644[m
+[1m--- a/css/responsive.css[m
+[1m+++ b/css/responsive.css[m
+[36m@@ -78,4 +78,8 @@[m
+     padding-left: 0;[m
+     margin: 0;[m
+   }[m
+[32m+[m
+[32m+[m[32m  p {[m
+[32m+[m[32m    display: none;[m
+[32m+[m[32m  }[m
+ }[m
