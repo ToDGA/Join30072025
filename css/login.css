@@ -5,7 +5,7 @@ body, html {
   height: 100%;
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
-  background-color: #f0f2f5;
+  background-color: rgba(188, 188, 188, 0.567);
 }
 
 .intro-logo {

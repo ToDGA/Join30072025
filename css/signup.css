@@ -13,7 +13,7 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f6f7f8;
+  background-color: rgba(188, 188, 188, 0.567);
 }
 
 /* === HEADER === */
