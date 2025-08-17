@@ -330,14 +330,18 @@ textarea {
 }
 
 .dropdown.assigned-to .assigned-chips .avatar-chip {
-  display: inline-flex; 
-  align-items: center; 
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  width: 28px; 
-  height: 28px; 
-  border-radius: 50%; 
-  color: #fff; 
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
   font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 0 0 1px rgba(0,0,0,.05);
 }
 
 .dropdown.category-select {
@@ -516,6 +520,22 @@ textarea {
   padding-bottom: 180px; 
 }
 
+.chips { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+}
+
+.avatar-chip {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
 @media (max-width: 945px) {
   .form-divider { 
     display: none; 
@@ -670,7 +690,7 @@ textarea {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 945px) {
   html, body { 
     height: 100%; 
     overflow-x: hidden; 
