@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="stylesheet" href="./css/standard.css">
+    <link rel="stylesheet" href="./css/edit_&_add_contact.css" />
     <title>Join</title>
   </head>
   <body>
+    <div id="contact-overlay"></div>
     <div class="sidebar">
       <div class="frame">
         <div class="capa2">
@@ -84,7 +86,7 @@
       <!-- maincontent -->
       <div class="main-content">
         <div class="contact-list-container">
-          <button class="add-contact-btn">Add new contact
+          <button onclick="openAddContactOverlay()" class="add-contact-btn">Add new contact
             <img class="add-contact-img" src="./assets/img/contact_add.svg" alt="Add Contact">
           </button>
           <div class="first-letter-container">A</div>
@@ -215,7 +217,7 @@
           </div>
         </div>
       </div>
-      <div class="add-contact-mobile d-flex-c c-pointer">
+      <div onclick="openAddContactOverlay()" class="add-contact-mobile d-flex-c c-pointer">
         <img src="./assets/img/contact-add-person.svg" alt="Add contact">
       </div>
     </div>
@@ -240,6 +242,9 @@
         </a>
       </nav>
     </div>
+
+    <script src="./js/js_files/contact.js"></script>
+    <script src="./templates/add_&_edit_contact_template.js"></script>
 
     <script>
       function goToPage(page) {

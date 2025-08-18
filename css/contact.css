@@ -94,8 +94,8 @@ html, body {
 }
 
 .person-circle {
-    width: 52.81px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background-color: var(--urgent-color);
     font-size: 12px;
@@ -107,6 +107,8 @@ html, body {
 
 .personal-data {
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
 }
 
 .person-name {
@@ -257,9 +259,58 @@ html, body {
 
 @media (max-width: 1300px) {
     .contact-list-container {
-        min-width: 400px;
+        min-width: 40%;
+    }
+    
+    .first-letter-container,
+    .personal-ad {
+        width: 95%;
+    }
+
+    .add-contact-btn {
+        width: 90%;
+    }
+
+    .contact-team-container {
+        gap: 10px;
+    }
+
+    .contact-team-container h1 {
+        font-size: 50px;
+    }
+
+    .contact-team-container p {
+        font-size: 22px;
+    }
+
+    .contact-form-name {
+        font-size: 38px;
+    }
+
+    .contact-form-circle {
+        height: 100px;
+        width: 100px;
+        font-size: 40px;
     }
 } 
+
+@media (max-width: 1050px) {
+    .show-contact-container {
+        padding-left: 24px;
+    }
+
+    .add-contact-btn {
+        width: 95%;
+    }
+
+    .personal-ad {
+        width: 100%;
+    }
+
+    .contact-team-container h1 {
+        font-size: 40px;
+    }
+}
 
 @media (min-width: 945px) {
     .add-contact-mobile {
