@@ -11,6 +11,10 @@ html, body {
     font-style: bold;
 }
 
+.g-8 {
+    gap: 8px;
+}
+
 /* Main Content Layout */
 .main-content {
     width: 100%;
@@ -226,4 +230,87 @@ html, body {
 
 *::-webkit-scrollbar-thumb:active {
   background: linear-gradient(180deg, #1976a3 0%, #151e28 100%);
+}
+
+.contact-email-frame,
+.contact-phone-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-email-frame {
+    margin-bottom: 12px;
+}
+
+.add-contact-mobile {
+    background-color: var(--darkblue-color);
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+}
+
+.add-contact-mobile img {
+    width: 29.33px;
+    height: 20.91px;
+}
+
+@media (max-width: 1300px) {
+    .contact-list-container {
+        min-width: 400px;
+    }
+} 
+
+@media (min-width: 945px) {
+    .add-contact-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 945px) {
+    .add-contact-mobile {
+        position: absolute;
+        bottom: 124px;
+        right: 24px;
+    }
+
+  .show-contact-container {
+    display: none;
+  }
+
+  .add-contact-btn {
+    display: none;
+  }
+
+  .contact-list-container {
+      min-width: 100%;
+      padding: 24px;
+  }
+
+  .first-letter-container,
+  .personal-ad {
+    width: 90%;
+  }
+
+  .person-circle {
+    height: 42px !important;
+    width: 42px !important;
+  }
+
+  .personal-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 400px) {
+    .contact-list-container {
+        padding: 8px;
+    }
+
+    .personal-ad {
+        gap: 16px;
+        padding: 16px 20px 16px 20px;
+    }
 }
