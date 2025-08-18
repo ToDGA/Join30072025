@@ -19,9 +19,9 @@
 .footer-nav {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+ align-items: center;
   height: 100%;
-  padding-top: 12px;
+  padding-top: 3px;
 }
 
 .footer-nav-item {
@@ -32,7 +32,7 @@
   border: none;
   color: #cdcdcd;
   cursor: pointer;
-  padding: 8px;
+  padding: 16px; /*löst Problem: dokumentieren und löschen*/
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -41,7 +41,7 @@
 .footer-nav-item.active {
   background-color: black;
   border-radius: 16px;
-  height: 80px;
+  width: fit-content; /*löst Problem dokumentieren und löschen*/
 }
 
 .footer-nav-item img {
@@ -84,9 +84,6 @@
     margin: 0;
   }
 
-  p {
-    display: none;
-  }
 
   .header-left {
     display: block !important;
@@ -111,6 +108,14 @@
 
 @media (max-width: 900px) {
   .main-content {
-    padding-bottom: 80px; /* Increased from 60px to match new footer height */
+    padding-bottom: 80px; 
+  }
+
+  .main-content-privacy {
+    padding: 110px;
+    overflow-y: auto;
+    max-height: 84vh
   }
 }
+
+
