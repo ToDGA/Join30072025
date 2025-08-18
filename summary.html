@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join</title>
+
   <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon"/>
   <link rel="stylesheet" href="./assets/fonts/fonts.css"/>
   <link rel="stylesheet" href="./css/standard.css"/>
@@ -11,6 +12,8 @@
   <link rel="stylesheet" href="./css/style.css"/>
   <link rel="stylesheet" href="./css/summary.css"/>
   <link rel="stylesheet" href="./css/responsive.css"/>
+  <!-- ICON TITLE -->
+  <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
 </head>
 <body>
   <div class="sidebar">
@@ -22,42 +25,43 @@
     <div class="nav-container">
       <ul class="nav-menu">
         <li>
-          <a href="summary.html" class="nav-item">
+          <button class="nav-item" onclick="goToPage('./summary.html')">
             <span class="icon">
               <img src="./assets/img/sidebar_board_icon.svg" alt="Summary"/>
             </span>
             <span class="text">Summary</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="add_task.html" class="nav-item active">
+          <button class="nav-item active" onclick="goToPage('./add_task.html')">
             <span class="icon">
               <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task"/>
             </span>
             <span class="text">Add Task</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="board.html" class="nav-item">
+          <button class="nav-item" onclick="goToPage('./board.html')">
             <span class="icon">
               <img src="./assets/img/sidebar_board_icon.svg" alt="Board"/>
             </span>
             <span class="text">Board</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="contacts.html" class="nav-item">
+          <button class="nav-item" onclick="goToPage('./contacts.html')">
             <span class="icon">
               <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts"/>
             </span>
             <span class="text">Contacts</span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
+    <div class="hide-footer"></div>
     <div class="bottom-links">
-      <a href="./privacy_policy.html" class="bottom-link">Privacy Policy</a>
-      <a href="./legal_notice.html" class="bottom-link">Legal notice</a>
+      <a href="#" class="bottom-link">Privacy Policy</a>
+      <a href="#" class="bottom-link">Legal notice</a>
     </div>
   </div>
 
@@ -170,6 +174,11 @@
 </div>
     </div>
   </div>
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
 </body>
 
 </html>

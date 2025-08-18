@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/summary.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
+
   <body>
     <div class="sidebar">
       <div class="frame">
@@ -22,15 +23,18 @@
       <div class="nav-container">
         <ul class="nav-menu">
           <li>
-            <a href="summary.html" class="nav-item">
+            <button class="nav-item" onclick="goToPage('./summary.html')">
               <span class="icon">
-                <img src="./assets/img/sidebar_board_icon.svg" alt="Summary" />
+                <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
               </span>
               <span class="text">Summary</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="add_task.html" class="nav-item active">
+            <button
+              class="nav-item active"
+              onclick="goToPage('./add_task.html')"
+            >
               <span class="icon">
                 <img
                   src="./assets/img/sidebar_add_task_icon.svg"
@@ -38,18 +42,18 @@
                 />
               </span>
               <span class="text">Add Task</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="board.html" class="nav-item">
+            <button class="nav-item" onclick="goToPage('./board.html')">
               <span class="icon">
                 <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
               </span>
               <span class="text">Board</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="contacts.html" class="nav-item">
+            <button class="nav-item" onclick="goToPage('./contacts.html')">
               <span class="icon">
                 <img
                   src="./assets/img/sidebar_contact_calendar_icon.svg"
@@ -57,7 +61,7 @@
                 />
               </span>
               <span class="text">Contacts</span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -69,9 +73,6 @@
 
     <div class="headercontainer">
       <header class="header">
-        <div class="header-left">
-          <img src="./assets/img/Capa 2.svg" alt="Logo" class="header-logo" />
-        </div>
         <div class="title-container">
           <p>Kanban Project Management Tool</p>
         </div>
@@ -194,6 +195,7 @@
           storage is completely secure, and we cannot guarantee absolute
           security.
         </p>
+      </div>
 
       <div class="footer">
         <nav class="footer-nav">
@@ -219,5 +221,11 @@
         </nav>
       </div>
     </div>
+
+    <script>
+      function goToPage(page) {
+        window.location.href = page;
+      }
+    </script>
   </body>
 </html>
