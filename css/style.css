@@ -177,7 +177,7 @@ logo-img {
 .main-content-privacy {
   padding: 110px;
   overflow-y: auto;
-  height: 92vh;
+  max-height: 90vh;
 }
 
 .main-content-privacy h2 {
