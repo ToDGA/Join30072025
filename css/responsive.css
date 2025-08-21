@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   background-color: #2a3647;
-  height: 90px; /* Increased from 60px */
+  height: 90px;
   z-index: 1000;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -19,7 +19,7 @@
 .footer-nav {
   display: flex;
   justify-content: space-around;
- align-items: center;
+  align-items: center;
   height: 100%;
   padding-top: 3px;
 }
@@ -32,7 +32,7 @@
   border: none;
   color: #cdcdcd;
   cursor: pointer;
-  padding: 16px; /*löst Problem: dokumentieren und löschen*/
+  padding: 16px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -41,7 +41,7 @@
 .footer-nav-item.active {
   background-color: black;
   border-radius: 16px;
-  width: fit-content; /*löst Problem dokumentieren und löschen*/
+  width: fit-content;
 }
 
 .footer-nav-item img {
@@ -56,8 +56,6 @@
   font-weight: 400;
 }
 
-
-/* Media Query für kleine Bildschirme */
 @media (max-width: 945px) {
   .title {
     display: none;
@@ -72,7 +70,7 @@
   }
 
   .main-content {
-    padding-bottom: 60px;
+    padding-bottom: 120px; /* Increased from 60px to 120px */
   }
 
   .header {
@@ -84,9 +82,14 @@
     margin: 0;
   }
 
-
   .header-left {
     display: block !important;
+  }
+
+  /* Fix for legal notice specifically */
+  .legal_notice {
+    padding: 32px 20px 120px 20px !important; /* Added bottom padding */
+    margin-bottom: 0 !important;
   }
 }
 
@@ -108,14 +111,19 @@
 
 @media (max-width: 900px) {
   .main-content {
-    padding-bottom: 80px; 
+    padding-bottom: 120px; /* Increased padding */
   }
 
   .main-content-privacy {
     padding: 110px;
     overflow-y: auto;
-    max-height: 84vh
+    max-height: 84vh;
+  }
+
+  /* Updated legal notice styles for mobile */
+  .legal_notice {
+    max-height: 76vh !important;
+    padding: 32px 20px 120px 20px !important; /* Better mobile padding */
+    overflow-y: auto;
   }
 }
-
-
