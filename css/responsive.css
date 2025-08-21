@@ -69,10 +69,7 @@
     display: block;
   }
 
-  .main-content {
-    padding-bottom: 120px; /* Increased from 60px to 120px */
-  }
-
+  
   .header {
     padding: 0 20px;
   }
@@ -86,10 +83,22 @@
     display: block !important;
   }
 
-  /* Fix for legal notice specifically */
+  
   .legal_notice {
-    padding: 32px 20px 120px 20px !important; /* Added bottom padding */
+    padding: 32px 20px 120px 20px !important; 
     margin-bottom: 0 !important;
+  }
+}
+
+/* Additional breakpoint to cover 900-940px range */
+@media (max-width: 940px) and (min-width: 901px) {
+  .legal_notice {
+    padding-bottom: 120px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .main-content {
+    padding-bottom: 120px;
   }
 }
 
@@ -109,7 +118,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 945px) {
   .main-content {
     padding-bottom: 120px; /* Increased padding */
   }
@@ -120,7 +129,7 @@
     max-height: 84vh;
   }
 
-  /* Updated legal notice styles for mobile */
+
   .legal_notice {
     max-height: 76vh !important;
     padding: 32px 20px 120px 20px !important; /* Better mobile padding */
