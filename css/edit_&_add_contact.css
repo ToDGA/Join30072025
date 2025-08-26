@@ -217,7 +217,12 @@
         .contact-save:hover {
             box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
             scale: 1.02;
-        }  
+        }
+        
+        .contact-delete:active,
+        .contact-save:active {
+            scale: 0.98;
+        }
 
         .contact-delete:hover .fill-hover {
             filter: brightness(0) saturate(100%) invert(74%) sepia(12%) saturate(2613%) hue-rotate(177deg) brightness(101%) contrast(92%);
@@ -262,6 +267,30 @@
             }
         }
 
+        @media (max-width: 1100px) {
+            .edit-headline {
+                font-size:48px;
+            }
+
+            .add-contact-description {
+                font-size: 22px;
+            }
+
+            .input-add-contact-container {
+                width: 45%;
+                padding: 40px 20px 40px 0;
+            }
+
+            .edit-add-contact-container {
+                padding-left: 16px;
+            }
+
+            .add-contact-person-container {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
         @media (min-width: 945px) {
             .add-contact-close-container-mobile,
             .edit-contact-close-container-mobile {
@@ -270,6 +299,10 @@
         }
 
         @media (max-width: 945px) {
+            .overlay {
+                height: calc(100vh - 90px);
+            }
+
             .add-contact-container {
                 height: 760px;
                 width: 396px;

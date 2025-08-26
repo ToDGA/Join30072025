@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/edit_&_add_contact.css" />
     <title>Join</title>
   </head>
-  <body>
+  <body onload="testContactLoad()">
     <div id="contact-overlay"></div>
     <div class="sidebar">
       <div class="frame">
@@ -89,100 +89,7 @@
           <button onclick="openAddContactOverlay()" class="add-contact-btn">Add new contact
             <img class="add-contact-img" src="./assets/img/contact_add.svg" alt="Add Contact">
           </button>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span class="person-name">Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
-          <div class="first-letter-container">A</div>
-          <div class="personal-ad">
-            <div class="person-circle d-flex-c">
-              AS
-            </div>
-            <div class="personal-data">
-              <span>Anja Schulz</span>
-              <a href="mailto:anja.schulz@example.com">schulz@example.com</a>
-            </div>
-          </div>
+          <div id="contact-list"></div>
         </div>
         <div class="show-contact-container">
           <div class="contact-team-container">
@@ -195,7 +102,7 @@
             <div class="contact-form-description">
               <h1 class="contact-form-name">Tantjana Wolf</h1>
               <div class="contact-form-edit-delete">
-                <div class="d-flex-c g-8">
+                <div onclick="openEditContactOverlay()" class="d-flex-c g-8">
                   <img src="./assets/img/contact-main-edit.svg" alt="Edit">
                   <span>Edit</span>
                 </div>
@@ -224,19 +131,19 @@
 
     <div class="footer">
       <nav class="footer-nav">
-        <a href="summary.html" class="footer-nav-item">
+        <a href="./summary.html" class="footer-nav-item">
           <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
           <span>Summary</span>
         </a>
-        <a href="add_tasks.html" class="footer-nav-item">
+        <a href="./add_task.html" class="footer-nav-item">
           <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task" />
           <span>Add Task</span>
         </a>
-        <a href="board.html" class="footer-nav-item">
+        <a href="./board.html" class="footer-nav-item">
           <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
           <span>Board</span>
         </a>
-        <a href="contact.html" class="footer-nav-item">
+        <a href="./contacts.html" class="footer-nav-item">
           <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts" />
           <span>Contacts</span>
         </a>
@@ -244,7 +151,7 @@
     </div>
 
     <script src="./js/js_files/contact.js"></script>
-    <script src="./templates/add_&_edit_contact_template.js"></script>
+    <script src="./templates/contact_template.js"></script>
 
     <script>
       function goToPage(page) {

@@ -48,6 +48,16 @@ html, body {
     color: var(--white-color);
 }
 
+.add-contact-btn:hover {
+    background-color: var(--lightblue-color);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    scale: 1.02;
+}
+
+.add-contact-btn:active {
+    scale: 0.98;
+}
+
 .add-contact-img {
     width: 32px;
     height: 32px;
@@ -58,6 +68,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#contact-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .first-letter-container {
@@ -202,7 +220,6 @@ html, body {
     margin-bottom: 40px;
 }
 
-/* Schöner Custom Scrollbar */
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
