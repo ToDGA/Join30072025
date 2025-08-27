@@ -49,29 +49,32 @@ function addContactTemplate() {
             <div class="w100">
             <form action="">
                 <div class="input-contact-container">
-                <input id="add-name" type="text" placeholder="Name" />
+                <input id="add-name" type="text" placeholder="Name" required />
                 <img
                     class="contact-input-icon"
                     src="./assets/img/contact-person.svg"
                     alt="Person"
                 />
                 </div>
+                <div id="add-name-validation" class="error-message"></div>
                 <div class="input-contact-container">
-                <input id="add-email" type="email" placeholder="Email" />
+                <input id="add-email" type="email" placeholder="Email" required />
                 <img
                     class="contact-input-icon"
                     src="./assets/img/contact-mail.svg"
                     alt="Email"
                 />
                 </div>
+                <div id="add-email-validation" class="error-message"></div>
                 <div class="input-contact-container">
-                <input id="add-phone" type="number" placeholder="Phone" />
+                <input id="add-phone" type="tel" placeholder="Phone" required />
                 <img
                     class="contact-input-icon"
                     src="./assets/img/contact-call.svg"
                     alt="Phone"
                 />
                 </div>
+                <div id="add-phone-validation" class="error-message"></div>
             </form>
 
             <!-- Button Container -->
@@ -84,7 +87,7 @@ function addContactTemplate() {
                     alt="Close"
                 />
                 </button>
-                <button onclick="postNewContact()" class="contact-save add-contact-save">
+                <button id="add-contact-save" onclick="postNewContact()" class="contact-save add-contact-save">
                 Create contact
                 <img
                     class="contact-save-icon"

@@ -139,7 +139,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 27px;
+            
         }
 
         input {
@@ -236,6 +236,12 @@
         .contact-save:active {
             box-shadow: none;
             scale: 0.98;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            height: 27px;
         }
 
         /* ##### Responsive Styles ##### */
