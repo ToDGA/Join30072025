@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   background-color: #2a3647;
-  height: 90px; /* Increased from 60px */
+  height: 90px;
   z-index: 1000;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -19,9 +19,9 @@
 .footer-nav {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
-  padding-top: 12px;
+  padding-top: 3px;
 }
 
 .footer-nav-item {
@@ -32,7 +32,7 @@
   border: none;
   color: #cdcdcd;
   cursor: pointer;
-  padding: 8px;
+  padding: 16px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -41,7 +41,7 @@
 .footer-nav-item.active {
   background-color: black;
   border-radius: 16px;
-  height: 80px;
+  width: fit-content;
 }
 
 .footer-nav-item img {
@@ -56,11 +56,13 @@
   font-weight: 400;
 }
 
-
-/* Media Query für kleine Bildschirme */
 @media (max-width: 945px) {
   .title {
     display: none;
+  }
+
+  .header-logo {
+    display: block;
   }
 
   .sidebar {
@@ -71,10 +73,7 @@
     display: block;
   }
 
-  .main-content {
-    padding-bottom: 60px;
-  }
-
+  
   .header {
     padding: 0 20px;
   }
@@ -84,12 +83,26 @@
     margin: 0;
   }
 
-  p {
-    display: none;
-  }
-
   .header-left {
     display: block !important;
+  }
+
+  
+  .legal_notice {
+    padding: 32px 20px 120px 20px !important; 
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Additional breakpoint to cover 900-940px range */
+@media (max-width: 940px) and (min-width: 901px) {
+  .legal_notice {
+    padding-bottom: 120px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .main-content {
+    padding-bottom: 120px;
   }
 }
 
@@ -109,8 +122,21 @@
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 945px) {
   .main-content {
-    padding-bottom: 80px; /* Increased from 60px to match new footer height */
+    padding-bottom: 120px; /* Increased padding */
+  }
+
+  .main-content-privacy {
+    padding: 110px;
+    overflow-y: auto;
+    max-height: 84vh;
+  }
+
+
+  .legal_notice {
+    max-height: 76vh !important;
+    padding: 32px 20px 120px 20px !important; /* Better mobile padding */
+    overflow-y: auto;
   }
 }

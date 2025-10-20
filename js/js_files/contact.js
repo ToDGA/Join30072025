@@ -365,6 +365,7 @@ async function postNewContact() {
     };
     try {
         await postData("contacts", newContact);
+        showSuccesfullyContactCreated();
         closeAddContactOverlay();
     } catch (error) {
         console.error("Error posting new contact:", error);

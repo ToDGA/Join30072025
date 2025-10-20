@@ -1,0 +1,134 @@
+@media (max-width: 1023px) {
+
+    .greeting-container {
+        position: absolute;
+        align-self: center;
+        height: 78vh;
+        font-size: 32px;
+        animation: greeting 2s ease-out forwards;
+    }
+
+    .main-content {
+        animation: main_fadeIn 1000ms ease-in;
+        animation-delay: 1s;
+    }
+
+    .summary-right {
+        display: none;
+    }
+
+    .main-header {
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: start;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 40px;
+        gap: 8px;
+    }
+
+    .main-header h1 {
+        font-size: 42px;
+        font-weight: bold;
+        padding-left: 0;
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .main-header span {
+        font-size: 18px;
+        padding-left: 0;
+        padding-right: 0;
+        align-self: flex-start;
+    }
+
+    .summary-left {
+        padding-left: 12px;
+        padding-top: 24px;
+        padding-right: 12px;
+        width: 90vw;
+    }
+
+    .summary-container {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 120px;
+    }
+
+    .task-count {
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    .resp-size {
+        font-size: 14px;
+    }
+
+    .urgent-container {
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .summary-mid-right {
+        padding: 12px;
+        width: 100%;
+    }
+
+    .icon-container {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .border-bottom {
+        width: 56px;
+        height: 3px;
+        background-color: var(--lightblue-color);
+        margin-top: 16px;
+        border-radius: 2px;
+    }
+
+    .date {
+        font-size: 24px;
+        padding-left: 24px;
+    }
+
+    .msg-box {
+        font-size: 16px;
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 425px) {
+    .greeting-container {
+        height: 78vh;
+        font-size: 32px;
+        opacity: 0;
+        animation: greeting 1000ms ease-out forwards;
+    }
+
+    .main-content {
+        opacity: 0;
+        animation: main_fadeIn 1000ms ease-in forwards;
+        animation-delay: 1s;
+    }
+}
+
+@media (min-width:1023px) and (max-width: 1440px) {
+
+    .summary-left {
+        padding-left: 64px;
+        padding-top: 32px;
+        padding-right: 64px;
+    }
+
+    .greeting-box {
+        font-size: 40px;
+    }
+}

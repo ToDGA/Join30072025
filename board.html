@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon"/>
 
-  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="./css/standard.css" />
-  <link rel="stylesheet" href="./css/color.css" />
-  <link rel="stylesheet" href="./style.css">
+  <!-- Fonts & base styles -->
+  <link rel="stylesheet" href="./assets/fonts/fonts.css"/>
+  <link rel="stylesheet" href="./css/standard.css"/>
+  <link rel="stylesheet" href="./css/color.css"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/board.css"/>
+  <link rel="stylesheet" href="./css/board_second.css"/>
+  <link rel="stylesheet" href="./css/add_task.css"/>
   <link rel="stylesheet" href="./css/responsive.css"/>
+  <link rel="stylesheet" href="./css/responsive_for_board.css/kb-desktop.css"/>
+  <link rel="stylesheet" href="./css/responsive_for_board.css/kb-mobile.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
+
   <title>Join</title>
 </head>
-
 <body>
   <div class="sidebar">
     <div class="frame">
       <div class="capa2">
-        <img class="logo-img" src="./assets/icons/Join_logo 2.svg"/>
+        <img class="logo-img" src="./assets/icons/Join_logo 2.svg" alt="Join"/>
       </div>
     </div>
     <div class="nav-container">
       <ul class="nav-menu">
         <li>
-          <a href="summary.html" class="nav-item">
-            <span class="icon">
-              <img src="./assets/img/summary_sidebar.svg" alt="Summary"/>
-            </span>
+          <button class="nav-item" onclick="goToPage('./summary.html')">
+            <span class="icon"><img src="./assets/img/summary_sidebar.svg" alt="Summary"/></span>
             <span class="text">Summary</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="add_task.html" class="nav-item active">
-            <span class="icon">
-              <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task"/>
-            </span>
+          <button class="nav-item" onclick="goToPage('./add_task.html')">
+            <span class="icon"><img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task"/></span>
             <span class="text">Add Task</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="board.html" class="nav-item">
-            <span class="icon">
-              <img src="./assets/img/sidebar_board_icon.svg" alt="Board"/>
-            </span>
+          <button class="nav-item active" onclick="goToPage('./board.html')">
+            <span class="icon"><img src="./assets/img/sidebar_board_icon.svg" alt="Board"/></span>
             <span class="text">Board</span>
-          </a>
+          </button>
         </li>
         <li>
-          <a href="contacts.html" class="nav-item">
-            <span class="icon">
-              <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts"/>
-            </span>
+          <button class="nav-item" onclick="goToPage('./contacts.html')">
+            <span class="icon"><img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts"/></span>
             <span class="text">Contacts</span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -64,97 +61,306 @@
     </div>
   </div>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
-    <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
-    <title>Join</title>
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="frame">
-        <div class="capa2">
-          <img class="logo-img" src="./assets/icons/Join_logo 2.svg" />
-        </div>
+  <div class="headercontainer">
+    <header class="header">
+      <div class="title-container">
+        <p class="title">Kanban Project Management Tool</p>
+        <img class="header-logo" src="./assets/icons/Join_logo 1.svg" alt="Join Logo">
       </div>
-      <div class="nav-container">
-        <ul class="nav-menu">
-          <li>
-            <button class="nav-item" onclick="goToPage('./summary.html')">
-              <span class="icon">
-                <img src="./assets/img/summary_sidebar.svg" alt="Summary" />
-              </span>
-              <span class="text">Summary</span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="nav-item active"
-              onclick="goToPage('./add_task.html')"
-            >
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_add_task_icon.svg"
-                  alt="Add Task"
-                />
-              </span>
-              <span class="text">Add Task</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./board.html')">
-              <span class="icon">
-                <img src="./assets/img/sidebar_board_icon.svg" alt="Board" />
-              </span>
-              <span class="text">Board</span>
-            </button>
-          </li>
-          <li>
-            <button class="nav-item" onclick="goToPage('./contacts.html')">
-              <span class="icon">
-                <img
-                  src="./assets/img/sidebar_contact_calendar_icon.svg"
-                  alt="Contacts"
-                />
-              </span>
-              <span class="text">Contacts</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="hide-footer"></div>
-      <div class="bottom-links">
-        <a href="#" class="bottom-link">Privacy Policy</a>
-        <a href="#" class="bottom-link">Legal notice</a>
-      </div>
-    </div>
-
-
-    <div class="headercontainer">
-      <header class="header">
-        <div class="title-container">
-          <p>Kanban Project Management Tool</p>
-        </div>
-        <div class="header-right">
-          <div class="help-icon">?</div>
-          <div class="user-avatar">SM</div>
-        </div>
-      </header>
-      <div class="main-content">
-        <!-- Main content area -->
-      </div>
-
     </header>
-    <div class="main-content">
-    </div>
 
-    <script>
-      function goToPage(page) {
-        window.location.href = page;
-      }
-    </script>
-  </body>
+    <div class="main-content">
+      <section class="kb">
+        <div class="kb-toolbar">
+          <h1 class="kb-title">Board</h1>
+          <div class="kb-actions">
+            <div class="kb-search">
+              <input type="text" placeholder="Find Task" aria-label="Find Task">
+              <img class="kb-icon" alt="Search">
+            </div>
+            <button class="kb-add-btn" type="button">
+              Add task <span class="kb-plus">+</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="kb-columns">
+          <!-- To do -->
+          <section class="kb-col" aria-label="To do" data-status="todo">
+            <header class="kb-col-head">
+              <h2 class="kb-col-title">To do</h2>
+              <button class="kb-col-add" type="button" aria-label="Add task to To do"></button>
+            </header>
+            <div class="kb-card-list" data-cards></div>
+            <div class="kb-empty"><span>No tasks To do</span></div>
+          </section>
+
+          <!-- In progress -->
+          <section class="kb-col" aria-label="In progress" data-status="inprogress">
+            <header class="kb-col-head">
+              <h2 class="kb-col-title">In progress</h2>
+              <button class="kb-col-add" type="button" aria-label="Add task to In progress"></button>
+            </header>
+            <div class="kb-card-list" data-cards>
+              <article class="kb-card"
+                data-due="10/05/2023"
+                data-subtasks='["Implement Recipe Recommendation","Start Page Layout"]'>
+                <div class="kb-card-top">
+                  <span class="kb-chip kb-chip--story">User Story</span>
+                </div>
+                <h3 class="kb-card-title">Kochwelt Page &amp; Recipe Recommender</h3>
+                <p class="kb-card-desc">Build start page with recipe recommendation...</p>
+                <div class="kb-progress-row">
+                  <div class="kb-progress"><div class="kb-progress-bar" style="width:50%"></div></div>
+                  <span class="kb-subtasks">1/2 Subtasks</span>
+                </div>
+                <footer class="kb-card-foot">
+                  <div class="kb-avatars" data-assignees="EM, MB, AM"></div>
+                  <div class="kb-prio kb-prio--medium">
+                    <span class="kb-prio__icon" aria-hidden="true"></span>
+                  </div>
+                </footer>
+              </article>
+            </div>
+            <div class="kb-empty"><span>No tasks In progress</span></div>
+          </section>
+
+          <!-- Await feedback -->
+          <section class="kb-col" aria-label="Await feedback" data-status="feedback">
+            <header class="kb-col-head">
+              <h2 class="kb-col-title">Await feedback</h2>
+              <button class="kb-col-add" type="button" aria-label="Add task to Await feedback"></button>
+            </header>
+            <div class="kb-card-list" data-cards>
+              <article class="kb-card"
+                data-due="12/05/2023"
+                data-subtasks='["Create base.html","Extract header & footer"]'>
+                <div class="kb-card-top">
+                  <span class="kb-chip kb-chip--technical">Technical Task</span>
+                </div>
+                <h3 class="kb-card-title">HTML Base Template Creation</h3>
+                <p class="kb-card-desc">Create reusable HTML base templates...</p>
+                <div class="kb-progress-row">
+                  <div class="kb-progress"><div class="kb-progress-bar" style="width:0%"></div></div>
+                  <span class="kb-subtasks">0/2 Subtasks</span>
+                </div>
+                <footer class="kb-card-foot">
+                  <div class="kb-avatars" data-assignees="DE, BZ, AS"></div>
+                  <div class="kb-prio kb-prio--low">
+                    <span class="kb-prio__icon" aria-hidden="true"></span>
+                  </div>
+                </footer>
+              </article>
+              <article class="kb-card"
+                data-due="11/05/2023"
+                data-subtasks='["Implement daily recipe","Portion calculator"]'>
+                <div class="kb-card-top">
+                  <span class="kb-chip kb-chip--story">User Story</span>
+                </div>
+                <h3 class="kb-card-title">Daily Kochwelt Recipe</h3>
+                <p class="kb-card-desc">Implement daily recipe and portion calculator....</p>
+                <div class="kb-progress-row">
+                  <div class="kb-progress"><div class="kb-progress-bar" style="width:0%"></div></div>
+                  <span class="kb-subtasks">0/2 Subtasks</span>
+                </div>
+                <footer class="kb-card-foot">
+                  <div class="kb-avatars" data-assignees="EF, AS, TW"></div>
+                  <div class="kb-prio kb-prio--high">
+                    <span class="kb-prio__icon" aria-hidden="true"></span>
+                  </div>
+                </footer>
+              </article>
+            </div>
+            <div class="kb-empty"><span>No tasks Await feedback</span></div>
+          </section>
+
+          <!-- Done -->
+          <section class="kb-col" aria-label="Done" data-status="done">
+            <header class="kb-col-head">
+              <h2 class="kb-col-title">Done</h2>
+            </header>
+            <div class="kb-card-list" data-cards>
+              <article class="kb-card"
+                data-due="09/30/2023"
+                data-subtasks='["Define BEM","Write style guide"]'>
+                <div class="kb-card-top">
+                  <span class="kb-chip kb-chip--technical">Technical Task</span>
+                </div>
+                <h3 class="kb-card-title">CSS Architecture Planning</h3>
+                <p class="kb-card-desc">Define CSS naming conventions and structure...</p>
+                <div class="kb-progress-row">
+                  <div class="kb-progress"><div class="kb-progress-bar" style="width:100%"></div></div>
+                  <span class="kb-subtasks">2/2 Subtasks</span>
+                </div>
+                <footer class="kb-card-foot">
+                  <div class="kb-avatars" data-assignees="SM, BZ"></div>
+                  <div class="kb-prio kb-prio--medium">
+                    <span class="kb-prio__icon" aria-hidden="true"></span>
+                  </div>
+                </footer>
+              </article>
+            </div>
+            <div class="kb-empty"><span>No tasks Done</span></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- overlay + modals -->
+  <div id="at-overlay" class="at-overlay" aria-hidden="true"></div>
+
+  <div id="at-modal" class="at-modal" role="dialog" aria-modal="true" aria-labelledby="at-title">
+    <div class="at-dialog">
+      <form id="taskForm">
+        <div class="at-header">
+          <h2 id="at-title">Add Task</h2>
+          <button id="at-close" class="at-close" type="button" aria-label="Close">&times;</button>
+        </div>
+
+        <div class="at-grid">
+          <div class="at-col">
+            <label class="field">
+              <span class="field__label">Title<span class="req">*</span></span>
+              <input class="input" name="title" placeholder="Enter a title" required />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Description</span>
+              <textarea class="textarea" name="description" placeholder="Enter a Description"></textarea>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Due date<span class="req">*</span></span>
+              <input class="input" type="date" name="due" required />
+            </label>
+
+            <p class="hint"><span class="req">*</span> This field is required</p>
+          </div>
+
+          <div class="at-col at-col--right">
+            <div class="field">
+              <span class="field__label">Priority</span>
+              <div class="priority" data-priority>
+                <button type="button" class="priority__btn" data-value="urgent">Urgent</button>
+                <button type="button" class="priority__btn priority__btn--active" data-value="medium">Medium</button>
+                <button type="button" class="priority__btn" data-value="low">Low</button>
+                <input type="hidden" name="priority" value="medium" />
+              </div>
+            </div>
+
+            <label class="field">
+              <span class="field__label">Assigned to</span>
+              <select class="select" name="assignees" multiple>
+                <option>Emmanuel Mauer</option>
+                <option>Marcel Bauer</option>
+                <option>Anton Mayer</option>
+                <option>Sofia Müller</option>
+                <option>Benedikt Ziegler</option>
+                <option>Anja Schulz</option>
+                <option>David Eisenberg</option>
+                <option>Eva Fischer</option>
+                <option>Tatjana Wolf</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Category<span class="req">*</span></span>
+              <select class="select" name="category" required>
+                <option value="" disabled selected>Select task category</option>
+                <option>User Story</option>
+                <option>Technical Task</option>
+                <option>Bug</option>
+                <option>Chore</option>
+              </select>
+            </label>
+            <input type="hidden" name="type" value="story"/>
+            <div class="field">
+              <span class="field__label">Subtasks</span>
+              <div class="subtasks" data-subtasks>
+                <input class="input" type="text" placeholder="Add a subtask and press Enter" />
+                <ul class="subtasks__list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="at-footer">
+          <button type="button" id="at-cancel" class="btn">Cancel</button>
+          <button type="submit" id="at-create" class="btn btn-primary">Create Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="td-modal" class="td-modal" role="dialog" aria-modal="true" aria-labelledby="td-title">
+    <div class="td-dialog" tabindex="-1">
+      <button class="td-close" type="button" data-td-close aria-label="Close">×</button>
+
+      <div class="td-chipwrap">
+        <span id="td-chip" class="td-chip">User Story</span>
+      </div>
+
+      <h2 id="td-title" class="td-title"></h2>
+      <p id="td-desc" class="td-desc"></p>
+
+      <div class="td-meta">
+        <div class="td-row">
+          <span class="td-label">Due date:</span>
+          <span id="td-due" class="td-value">—</span>
+        </div>
+        <div class="td-row">
+          <span class="td-label">Priority:</span>
+          <span id="td-prio-text" class="td-value">—</span>
+          <span id="td-prio-icon" class="td-icon"></span>
+        </div>
+        <div class="td-row">
+          <span class="td-label">Assigned To:</span>
+        </div>
+        <div id="td-assignees" class="td-assignees"></div>
+      </div>
+
+      <div id="td-subtasks" class="td-subtasks" hidden>
+        <div class="td-row"><span class="td-label">Subtasks</span></div>
+        <ul id="td-subtasks-list" class="td-subtasks__list"></ul>
+      </div>
+
+      <div class="td-footer td-actions">
+        <button class="td-action" type="button" id="td-delete">
+          <img src="./assets/img/contact-main-delete.svg" alt="" class="td-action__icon"> Delete
+        </button>
+        <button class="td-action" type="button" id="td-edit">
+          <img src="./assets/img/contact-main-edit.svg" alt="" class="td-action__icon"> Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <nav class="footer-nav">
+      <a href="summary.html" class="footer-nav-item">
+        <img src="./assets/img/summary_sidebar.svg" alt="Summary"/>
+        <span>Summary</span>
+      </a>
+      <a href="add_task.html" class="footer-nav-item">
+        <img src="./assets/img/sidebar_add_task_icon.svg" alt="Add Task"/>
+        <span>Add Task</span>
+      </a>
+      <a href="board.html" class="footer-nav-item active">
+        <img src="./assets/img/sidebar_board_icon.svg" alt="Board"/>
+        <span>Board</span>
+      </a>
+      <a href="contacts.html" class="footer-nav-item">
+        <img src="./assets/img/sidebar_contact_calendar_icon.svg" alt="Contacts"/>
+        <span>Contacts</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    function goToPage(page){ window.location.href = page; }
+  </script>
+  <script src="board.js" defer></script>
+  <script src="js/js_files/board-enhancements.js" defer></script>
+</body>
 </html>

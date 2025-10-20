@@ -4,6 +4,10 @@ const contacts = [
   { initials: "AS", name: "Anja Schulz",        color: "#9E00FF" },
   { initials: "BZ", name: "Benedikt Ziegler",   color: "#0038FF" },
   { initials: "DE", name: "David Eisenberg",    color: "#FF00FF" },
+  { initials: "EF", name: "Eva Fischer",        color: "#FFC701" },
+  { initials: "EM", name: "Emmanuel Mauer",     color: "#00BEE8" },
+  { initials: "MB", name: "Marcel Bauer",       color: "#6E52FF" },
+  { initials: "TW", name: "Tatjana Wolf",       color: "#FF4646" },
 ];
 const categories = [
   { name: "Technical Task", color: "#6c8cff" },

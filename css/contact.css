@@ -1,6 +1,7 @@
 /* HTML/Body Höhe definieren */
 html, body {
     height: 100%;
+    overflow-x: hidden;
 }
 
 /* Global */
@@ -17,6 +18,57 @@ html, body {
 
 .g-8 {
     gap: 8px;
+}
+
+.succesfully-creat {
+    width: 326px;
+    height: 74px;
+    background-color: var( --darkblue-light-color);
+    color: var(--white-color);
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.succesfully-creat, .show-animation {
+    animation: slideInOut 3s ease-in-out forwards;
+}
+
+@keyframes slideInOut {
+    0% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: block;
+    }
+    1% {
+        display: block;
+    }
+    33% {
+        transform: translateX(0);
+        opacity: 1;
+        display: block;
+    }
+    66% {
+        transform: translateX(0);
+        opacity: 1;
+        display: block;
+    }
+    99% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: block;
+    }
+    100% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: none;
+    }
 }
 
 /* Main Content Layout */

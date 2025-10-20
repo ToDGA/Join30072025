@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/standard.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .succesfully-creat {
+            width: 326px;
+            height: 74px;
+            background-color: var( --darkblue-light-color);
+            color: var(--white-color);
+            border-radius: 16px;
+            font-size: 20px;
+            font-weight: 400;
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+            animation: slideInOut 3s ease-in-out forwards;
+        }
+
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(400px);
+                opacity: 0;
+                visibility: visible;
+            }
+            33% {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            66% {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            99% {
+                transform: translateX(400px);
+                opacity: 0;
+                visibility: visible;
+            }
+            100% {
+                transform: translateX(400px);
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="succesfully-creat d-flex-c">
+        Contact succesfully created
+    </div>
+</body>
+</html>
