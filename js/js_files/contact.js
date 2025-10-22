@@ -365,8 +365,8 @@ async function postNewContact() {
     };
     try {
         await postData("contacts", newContact);
-        showSuccesfullyContactCreated();
-        closeAddContactOverlay();
+        await closeAddContactOverlay();
+        getSuccessfullyContactCreated();
     } catch (error) {
         console.error("Error posting new contact:", error);
     }
@@ -628,4 +628,14 @@ async function updateContactInDatabase(firebaseKey, contactData) {
 function closeEditContactOverlay() {
     let contactOverlay = document.getElementById("contact-overlay");
     contactOverlay.innerHTML = "";
+}
+
+/**
+ * Displays a success notification message when a contact is successfully created
+ * Uses insertAdjacentHTML('beforeend') to add the notification HTML at the end of the body element
+ * The CSS animation handles the display duration and automatic removal after 3 seconds
+ */
+function getSuccessfullyContactCreated(){
+    let body = document.querySelector("body");
+    body.insertAdjacentHTML('beforeend', getMessageSuccessfullyAdded());
 }
