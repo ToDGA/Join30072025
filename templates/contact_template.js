@@ -223,7 +223,7 @@ function getContact(data) {
  */
 function getMessageSuccessfullyAdded() {
     return `
-    <div class="succesfully-creat d-flex-c">
+    <div class="succesfully-creat">
         Contact succesfully created
     </div>
     `

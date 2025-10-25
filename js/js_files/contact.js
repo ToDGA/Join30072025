@@ -635,7 +635,7 @@ function closeEditContactOverlay() {
  * Uses insertAdjacentHTML('beforeend') to add the notification HTML at the end of the body element
  * The CSS animation handles the display duration and automatic removal after 3 seconds
  */
-function getSuccessfullyContactCreated(){
+function getSuccessfullyContactCreated() {
     let body = document.querySelector("body");
     body.insertAdjacentHTML('beforeend', getMessageSuccessfullyAdded());
 }
