@@ -4,58 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/contact.css">
     <link rel="stylesheet" href="./css/standard.css">
+
     <style>
-        body {
-            overflow-x: hidden;
-        }
-
-        .succesfully-creat {
-            width: 326px;
-            height: 74px;
-            background-color: var( --darkblue-light-color);
-            color: var(--white-color);
-            border-radius: 16px;
-            font-size: 20px;
-            font-weight: 400;
-            position: absolute;
-            bottom: 32px;
-            right: 32px;
-            animation: slideInOut 3s ease-in-out forwards;
-        }
-
-        @keyframes slideInOut {
-            0% {
-                transform: translateX(400px);
-                opacity: 0;
-                visibility: visible;
-            }
-            33% {
-                transform: translateX(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            66% {
-                transform: translateX(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            99% {
-                transform: translateX(400px);
-                opacity: 0;
-                visibility: visible;
-            }
-            100% {
-                transform: translateX(400px);
-                opacity: 0;
-                visibility: hidden;
-            }
+        .mobile-edit-delete {
+            width: 116px;
+            height: 100px;
+            border-radius: 20px 20px 0 20px;
+            background-color: var(--white-color);
+            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <div class="succesfully-creat d-flex-c">
-        Contact succesfully created
+    <div class="mobile-edit-delete fs-400-16 d-flex-c g-8">
+        <div class="d-flex-c-c-fs g-8">
+            <img src="./assets/img/contact-edit-mobile.svg" alt="pen">
+            <img src="./assets/img/contact-delete-mobile.svg" alt="trash can">
+        </div>
+        <div class="d-flex-c-c-fs g-8">
+            <span>Edit</span>
+            <span>Delete</span>
+        </div>
     </div>
+    
 </body>
 </html>
