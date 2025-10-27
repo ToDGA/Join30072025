@@ -331,6 +331,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 /* Animation trigger for success notification */
@@ -343,20 +344,25 @@ html, body {
     0% {
         transform: translateX(400px);
         opacity: 0;
-        
+        display: flex;
+    }
+    1% {
+        display: flex;
     }
     33% {
         transform: translateX(0);
         opacity: 1;
+        display: flex;
     }
     66% {
         transform: translateX(0);
         opacity: 1;
+        display: flex;
     }
     99% {
         transform: translateX(400px);
         opacity: 0;
-        
+        display: flex;
     }
     100% {
         transform: translateX(400px);
