@@ -41,6 +41,38 @@ async function loadContactList() {
     const sortedContacts = sortContactsAlphabetically(validContacts);
     const groupedByLetter = groupContactsByFirstLetter(sortedContacts);
     displayContactsGroupedByLetter(groupedByLetter);
+
+    // Initialize mobile resize handler
+    initializeMobileHandler();
+}
+
+/**
+ * Initializes mobile view handler for window resize
+ */
+function initializeMobileHandler() {
+    // Only add listener once
+    if (!window.mobileHandlerInitialized) {
+        window.addEventListener('resize', handleWindowResize);
+        window.mobileHandlerInitialized = true;
+    }
+}
+
+/**
+ * Handles window resize events for mobile view
+ */
+function handleWindowResize() {
+    // If switching from mobile to desktop and details are shown
+    if (window.innerWidth > 1250) {
+        const mainContent = document.querySelector('.main-content');
+        const backArrow = document.querySelector('.mobile-back-arrow');
+
+        if (mainContent) {
+            mainContent.classList.remove('mobile-showing-details');
+        }
+        if (backArrow) {
+            backArrow.remove();
+        }
+    }
 }
 
 /**
@@ -69,7 +101,6 @@ async function fetchContactsFromDatabase() {
 function filterValidContacts(contacts) {
     return contacts.filter(contact => contact && contact.name && contact.name.trim() !== "");
 }
-
 /**
  * Sorts contacts alphabetically by name
  * @param {Array} contacts - Array of contact objects to sort
@@ -154,6 +185,63 @@ function showContactDetails(name, email, phone, firebaseKey, randomColor) {
     updateContactInitials(name, randomColor);
     updateContactEmail(email);
     updateContactPhone(phone);
+
+    // Mobile: Show details view and hide contact list
+    if (window.innerWidth <= 1250) {
+        showMobileContactDetails();
+    }
+}
+
+/**
+ * Shows contact details in mobile view
+ */
+function showMobileContactDetails() {
+    const mainContent = document.querySelector('.main-content');
+    const showContactContainer = document.querySelector('.show-contact-container');
+
+    if (mainContent && showContactContainer) {
+        mainContent.classList.add('mobile-showing-details');
+
+        // Add back arrow to contact details
+        addMobileBackArrow();
+    }
+}
+
+/**
+ * Adds a back arrow to mobile contact details view
+ */
+function addMobileBackArrow() {
+    const showContactContainer = document.querySelector('.show-contact-container');
+    const existingBackArrow = document.querySelector('.mobile-back-arrow');
+
+    if (showContactContainer && !existingBackArrow) {
+        const backArrow = document.createElement('button');
+        backArrow.className = 'mobile-back-arrow';
+        backArrow.innerHTML = `
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.43701 8.63255H19.333C20.0694 8.63255 20.6663 9.2295 20.6663 9.96588C20.6663 10.7023 20.0694 11.2992 19.333 11.2992H4.43701L10.6463 17.5085C11.167 18.0292 11.167 18.8733 10.6463 19.3939C10.1257 19.9145 9.28163 19.9145 8.76101 19.3939L0.74722 11.3801C-0.0338288 10.599 -0.0338272 9.33272 0.747221 8.55167L8.76101 0.537881C9.28163 0.0172601 10.1257 0.0172609 10.6463 0.537881C11.167 1.0585 11.167 1.90259 10.6463 2.42322L4.43701 8.63255Z" fill="#29ABE2"/>
+            </svg>
+        `;
+        backArrow.onclick = hideMobileContactDetails;
+
+        showContactContainer.appendChild(backArrow);
+    }
+}
+
+/**
+ * Hides contact details in mobile view and shows contact list
+ */
+function hideMobileContactDetails() {
+    const mainContent = document.querySelector('.main-content');
+    const backArrow = document.querySelector('.mobile-back-arrow');
+
+    if (mainContent) {
+        mainContent.classList.remove('mobile-showing-details');
+    }
+
+    if (backArrow) {
+        backArrow.remove();
+    }
 }
 
 /**
@@ -264,10 +352,16 @@ function hideContactDetailsSection() {
     const contactInfoLabel = document.getElementById('contact-info-label');
     const contactEmailSection = document.getElementById('contact-email-section');
     const contactPhoneSection = document.getElementById('contact-phone-section');
+
     if (contactDetailsSection) contactDetailsSection.classList.add('hidden');
     if (contactInfoLabel) contactInfoLabel.classList.add('hidden');
     if (contactEmailSection) contactEmailSection.classList.add('hidden');
     if (contactPhoneSection) contactPhoneSection.classList.add('hidden');
+
+    // Mobile: Also hide mobile details view
+    if (window.innerWidth <= 1250) {
+        hideMobileContactDetails();
+    }
 }
 
 /**

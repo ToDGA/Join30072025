@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="icon" href="./assets/icons/fav.svg" type="image/x-icon" />
@@ -11,12 +12,16 @@
     <link rel="stylesheet" href="./css/standard.css">
     <link rel="stylesheet" href="./css/edit_&_add_contact.css" />
     <link rel="stylesheet" href="./css/color.css" />
+    <!-- JavaScript -->
     <script src="./js/js_files/contact.js"></script>
     <script src="./templates/contact_template.js"></script>
     <title id="title">Join</title>
   </head>
   <body onload="loadContactList()">
+    <!-- Contact overlay for add/edit forms -->
     <div id="contact-overlay"></div>
+    
+    <!-- Sidebar Navigation -->
     <div class="sidebar">
       <div class="frame">
         <div class="capa2">
@@ -75,6 +80,7 @@
       </div>
     </div>
 
+    <!-- Main Header Container -->
     <div class="headercontainer">
       <header class="header">
         <div class="title-container">
@@ -86,14 +92,17 @@
         </div>
       </header>
 
-      <!-- maincontent -->
+      <!-- Main Content Area -->
       <div class="main-content">
+        <!-- Contact List Panel -->
         <div class="contact-list-container">
           <button onclick="openAddContactOverlay()" class="add-contact-btn">Add new contact
             <img class="add-contact-img" src="./assets/img/contact_add.svg" alt="Add Contact">
           </button>
           <div id="contact-list"></div>
         </div>
+        
+        <!-- Contact Details Panel -->
         <div class="show-contact-container">
           <div class="contact-team-container">
             <h1>Contacts</h1>
@@ -127,11 +136,14 @@
           </div>
         </div>
       </div>
+      
+      <!-- Mobile Add Contact Button -->
       <div onclick="openAddContactOverlay()" class="add-contact-mobile d-flex-c c-pointer">
         <img src="./assets/img/contact-add-person.svg" alt="Add contact">
       </div>
     </div>
 
+    <!-- Mobile Footer Navigation -->
     <div class="footer">
       <nav class="footer-nav">
         <a href="./summary.html" class="footer-nav-item">
@@ -152,6 +164,8 @@
         </a>
       </nav>
     </div>
+    
+    <!-- Navigation Helper Function -->
     <script>
       function goToPage(page) {
         window.location.href = page;
