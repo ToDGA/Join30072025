@@ -1,74 +1,78 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const intro = document.getElementById("intro");
-  const loginPage = document.getElementById("loginPage");
-  const introLogo = document.getElementById("introLogo");
+/* Cache DOM elements for reuse */
+const els = {
+  intro: document.getElementById("intro"),
+  loginPage: document.getElementById("loginPage"),
+  introLogo: document.getElementById("introLogo"),
+  password: document.getElementById("password"),
+  toggle: document.getElementById("toggle-password"),
+  lock: document.getElementById("lock-password"),
+  form: document.getElementById("login-form"),
+  email: document.getElementById("email"),
+  emailError: document.getElementById("email-error"),
+  passwordError: document.getElementById("password-error")
+};
 
-  if (intro && loginPage && introLogo) {
-    if (window.innerWidth <= 480) {
-      introLogo.src = "./assets/img/Capa 2white.svg";
-      intro.style.backgroundColor = "#2A3647";
-    } else {
-      introLogo.src = "./assets/img/Capa 2.svg";
-    }
-    setTimeout(() => {
-      if (window.innerWidth <= 480) {
-        introLogo.src = "./assets/img/Capa 2.svg";
-      }
-      intro.style.backgroundColor = "transparent";
-      intro.style.pointerEvents = "none";
-      loginPage.style.opacity = "1";
-    }, 1000);
-  }
+/* Set initial logo and background for intro */
+function setIntro() {
+  if (!els.intro || !els.loginPage || !els.introLogo) return;
+  const isMobile = window.innerWidth <= 480;
+  els.introLogo.src = isMobile ? "./assets/img/Capa 2white.svg" : "./assets/img/Capa 2.svg";
+  els.intro.style.backgroundColor = isMobile ? "#2A3647" : "transparent";
+}
 
-  // Password toggle
-  const passwordInput = document.getElementById("password");
-  const togglePassword = document.getElementById("toggle-password");
-  const lockPassword = document.getElementById("lock-password");
+/* Show login page after 1-second delay */
+function showLogin() {
+  if (!els.intro || !els.loginPage || !els.introLogo) return;
+  setTimeout(() => {
+    els.introLogo.src = "./assets/img/Capa 2.svg";
+    els.intro.style.backgroundColor = "transparent";
+    els.intro.style.pointerEvents = "none";
+    els.loginPage.style.opacity = "1";
+  }, 1000);
+}
 
-  togglePassword.addEventListener("click", () => {
-    const isHidden = passwordInput.type === "password";
-    passwordInput.type = isHidden ? "text" : "password";
-    togglePassword.src = isHidden
-      ? "./assets/img/visibility.svg"
-      : "./assets/img/visibility_off.svg";
+/* Toggle password field between text and password */
+function togglePasswordVisibility() {
+  if (!els.password || !els.toggle) return;
+  els.toggle.addEventListener("click", () => {
+    const isHidden = els.password.type === "password";
+    els.password.type = isHidden ? "text" : "password";
+    els.toggle.src = isHidden ? "./assets/img/visibility.svg" : "./assets/img/visibility_off.svg";
   });
+}
 
-  passwordInput.addEventListener("input", () => {
-    const hasValue = passwordInput.value.length > 0;
-    togglePassword.style.display = hasValue ? "block" : "none";
-    lockPassword.style.display = hasValue ? "none" : "block";
+/* Show/hide password icons based on input */
+function updatePasswordIcons() {
+  if (!els.password || !els.toggle || !els.lock) return;
+  els.password.addEventListener("input", () => {
+    const hasValue = els.password.value.length > 0;
+    els.toggle.style.display = hasValue ? "block" : "none";
+    els.lock.style.display = hasValue ? "none" : "block";
   });
+}
 
-  // Form validation
-  const form = document.getElementById("login-form");
-  const emailInput = document.getElementById("email");
-  const emailError = document.getElementById("email-error");
-  const passwordError = document.getElementById("password-error");
-
-  form.addEventListener("submit", (e) => {
+/* Validate form on submit and show errors */
+function validateForm() {
+  if (!els.form) return;
+  els.form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let hasError = false;
-
-    if (!emailInput.value.includes("@")) {
-      emailInput.classList.add("error");
-      emailError.style.display = "block";
-      hasError = true;
-    } else {
-      emailInput.classList.remove("error");
-      emailError.style.display = "none";
-    }
-
-    if (passwordInput.value.length < 6) {
-      passwordInput.classList.add("error");
-      passwordError.style.display = "block";
-      hasError = true;
-    } else {
-      passwordInput.classList.remove("error");
-      passwordError.style.display = "none";
-    }
-
-    if (!hasError) {
-      console.log("Log in successful!");
-    }
+    const emailValid = els.email.value.includes("@");
+    const passValid = els.password.value.length >= 6;
+    els.email.classList.toggle("error", !emailValid);
+    els.emailError.style.display = emailValid ? "none" : "block";
+    els.password.classList.toggle("error", !passValid);
+    els.passwordError.style.display = passValid ? "none" : "block";
+    if (emailValid && passValid) console.log("Log in successful!");
   });
-});
+}
+
+/* Initialize all page functionality */
+function init() {
+  setIntro(); // Start intro with logo and background
+  showLogin(); // Transition to login page
+  togglePasswordVisibility(); // Enable password toggle
+  updatePasswordIcons(); // Manage password icon visibility
+  validateForm(); // Set up form validation
+}
+
+init(); // Run all initialization

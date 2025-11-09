@@ -194,6 +194,7 @@ function getFirstLetter(letter) {
 
 /**
  * Generates the HTML template for a contact card in the contact list
+ * And asks if the name is over 20 characters long
  * @param {Object} data - The contact data object containing name, email, phone, and firebaseKey
  * @returns {string} HTML template string for the contact card
  */
@@ -212,5 +213,18 @@ function getContact(data) {
               <a href="mailto:${data.email}" onclick="event.stopPropagation()">${data.email}</a>
             </div>
         </div>
+    `
+}
+
+/**
+ * Generates the HTML template for the success notification message
+ * Returns a div with animation class that displays for 3 seconds and then disappears
+ * @returns {string} HTML template string for the success notification
+ */
+function getMessageSuccessfullyAdded() {
+    return `
+    <div class="succesfully-creat">
+        Contact succesfully created
+    </div>
     `
 }

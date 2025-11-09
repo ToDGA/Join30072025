@@ -1,25 +1,53 @@
-/* HTML/Body Höhe definieren */
+/**
+ * CONTACT PAGE STYLES
+ * 
+ * This stylesheet contains all styles for the contact management page
+ * including contact list, contact details, overlays, and responsive behavior
+ * 
+ * @author Florian Weyrauch
+ */
+
+/* ===================================================================
+   1. BASE STYLES & RESET
+   =================================================================== */
+
+/* HTML/Body base configuration */
 html, body {
     height: 100%;
+    overflow-x: hidden;
 }
 
-/* Global */
+/* ===================================================================
+   2. UTILITY CLASSES
+   =================================================================== */
 
+/* Visibility utilities */
 .hidden {
     display: none !important;
 }
 
+/* Typography utilities */
 .fs-b-16 {
     font-size: 16px;
     font-weight: 700;
     font-style: bold;
 }
 
+.fs-400-16 {
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+/* Layout utilities */
 .g-8 {
     gap: 8px;
 }
 
-/* Main Content Layout */
+/* ===================================================================
+   3. LAYOUT COMPONENTS
+   =================================================================== */
+
+/* Main container for the contact page */
 .main-content {
     width: 100%;
     flex: 1;
@@ -27,6 +55,11 @@ html, body {
     min-height: 0; 
 }
 
+/* ===================================================================
+   4. CONTACT LIST SECTION
+   =================================================================== */
+
+/* Container for the left side contact list */
 .contact-list-container {
     min-width: 456px;
     /* width: 36.775%; */
@@ -38,42 +71,7 @@ html, body {
     min-height: 0; 
 }
 
-.add-contact-btn {
-    margin-top: 22.5px;
-    font-size: 21px;
-    width: 352px;
-    height: 56px;
-    border-radius: 10px;
-    padding: 15px 24px;
-    gap: 10px;
-    border-width: 1px;
-    font-weight: bold;
-    background-color: var(--darkblue-color);
-    color: var(--white-color);
-}
-
-.add-contact-btn:hover {
-    background-color: var(--lightblue-color);
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-    scale: 1.02;
-}
-
-.add-contact-btn:active {
-    scale: 0.98;
-}
-
-.add-contact-img {
-    width: 32px;
-    height: 32px;
-    margin-left: 8px;
-}
-
-.add-contact-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Contact list wrapper */
 #contact-list {
     width: 100%;
     height: 100%;
@@ -82,6 +80,7 @@ html, body {
     align-items: center;
 }
 
+/* Alphabetical letter headers in contact list */
 .first-letter-container {
     width: 352px;
     height: 58px;
@@ -95,6 +94,7 @@ html, body {
     border-bottom: solid var(--placeholder-grey-color) 1px;
 }
 
+/* Individual contact cards in the list */
 .personal-ad {
     width: 352px;
     height: 78px;
@@ -104,10 +104,7 @@ html, body {
     display: flex;
 }
 
-.personal-ad a {
-    color: var(--mail-color);
-}
-
+/* Contact card hover effects */
 .personal-ad:hover {
     background-color: var(--darkblue-light-color);
     color: white;
@@ -115,6 +112,12 @@ html, body {
     scale: 1.02;
 }
 
+/* Email links in contact cards */
+.personal-ad a {
+    color: var(--mail-color);
+}
+
+/* Contact initials circle */
 .person-circle {
     width: 42px;
     height: 42px;
@@ -127,22 +130,84 @@ html, body {
     color: white;
 }
 
+/* Contact information container */
 .personal-data {
     font-weight: 400;
     display: flex;
     flex-direction: column;
 }
 
+/* Contact name styling */
 .person-name {
     padding-bottom: 5px;
     font-size: 20px;
 }
 
+/* Contact email styling */
 .personal-data a {
     font-size: 16px;
 }
 
-/* ########################################### */
+/* ===================================================================
+   5. ADD CONTACT BUTTON
+   =================================================================== */
+
+/* Main add contact button (desktop) */
+.add-contact-btn {
+    margin-top: 22.5px;
+    font-size: 21px;
+    width: 352px;
+    height: 56px;
+    border-radius: 10px;
+    padding: 15px 24px;
+    gap: 10px;
+    border-width: 1px;
+    font-weight: bold;
+    background-color: var(--darkblue-color);
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add contact button hover effects */
+.add-contact-btn:hover {
+    background-color: var(--lightblue-color);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    scale: 1.02;
+}
+
+/* Add contact button active state */
+.add-contact-btn:active {
+    scale: 0.98;
+}
+
+/* Icon inside add contact button */
+.add-contact-img {
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+/* Floating add contact button (mobile) */
+.add-contact-mobile {
+    background-color: var(--darkblue-color);
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+}
+
+/* Icon inside mobile add contact button */
+.add-contact-mobile img {
+    width: 29.33px;
+    height: 20.91px;
+}
+
+/* ===================================================================
+   6. CONTACT DETAILS SECTION
+   =================================================================== */
+
+/* Right side container for contact details */
 .show-contact-container {
     background-color: var(--light-grey-color);
     height: 100%;
@@ -152,6 +217,7 @@ html, body {
     padding: 88px 0 0 40px;
 }
 
+/* Header section with "Contacts" title */
 .contact-team-container {
     height: 73px;
     width: 100%;
@@ -162,6 +228,7 @@ html, body {
     margin-bottom: 40px;
 }
 
+/* Vertical separator bar */
 .bar {
     height: 59px;
     width: 3px;
@@ -169,22 +236,26 @@ html, body {
     background-color: var(--lightblue-color);
 }
 
+/* Subtitle in contact header */
 .contact-team-container p {
     font-size: 27px;
     font-weight: 400;
 }
 
+/* Main title in contact header */
 .contact-team-container h1 {
     font-size: 61px;
     font-weight: 700;
 }
 
+/* Contact details main container */
 .contact-form-control {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
 }
 
+/* Large contact initials circle in details view */
 .contact-form-circle {
     width: 120px;
     height: 120px;
@@ -198,11 +269,13 @@ html, body {
     margin-right: 64px;
 }
 
+/* Contact name in details view */
 .contact-form-name {
     font-size: 47px;
     font-weight: 500;
 }
 
+/* Edit and delete buttons container */
 .contact-form-edit-delete {
     margin-top: 8px;
     display: flex;
@@ -213,48 +286,20 @@ html, body {
     cursor: pointer;
 }
 
+/* Icons in edit/delete buttons */
 .contact-form-edit-delete img {
     height: 18.25px;
     width: 18.25px;
 }
 
+/* Contact information section */
 .contact-info {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 40px;
 }
 
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #e0e0e0;
-}
-
-*::-webkit-scrollbar-track:hover {
-  background-color: #e8e8e8;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: linear-gradient(180deg, #29ABE2 0%, #2A3647 100%);
-  border: 1px solid #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #1e8cc7 0%, #1e2a35 100%);
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, #1976a3 0%, #151e28 100%);
-}
-
+/* Contact email and phone containers */
 .contact-email-frame,
 .contact-phone-frame {
     display: flex;
@@ -262,22 +307,128 @@ html, body {
     gap: 8px;
 }
 
+/* Spacing for email section */
 .contact-email-frame {
     margin-bottom: 12px;
 }
 
-.add-contact-mobile {
-    background-color: var(--darkblue-color);
-    height: 56px;
-    width: 56px;
-    border-radius: 50%;
+/* ===================================================================
+   7. SUCCESS NOTIFICATION
+   =================================================================== */
+
+/* Success notification popup */
+.succesfully-creat {
+    width: 326px;
+    height: 74px;
+    background-color: var( --darkblue-light-color);
+    color: var(--white-color);
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.add-contact-mobile img {
-    width: 29.33px;
-    height: 20.91px;
+/* Animation trigger for success notification */
+.succesfully-creat, .show-animation {
+    animation: slideInOut 3s ease-in-out forwards;
 }
 
+/* Success notification slide animation */
+@keyframes slideInOut {
+    0% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: flex;
+    }
+    1% {
+        display: flex;
+    }
+    33% {
+        transform: translateX(0);
+        opacity: 1;
+        display: flex;
+    }
+    66% {
+        transform: translateX(0);
+        opacity: 1;
+        display: flex;
+    }
+    99% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: flex;
+    }
+    100% {
+        transform: translateX(400px);
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* ===================================================================
+   8. MOBILE EDIT DELETE
+   =================================================================== */
+.mobile-edit-delete {
+    width: 116px;
+    height: 100px;
+    border-radius: 20px 20px 0 20px;
+    background-color: var(--white-color);
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===================================================================
+   9. SCROLLBAR CUSTOMIZATION
+   =================================================================== */
+
+/* Custom scrollbar styling */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Scrollbar track */
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #e0e0e0;
+}
+
+/* Scrollbar track hover state */
+*::-webkit-scrollbar-track:hover {
+  background-color: #e8e8e8;
+}
+
+/* Scrollbar thumb (draggable part) */
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #29ABE2 0%, #2A3647 100%);
+  border: 1px solid #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar thumb hover state */
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e8cc7 0%, #1e2a35 100%);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar thumb active state */
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #1976a3 0%, #151e28 100%);
+}
+
+/* ===================================================================
+   10. RESPONSIVE DESIGN
+   =================================================================== */
+
+/* Tablet landscape view (1300px and below) */
 @media (max-width: 1300px) {
     .contact-list-container {
         min-width: 40%;
@@ -313,8 +464,9 @@ html, body {
         width: 100px;
         font-size: 40px;
     }
-} 
+}
 
+/* Tablet portrait view (1050px and below) */
 @media (max-width: 1050px) {
     .show-contact-container {
         padding-left: 24px;
@@ -333,180 +485,50 @@ html, body {
     }
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 945px) {
     .add-contact-mobile {
         display: none !important;
     }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 945px) {
     .add-contact-mobile {
         position: absolute;
         bottom: 48px;
         right: 24px;
     }
 
-    /* Mobile: Default state - show only contact list */
-    .show-contact-container {
-        display: none;
-    }
+  .show-contact-container {
+    display: none;
+  }
 
-    /* Mobile: When details are shown, hide contact list and show details full screen */
-    .main-content.mobile-showing-details {
-        position: relative;
-    }
+  .add-contact-btn {
+    display: none;
+  }
 
-    .main-content.mobile-showing-details .contact-list-container {
-        display: none;
-    }
+  .contact-list-container {
+      min-width: 100%;
+      padding: 24px;
+  }
 
-    .main-content.mobile-showing-details .show-contact-container {
-        display: flex !important;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--light-grey-color);
-        padding: 24px;
-        flex-direction: column;
-        z-index: 10;
-    }
+  .first-letter-container,
+  .personal-ad {
+    width: 90%;
+  }
 
-    .add-contact-btn {
-        display: none;
-    }
+  .person-circle {
+    height: 42px !important;
+    width: 42px !important;
+  }
 
-    .contact-list-container {
-        min-width: 100%;
-        padding: 24px;
-    }
+  .personal-data {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .first-letter-container,
-    .personal-ad {
-        width: 90%;
-    }
-
-    .person-circle {
-        height: 42px !important;
-        width: 42px !important;
-    }
-
-    .personal-data {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Mobile contact details styling when shown */
-    .main-content.mobile-showing-details .contact-team-container {
-        margin-bottom: 32px;
-        margin-top: 40px; /* Space for back arrow */
-    }
-
-    .main-content.mobile-showing-details .contact-team-container h1 {
-        font-size: 48px;
-        font-weight: 700;
-    }
-
-    .main-content.mobile-showing-details .contact-team-container p {
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    .main-content.mobile-showing-details .bar {
-        height: 59px;
-        width: 3px;
-        border-radius: 3px;
-        background-color: var(--lightblue-color);
-    }
-
-    .main-content.mobile-showing-details .contact-form-circle {
-        width: 120px;
-        height: 120px;
-        font-size: 47px;
-        font-weight: 500;
-        margin-right: 0;
-        margin-bottom: 24px;
-        border: 2px solid var(--white-color);
-        box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
-    }
-
-    .main-content.mobile-showing-details .contact-form-control {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 32px;
-    }
-
-    .main-content.mobile-showing-details .contact-form-name {
-        font-size: 47px;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-
-    .main-content.mobile-showing-details .contact-form-edit-delete {
-        display: none; /* Hide edit/delete buttons in mobile */
-    }
-
-    .main-content.mobile-showing-details .contact-info {
-        font-size: 20px;
-        font-weight: 400;
-        margin-bottom: 24px;
-    }
-
-    .main-content.mobile-showing-details .contact-email-frame,
-    .main-content.mobile-showing-details .contact-phone-frame {
-        margin-bottom: 24px;
-    }
-
-    .main-content.mobile-showing-details .contact-email-frame h3,
-    .main-content.mobile-showing-details .contact-phone-frame h3 {
-        font-size: 16px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-    }
-
-    .main-content.mobile-showing-details .contact-email-frame a {
-        font-size: 16px;
-        color: var(--lightblue-color);
-        text-decoration: none;
-    }
-
-    .main-content.mobile-showing-details .contact-phone-frame a {
-        font-size: 16px;
-        color: #000;
-        text-decoration: none;
-    }
-
-    /* Mobile back arrow - positioned like in the screenshot */
-    .mobile-back-arrow {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 20;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-    }
-
-    .mobile-back-arrow svg {
-        width: 21px;
-        height: 20px;
-    }
 }
 
-@media (max-width: 950px) {
-    .add-contact-mobile {
-        bottom: 124px;
-    }
-}
-
+/* Extra small mobile view (400px and below) */
 @media (max-width: 400px) {
     .contact-list-container {
         padding: 8px;

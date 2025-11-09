@@ -25,11 +25,11 @@ body {
   flex-direction: column;
 }
 
-logo-img {
+/* logo-img {
   width: 25px !important;
   height: 30px !important;
   max-width: 25px;
-}
+} */
 
 .sidebar {
   width: 200px;
@@ -175,10 +175,9 @@ logo-img {
 }
 
 .main-content-privacy {
-  max-height: 80vh;
   padding: 110px;
   overflow-y: auto;
-  height: 100vh;
+  max-height: 90vh;
 }
 
 .main-content-privacy h2 {
@@ -190,3 +189,15 @@ logo-img {
 .main-content-privacy ul {
   margin-bottom: 25px;
 }
+
+.kb-card.is-tilted { 
+  transform: rotate(2deg) scale(1.02); 
+  box-shadow: 0 10px 30px rgba(0,0,0,.15); 
+  transition: transform 120ms ease; 
+}
+
+.kb-column.is-dragover, .kb-col.is-dragover { 
+  outline: 2px dashed rgba(0,0,0,.15); 
+  outline-offset: 4px; 
+}
+

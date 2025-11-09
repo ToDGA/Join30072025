@@ -1,0 +1,123 @@
+/* ===== Desktop polish (>=1024px) ===== */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .kb-columns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+}
+@media (min-width: 1400px) {
+  .kb-columns {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .kb {
+    padding: 28px 40px 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .kb-toolbar {
+    grid-template-columns: 1fr auto auto;
+    align-items: end;
+    gap: 14px;
+  }
+  .kb-title {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0 0 2px 0;
+  }
+  .kb-search {
+    width: 360px;
+  }
+  .kb-search input {
+    height: 46px;
+  }
+  .kb-add-btn {
+    height: 46px;
+    padding: 0 16px;
+  }
+  .kb-col-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .kb-col-title {
+    margin: 0;
+    flex: 1;
+    font-size: 19px;
+  }
+  .kb-col-add {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid #2A3647;
+    background: #FFFFFF;
+    display: inline-grid;
+    place-items: center;
+    line-height: 1;
+    box-shadow: none;
+  }
+  .kb-col-add::after {
+    content: "+";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: #2A3647;
+    transform: translateY(-1px);
+  }
+  .kb-col-add:hover {
+    border-color: #29ABE2;
+    background: #FFFFFF;
+  }
+  .kb-empty {
+    height: 64px;
+    border-radius: 12px;
+  }
+  .kb-card {
+    margin-top: 16px;
+    padding: 16px 16px 14px;
+  }
+  .kb-card-title {
+    font-size: 18px;
+  }
+  .kb-card-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+  .headercontainer {
+    margin-left: 0;
+  }
+  .kb {
+    padding: 24px 24px 40px;
+    min-height: calc(100vh - 72px);
+  }
+  .kb-toolbar {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  .kb-title {
+    font-size: 40px;
+  }
+  .kb-actions {
+    gap: 12px;
+  }
+  .kb-search {
+    width: 100%;
+    max-width: 420px;
+  }
+  .kb-search input {
+    height: 44px;
+  }
+  .kb-add-btn {
+    height: 44px;
+  }
+  .kb-columns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}

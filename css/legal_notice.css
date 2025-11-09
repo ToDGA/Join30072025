@@ -1,0 +1,11 @@
+.legal_notice{
+    padding: 64px 75px 32px 119px;
+    overflow-y: auto;
+    max-height: 84vh;
+    margin-bottom: 68px;;
+
+}
+
+a {
+color:#75c7ea ;
+}
