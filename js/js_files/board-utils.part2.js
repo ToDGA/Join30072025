@@ -85,8 +85,6 @@ function collectCardData(card) {
   const desc = getTextContent(card.querySelector(".kb-card-desc"));
   const priority = getPriorityFromCard(card);
   const assignees = getAssigneesList(card.querySelector(".kb-avatars"));
-  const dueDate = card.dataset.due || "";
-  const subtasks = getCardSubtasks(card);
   
   return {
     type,
@@ -94,8 +92,8 @@ function collectCardData(card) {
     desc,
     priority,
     assignees,
-    dueDate,
-    subtasks,
+    dueDate: card.dataset.due || "",
+    subtasks: getCardSubtasks(card),
     cardEl: card
   };
 }

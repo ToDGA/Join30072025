@@ -1,6 +1,5 @@
 /**
- * Validates phone input field and displays validation message
- * @param {HTMLInputElement} inputElement - The phone input element to validate
+ * Validates phone input
  */
 function validatePhoneInput(inputElement) {
   const error = validatePhone(inputElement.value);
@@ -9,11 +8,8 @@ function validatePhoneInput(inputElement) {
 }
 
 /**
-* Validates a name string according to business rules
-* @param {string} value - The name value to validate
-* @param {boolean} showRequired - Whether to show required message for empty values
-* @returns {boolean|string} True if valid, error message string if invalid
-*/
+ * Validates a name string
+ */
 function validateName(value, showRequired = false) {
   const nameRegex = /^[a-zA-ZäöüßÄÖÜ.'\- ]{5,}$/;
   const trimmedValue = value.trim();
@@ -23,16 +19,12 @@ function validateName(value, showRequired = false) {
   if (!nameRegex.test(trimmedValue)) {
       return "Name can only contain letters, spaces, apostrophes, and hyphens.";
   }
-
   return true;
 }
 
 /**
-* Validates an email address using comprehensive regex pattern
-* @param {string} value - The email value to validate
-* @param {boolean} showRequired - Whether to show required message for empty values
-* @returns {boolean|string} True if valid, error message string if invalid
-*/
+ * Validates an email address
+ */
 function validateEmail(value, showRequired = false) {
   const trimmedValue = value.trim();
   if (trimmedValue === "") {
@@ -46,11 +38,8 @@ function validateEmail(value, showRequired = false) {
 }
 
 /**
-* Validates a phone number using allowed characters and length rules
-* @param {string} value - The phone value to validate
-* @param {boolean} showRequired - Whether to show required message for empty values
-* @returns {boolean|string} True if valid, error message string if invalid
-*/
+ * Validates a phone number
+ */
 function validatePhone(value, showRequired = false) {
   const trimmedValue = value.trim();
   const phoneRegex = /^[0-9+\-() ]{5,20}$/;
@@ -67,10 +56,8 @@ function validatePhone(value, showRequired = false) {
 }
 
 /**
-* Sets validation message on a DOM element
-* @param {HTMLElement} element - The element to display the message on
-* @param {boolean|string} message - True for valid (clears message), string for error message
-*/
+ * Sets validation message
+ */
 function setValidationMessage(element, message) {
   if (element) {
       if (message === true) {
@@ -85,8 +72,8 @@ function setValidationMessage(element, message) {
 }
 
 /**
-* Opens the edit contact overlay for the currently selected contact
-*/
+ * Opens edit contact overlay
+ */
 function openEditContactOverlay() {
   if (!selectedContactKey) {
       console.error("No contact selected for editing.");
@@ -102,18 +89,15 @@ function openEditContactOverlay() {
 }
 
 /**
-* Finds a contact in currentData by its Firebase key
-* @param {string} firebaseKey - The Firebase key to search for
-* @returns {Object|undefined} The contact object or undefined if not found
-*/
+ * Finds contact by key
+ */
 function findContactByKey(firebaseKey) {
   return currentData.find(contact => contact.firebaseKey === firebaseKey);
 }
 
 /**
-* Validates name input field in edit form and displays validation message
-* @param {HTMLInputElement} inputElement - The name input element to validate
-*/
+ * Validates edit name input
+ */
 function validateEditNameInput(inputElement) {
   const error = validateName(inputElement.value);
   const validationElement = document.getElementById("edit-name-validation");
@@ -121,9 +105,8 @@ function validateEditNameInput(inputElement) {
 }
 
 /**
-* Validates email input field in edit form and displays validation message
-* @param {HTMLInputElement} inputElement - The email input element to validate
-*/
+ * Validates edit email input
+ */
 function validateEditEmailInput(inputElement) {
   const error = validateEmail(inputElement.value);
   const validationElement = document.getElementById("edit-email-validation");
@@ -131,9 +114,8 @@ function validateEditEmailInput(inputElement) {
 }
 
 /**
-* Validates phone input field in edit form and displays validation message
-* @param {HTMLInputElement} inputElement - The phone input element to validate
-*/
+ * Validates edit phone input
+ */
 function validateEditPhoneInput(inputElement) {
   const error = validatePhone(inputElement.value);
   const validationElement = document.getElementById("edit-phone-validation");
@@ -141,9 +123,8 @@ function validateEditPhoneInput(inputElement) {
 }
 
 /**
-* Validates all input fields in the edit contact form
-* @returns {boolean} True if all validations pass, false otherwise
-*/
+ * Validates edit contact input
+ */
 function validationEditContactInput() {
   const editName = document.getElementById("edit-name");
   const editEmail = document.getElementById("edit-email");
@@ -161,9 +142,8 @@ function validationEditContactInput() {
 }
 
 /**
-* Gets the current values from display and edit form elements
-* @returns {Object} Object containing old and new contact values
-*/
+ * Gets values from form
+ */
 function getValues() {
   const oldName = document.getElementById("contact-display-name").textContent;
   const oldEmail = document.getElementById("contact-email-link").textContent;
@@ -175,10 +155,30 @@ function getValues() {
 }
 
 /**
-* Saves the edited contact data to the database after validation
-* @async
-* @returns {Promise<void>}
-*/
+ * Checks if contact has changes
+ */
+function hasChanges(oldName, oldEmail, oldPhone, editName, editEmail, editPhone) {
+  return editName !== oldName || editEmail !== oldEmail || editPhone !== oldPhone;
+}
+
+/**
+ * Updates contact in database and UI
+ */
+async function updateContact(editName, editEmail, editPhone) {
+  const updatedContact = {
+      name: editName,
+      email: editEmail,
+      phone: editPhone
+  };
+  await updateContactInDatabase(selectedContactKey, updatedContact);
+  await loadContactList();
+  const randomColor = getRandomColorClass();
+  showContactDetails(updatedContact.name, updatedContact.email, updatedContact.phone, selectedContactKey, randomColor);
+}
+
+/**
+ * Saves edited contact
+ */
 async function saveEditedContact() {
   if (!validationEditContactInput()) {
       console.error("Validation failed.");
@@ -190,16 +190,8 @@ async function saveEditedContact() {
   }
   const { oldName, oldEmail, oldPhone, editName, editEmail, editPhone } = getValues();
   try {
-      if (editName !== oldName || editEmail !== oldEmail || editPhone !== oldPhone) {
-          const updatedContact = {
-              name: editName,
-              email: editEmail,
-              phone: editPhone
-          };
-          await updateContactInDatabase(selectedContactKey, updatedContact);
-          await loadContactList();
-          const randomColor = getRandomColorClass();
-          showContactDetails(updatedContact.name, updatedContact.email, updatedContact.phone, selectedContactKey, randomColor);
+      if (hasChanges(oldName, oldEmail, oldPhone, editName, editEmail, editPhone)) {
+          await updateContact(editName, editEmail, editPhone);
       }
       closeEditContactOverlay();
   } catch (error) {
@@ -208,12 +200,8 @@ async function saveEditedContact() {
 }
 
 /**
-* Updates a contact in Firebase database by its key
-* @async
-* @param {string} firebaseKey - The Firebase database key of the contact to update
-* @param {Object} contactData - The updated contact data object
-* @returns {Promise<void>}
-*/
+ * Updates contact in Firebase
+ */
 async function updateContactInDatabase(firebaseKey, contactData) {
   let response = await fetch(BASE_URL + "contacts/" + firebaseKey + ".json", {
       method: "PUT",
@@ -222,15 +210,14 @@ async function updateContactInDatabase(firebaseKey, contactData) {
       },
       body: JSON.stringify(contactData)
   });
-
   if (!response.ok) {
       console.error(error);
   }
 }
 
 /**
-* Closes the edit contact overlay by clearing its content
-*/
+ * Closes edit contact overlay
+ */
 function closeEditContactOverlay() {
   let contactOverlay = document.getElementById("contact-overlay");
   contactOverlay.innerHTML = "";

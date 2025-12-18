@@ -5,26 +5,14 @@ let selectedContactKey = null;
 
 // Available color classes from color.css
 const colorClasses = [
-    'color-orange',
-    'color-pink',
-    'color-purple',
-    'color-violet',
-    'color-cyan',
-    'color-turquoise',
-    'color-coral',
-    'color-peach',
-    'color-light-pink',
-    'color-yellow',
-    'color-blue',
-    'color-lime-green',
-    'color-light-yellow',
-    'color-red',
-    'color-goldenrod'
+    'color-orange', 'color-pink', 'color-purple', 'color-violet',
+    'color-cyan', 'color-turquoise', 'color-coral', 'color-peach',
+    'color-light-pink', 'color-yellow', 'color-blue', 'color-lime-green',
+    'color-light-yellow', 'color-red', 'color-goldenrod'
 ];
 
 /**
- * Gets a random color class from the available color classes
- * @returns {string} A random color class name
+ * Gets a random color class
  */
 function getRandomColorClass() {
     const randomIndex = Math.floor(Math.random() * colorClasses.length);
@@ -32,9 +20,7 @@ function getRandomColorClass() {
 }
 
 /**
- * Loads and displays the complete contact list with alphabetical grouping
- * @async
- * @returns {Promise<void>}
+ * Loads and displays the complete contact list
  */
 async function loadContactList() {
     const contacts = await fetchContactsFromDatabase();
@@ -45,9 +31,7 @@ async function loadContactList() {
 }
 
 /**
- * Fetches all contacts from Firebase database and stores them in currentData
- * @async
- * @returns {Promise<Array>} Array of contact objects with Firebase keys
+ * Fetches all contacts from Firebase
  */
 async function fetchContactsFromDatabase() {
     const data = await getData("/contacts");
@@ -63,27 +47,21 @@ async function fetchContactsFromDatabase() {
 }
 
 /**
- * Filters out invalid contacts (null, undefined, or empty names)
- * @param {Array} contacts - Array of contact objects to filter
- * @returns {Array} Array of valid contact objects
+ * Filters out invalid contacts
  */
 function filterValidContacts(contacts) {
     return contacts.filter(contact => contact && contact.name && contact.name.trim() !== "");
 }
 
 /**
- * Sorts contacts alphabetically by name
- * @param {Array} contacts - Array of contact objects to sort
- * @returns {Array} Alphabetically sorted array of contacts
+ * Sorts contacts alphabetically
  */
 function sortContactsAlphabetically(contacts) {
     return contacts.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
- * Groups contacts by their first letter for alphabetical display
- * @param {Array} contacts - Array of contact objects to group
- * @returns {Object} Object with letters as keys and contact arrays as values
+ * Groups contacts by first letter
  */
 function groupContactsByFirstLetter(contacts) {
     const groupedContacts = {};
@@ -98,17 +76,14 @@ function groupContactsByFirstLetter(contacts) {
 }
 
 /**
- * Extracts and returns the first letter from a name in uppercase
- * @param {string} name - The name to extract the first letter from
- * @returns {string} First letter in uppercase
+ * Extracts first letter from name
  */
 function getFirstLetterFromName(name) {
     return name.charAt(0).toUpperCase();
 }
 
 /**
- * Displays contacts grouped by letter in the DOM
- * @param {Object} groupedContacts - Object with letters as keys and contact arrays as values
+ * Displays contacts grouped by letter
  */
 function displayContactsGroupedByLetter(groupedContacts) {
     const contactList = document.getElementById("contact-list");
@@ -121,18 +96,14 @@ function displayContactsGroupedByLetter(groupedContacts) {
 }
 
 /**
- * Adds a letter header to the contact list container
- * @param {HTMLElement} container - The DOM container to add the header to
- * @param {string} letter - The letter to display as header
+ * Adds letter header to DOM
  */
 function addLetterHeaderToDOM(container, letter) {
     container.innerHTML += getFirstLetter(letter);
 }
 
 /**
- * Adds contact cards for a specific letter to the DOM container
- * @param {HTMLElement} container - The DOM container to add contacts to
- * @param {Array} contacts - Array of contact objects to display
+ * Adds contacts for letter to DOM
  */
 function addContactsForLetterToDOM(container, contacts) {
     contacts.forEach(contact => {
@@ -141,12 +112,7 @@ function addContactsForLetterToDOM(container, contacts) {
 }
 
 /**
- * Displays detailed contact information in the contact details section
- * @param {string} name - Contact's full name
- * @param {string} email - Contact's email address
- * @param {string} phone - Contact's phone number
- * @param {string} firebaseKey - Firebase database key for the contact
- * @param {string} randomColor - CSS color class for the contact initials circle
+ * Displays detailed contact information
  */
 function showContactDetails(name, email, phone, firebaseKey, randomColor) {
     selectedContactKey = firebaseKey;
@@ -158,7 +124,7 @@ function showContactDetails(name, email, phone, firebaseKey, randomColor) {
 }
 
 /**
- * Shows the contact details section by removing hidden class from elements
+ * Shows contact details section
  */
 function showContactDetailsSection() {
     const contactDetailsSection = document.getElementById('contact-details-section');
@@ -172,8 +138,7 @@ function showContactDetailsSection() {
 }
 
 /**
- * Updates the display name in the contact details section
- * @param {string} name - The contact's full name to display
+ * Updates display name
  */
 function updateContactDisplayName(name) {
     const nameElement = document.getElementById('contact-display-name');
@@ -183,9 +148,7 @@ function updateContactDisplayName(name) {
 }
 
 /**
- * Updates the contact initials circle with the contact's initials
- * @param {string} name - The contact's full name to generate initials from
- * @param {string} randomColor - CSS color class to apply to the contact initials circle
+ * Updates contact initials
  */
 function updateContactInitials(name, randomColor) {
     const nameWords = name.split(' ');
@@ -201,8 +164,7 @@ function updateContactInitials(name, randomColor) {
 }
 
 /**
- * Updates the email link in the contact details section
- * @param {string} email - The contact's email address
+ * Updates email link
  */
 function updateContactEmail(email) {
     const emailLink = document.getElementById('contact-email-link');
@@ -213,8 +175,7 @@ function updateContactEmail(email) {
 }
 
 /**
- * Updates the phone link in the contact details section
- * @param {string} phone - The contact's phone number
+ * Updates phone link
  */
 function updateContactPhone(phone) {
     const phoneLink = document.getElementById('contact-phone-link');
@@ -225,9 +186,17 @@ function updateContactPhone(phone) {
 }
 
 /**
- * Deletes the currently selected contact from the database and updates UI
- * @async
- * @returns {Promise<void>}
+ * Cleans up after contact deletion
+ */
+async function cleanupAfterDelete() {
+    closeEditContactOverlay();
+    hideContactDetailsSection();
+    selectedContactKey = null;
+    await loadContactList();
+}
+
+/**
+ * Deletes selected contact
  */
 async function deleteSelectedContact() {
     if (!selectedContactKey) {
@@ -236,20 +205,14 @@ async function deleteSelectedContact() {
     }
     try {
         await deleteContactFromDatabase(selectedContactKey);
-        closeEditContactOverlay();
-        hideContactDetailsSection();
-        selectedContactKey = null;
-        await loadContactList();
+        await cleanupAfterDelete();
     } catch (error) {
         console.error("Error deleting contact:", error);
     }
 }
 
 /**
- * Deletes a contact from Firebase database by its key
- * @async
- * @param {string} firebaseKey - The Firebase database key of the contact to delete
- * @returns {Promise<void>}
+ * Deletes contact from database
  */
 async function deleteContactFromDatabase(firebaseKey) {
     await fetch(BASE_URL + "contacts/" + firebaseKey + ".json", {
@@ -258,7 +221,7 @@ async function deleteContactFromDatabase(firebaseKey) {
 }
 
 /**
- * Hides the contact details section by adding hidden class to elements
+ * Hides contact details section
  */
 function hideContactDetailsSection() {
     const contactDetailsSection = document.getElementById('contact-details-section');
@@ -272,7 +235,7 @@ function hideContactDetailsSection() {
 }
 
 /**
- * Opens the add contact overlay with the contact form template
+ * Opens add contact overlay
  */
 function openAddContactOverlay() {
     const contactOverlay = document.getElementById("contact-overlay");
@@ -280,9 +243,7 @@ function openAddContactOverlay() {
 }
 
 /**
- * Closes the add contact overlay and reloads the contact list
- * @async
- * @returns {Promise<void>}
+ * Closes add contact overlay
  */
 async function closeAddContactOverlay() {
     const contactOverlay = document.getElementById("contact-overlay");
@@ -291,11 +252,7 @@ async function closeAddContactOverlay() {
 }
 
 /**
- * Posts data to Firebase database at specified path
- * @async
- * @param {string} path - The database path to post to (default: "")
- * @param {Object} data - The data object to post
- * @returns {Promise<void>}
+ * Posts data to Firebase
  */
 async function postData(path = "", data) {
     let response = await fetch(BASE_URL + path + ".json", {
@@ -305,17 +262,13 @@ async function postData(path = "", data) {
         },
         body: JSON.stringify(data)
     });
-
     if (!response.ok) {
         console.error(`POST request failed: ${response.status} ${response.statusText}`);
     }
 }
 
 /**
- * Fetches data from Firebase database at specified path
- * @async
- * @param {string} path - The database path to fetch from (default: "")
- * @returns {Promise<Object>} The fetched data object
+ * Fetches data from Firebase
  */
 async function getData(path = "") {
     let response = await fetch(BASE_URL + path + ".json");
@@ -327,8 +280,7 @@ async function getData(path = "") {
 }
 
 /**
- * Validates all input fields in the add contact form
- * @returns {boolean} True if all validations pass, false otherwise
+ * Validates add contact input
  */
 function validationAddContactInput() {
     const addName = document.getElementById("add-name");
@@ -347,23 +299,28 @@ function validationAddContactInput() {
 }
 
 /**
- * Creates and posts a new contact to the database after validation
- * @async
- * @returns {Promise<void>}
+ * Builds contact from form
+ */
+function buildContactFromForm() {
+    const addName = document.getElementById("add-name");
+    const addEmail = document.getElementById("add-email");
+    const addPhone = document.getElementById("add-phone");
+    return {
+        name: addName.value,
+        email: addEmail.value,
+        phone: addPhone.value
+    };
+}
+
+/**
+ * Posts new contact
  */
 async function postNewContact() {
     if (!validationAddContactInput()) {
         console.error("Validation failed.");
         return;
     }
-    const addName = document.getElementById("add-name");
-    const addEmail = document.getElementById("add-email");
-    const addPhone = document.getElementById("add-phone");
-    const newContact = {
-        name: addName.value,
-        email: addEmail.value,
-        phone: addPhone.value
-    };
+    const newContact = buildContactFromForm();
     try {
         await postData("contacts", newContact);
         showSuccesfullyContactCreated();
@@ -374,8 +331,7 @@ async function postNewContact() {
 }
 
 /**
- * Validates name input field and displays validation message
- * @param {HTMLInputElement} inputElement - The name input element to validate
+ * Validates name input
  */
 function validateNameInput(inputElement) {
     const error = validateName(inputElement.value);
@@ -384,8 +340,7 @@ function validateNameInput(inputElement) {
 }
 
 /**
- * Validates email input field and displays validation message
- * @param {HTMLInputElement} inputElement - The email input element to validate
+ * Validates email input
  */
 function validateEmailInput(inputElement) {
     const error = validateEmail(inputElement.value);

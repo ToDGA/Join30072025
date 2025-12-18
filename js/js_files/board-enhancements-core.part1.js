@@ -231,6 +231,24 @@ function beDispatchTaskMoved(id, status) {
 
 
 /**
+ * Handles card drop to column
+ * @param {HTMLElement} card - Card element
+ * @param {HTMLElement} col - Column element
+ */
+function beHandleCardDrop(card, col) {
+  const fromCol = beGetColumn(card);
+  
+  beMoveCardToColumn(card, col);
+  
+  if (fromCol) beUpdateColumnState(fromCol);
+  beUpdateColumnState(col);
+  beUpdateCardStatus(card, col);
+  
+  beDispatchTaskMoved(card.dataset.id, card.dataset.status || "");
+}
+
+
+/**
  * Handles drop event
  * @param {DragEvent} e - Drop event
  */
@@ -249,15 +267,7 @@ function beOnDrop(e) {
   const card = beGetCardById(id);
   if (!card) return;
   
-  const fromCol = beGetColumn(card);
-  
-  beMoveCardToColumn(card, col);
-  
-  if (fromCol) beUpdateColumnState(fromCol);
-  beUpdateColumnState(col);
-  beUpdateCardStatus(card, col);
-  
-  beDispatchTaskMoved(id, card.dataset.status || "");
+  beHandleCardDrop(card, col);
 }
 
 
@@ -274,6 +284,17 @@ function beInitDnd(root) {
 
 
 /**
+ * Processes single card
+ * @param {HTMLElement} card - Card element
+ */
+function beProcessSingleCard(card) {
+  beMakeDraggable(card);
+  const col = beGetColumn(card) || beGetColumn(card.parentElement);
+  if (col) beUpdateColumnState(col);
+}
+
+
+/**
  * Processes added card node
  * @param {Node} node - Added node
  */
@@ -281,15 +302,11 @@ function beProcessAddedCard(node) {
   if (!(node instanceof HTMLElement)) return;
   
   if (node.matches(".kb-card")) {
-    beMakeDraggable(node);
-    const col = beGetColumn(node) || beGetColumn(node.parentElement);
-    if (col) beUpdateColumnState(col);
+    beProcessSingleCard(node);
   }
   
   node.querySelectorAll?.(".kb-card").forEach(card => {
-    beMakeDraggable(card);
-    const col = beGetColumn(card) || beGetColumn(card.parentElement);
-    if (col) beUpdateColumnState(col);
+    beProcessSingleCard(card);
   });
 }
 

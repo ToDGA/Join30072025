@@ -1,5 +1,6 @@
 /**
  * Patches openDetails function
+ * @returns {Promise<void>}
  */
 function bePatchOpenDetails() {
   if (!window.openDetails || window.openDetails.__bePatched) return;
@@ -97,6 +98,20 @@ function beHandleEditClick(card) {
 
 
 /**
+ * Handles card action (edit or delete)
+ * @param {HTMLElement} card - Card element
+ * @param {boolean} isDelete - Is delete action
+ */
+function beHandleCardAction(card, isDelete) {
+  if (isDelete) {
+    beDelete(card);
+  } else {
+    beHandleEditClick(card);
+  }
+}
+
+
+/**
  * Handles board click events
  * @param {MouseEvent} e - Click event
  */
@@ -113,11 +128,7 @@ function beOnBoardClick(e) {
   const card = (editBtn || delBtn)?.closest(".kb-card");
   if (!card) return;
   
-  if (delBtn) {
-    beDelete(card);
-  } else {
-    beHandleEditClick(card);
-  }
+  beHandleCardAction(card, !!delBtn);
 }
 
 
@@ -155,6 +166,20 @@ function beHandleDetailsDeleteClick(card) {
 
 
 /**
+ * Handles details action (edit or delete)
+ * @param {HTMLElement} card - Card element
+ * @param {boolean} isDelete - Is delete action
+ */
+function beHandleDetailsAction(card, isDelete) {
+  if (isDelete) {
+    beHandleDetailsDeleteClick(card);
+  } else {
+    beHandleDetailsEditClick(card);
+  }
+}
+
+
+/**
  * Handles details modal click events
  * @param {MouseEvent} e - Click event
  */
@@ -171,11 +196,7 @@ function beOnDetailsClick(e) {
   const card = beGetCurrentDetailsCard();
   if (!card) return;
   
-  if (delBtn) {
-    beHandleDetailsDeleteClick(card);
-  } else {
-    beHandleDetailsEditClick(card);
-  }
+  beHandleDetailsAction(card, !!delBtn);
 }
 
 
