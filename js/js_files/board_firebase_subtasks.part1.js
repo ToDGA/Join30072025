@@ -305,7 +305,7 @@ function beGenerateCardHTML(task) {
     <div class="kb-card-footer">
       <div class="kb-avatars" data-assignees="${assigneesStr}"></div>
       <div class="kb-prio kb-prio--${priorityClass}">
-        <img src="./assets/img/prio-${priorityClass}.svg" alt="${priorityClass}" />
+        <img src="./assets/img/red_high_${priorityClass}.svg" alt="${priorityClass}" />
       </div>
     </div>
   `;
