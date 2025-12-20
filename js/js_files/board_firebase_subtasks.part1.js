@@ -281,6 +281,19 @@ function getAssigneesString(assigned) {
   return assigned.map(a => a.initials).join(",");
 }
 
+function getPriority(priority) {
+  switch (priority) {
+    case 'urgent':
+      return "./assets/img/red_high_urgent.svg";
+    case 'medium':
+      return './assets/img/Prio media.svg';
+    case 'low':
+      return './assets/img/green_low_urgent.svg';
+    default:
+      return "./assets/img/red_high_urgent.svg";
+  }
+}
+
 
 /**
  * Generates card HTML
@@ -290,7 +303,7 @@ function getAssigneesString(assigned) {
 function beGenerateCardHTML(task) {
   const categoryColor = getCategoryColor(task.category);
   const categoryClass = getCategoryClass(task.category);
-  const priorityClass = task.priority || "medium";
+  const priorityClass = getPriority(task.priority);
   const assigneesStr = getAssigneesString(task.assigned);
   const subtasksHTML = createProgressHTML(task.subtasks);
   
@@ -305,7 +318,7 @@ function beGenerateCardHTML(task) {
     <div class="kb-card-footer">
       <div class="kb-avatars" data-assignees="${assigneesStr}"></div>
       <div class="kb-prio kb-prio--${priorityClass}">
-        <img src="./assets/img/red_high_${priorityClass}.svg" alt="${priorityClass}" />
+        <img src="${priorityClass}" alt="${priorityClass}" />
       </div>
     </div>
   `;

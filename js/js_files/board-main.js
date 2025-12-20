@@ -685,6 +685,22 @@ function wireAddTaskForm(){
   }
 }
 
+/**
+ * Groups tasks by their status
+ * @returns {Promise<Object>} - { todo: [], inprogress: [], feedback: [], done: [] }
+ */
+async function groupTasksByStatus() {
+  let tasks = await getData('task');
+  if (!tasks) return { todo: [], inprogress: [], feedback: [], done: [] };
+  tasks = Object.values(tasks);
+  const grouped = { todo: [], inprogress: [], feedback: [], done: [] };
+  for (const task of tasks) {
+    if (grouped[task.status]) grouped[task.status].push(task);
+    else grouped.todo.push(task); // fallback if status is missing
+  }
+  return grouped;
+}
+
 
 /**
  * Main initialization function
@@ -698,25 +714,26 @@ function initBoard(){
   wireTaskDetailsModal();
   wireAddTaskForm();
   bindSubtaskToggles();
-  
+
   document.addEventListener("click",e=>{ 
     if(e.target?.id==="at-overlay") closeAllOpenModals(); 
   });
   document.addEventListener("keydown",e=>{ 
     if(e.key==="Escape") closeAllOpenModals(); 
   });
-  
-  const container = document.getElementById('task-board');
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  if (container) {
-    tasks.forEach(task => {
-      const card = document.createElement('div');
-      card.className = 'task-card';
-      card.innerHTML = createTaskCardHTML(task);
-      container.appendChild(card);
-    });
-  }
+
+  // Render tasks in columns by status
+  renderBoardTasks();
 }
+
+/**
+ * Renders tasks into the correct board columns by status
+ */
+async function renderBoardTasks() {
+  
+    }
+
+
 
 
 window.addEventListener("DOMContentLoaded", initBoard);

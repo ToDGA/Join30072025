@@ -125,9 +125,7 @@ async function createTaskObject() {
  * @param {Object} task - Task object
  */
 function saveTaskToStorage(task) {
-  const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  postData((path = "task"), task);
 }
 
 
