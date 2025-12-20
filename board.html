@@ -93,7 +93,7 @@
               <h2 class="kb-col-title">To do</h2>
               <button class="kb-col-add" type="button" aria-label="Add task to To do"></button>
             </header>
-            <div class="kb-card-list" data-cards></div>
+            <div id="todo" class="kb-card-list" data-cards></div>
             <div class="kb-empty"><span>No tasks To do</span></div>
           </section>
 
@@ -103,7 +103,7 @@
               <h2 class="kb-col-title">In progress</h2>
               <button class="kb-col-add" type="button" aria-label="Add task to In progress"></button>
             </header>
-            <div class="kb-card-list" data-cards>
+            <div id="inprogress" class="kb-card-list" data-cards>
               <article class="kb-card"
                 data-due="10/05/2023"
                 data-subtasks='["Implement Recipe Recommendation","Start Page Layout"]'>
@@ -133,7 +133,7 @@
               <h2 class="kb-col-title">Await feedback</h2>
               <button class="kb-col-add" type="button" aria-label="Add task to Await feedback"></button>
             </header>
-            <div class="kb-card-list" data-cards>
+            <div id="feedback" class="kb-card-list" data-cards>
               <article class="kb-card"
                 data-due="12/05/2023"
                 data-subtasks='["Create base.html","Extract header & footer"]'>
@@ -181,7 +181,7 @@
             <header class="kb-col-head">
               <h2 class="kb-col-title">Done</h2>
             </header>
-            <div class="kb-card-list" data-cards>
+            <div id="done" class="kb-card-list" data-cards>
               <article class="kb-card"
                 data-due="09/30/2023"
                 data-subtasks='["Define BEM","Write style guide"]'>

@@ -334,7 +334,7 @@ function getColumnStatus(status) {
   const statusMap = {
     'todo': 'todo',
     'inprogress': 'inprogress',
-    'awaitfeedback': 'awaitfeedback',
+    'feedback': 'feedback',
     'done': 'done'
   };
   return statusMap[status] || 'todo';
@@ -436,6 +436,15 @@ function updateColumnStates() {
   }
 }
 
+function sortTaskByStatus(tasks, status, id) {
+  let column = document.getElementById(id);
+  let sortedTasks = tasks.filter(task => task.status === status);
+  column.innerHTML = '';
+  sortedTasks.forEach(task => {
+    renderSingleTask(task);
+  });
+}
+
 
 /**
  * Renders all tasks on board
@@ -443,7 +452,11 @@ function updateColumnStates() {
  */
 function renderTasksOnBoard(tasks) {
   clearAllColumns();
-  tasks.forEach(task => renderSingleTask(task));
+  sortTaskByStatus(tasks, 'todo', 'todo');
+  sortTaskByStatus(tasks, 'inprogress', 'inprogress');
+  sortTaskByStatus(tasks, 'feedback', 'feedback');
+  sortTaskByStatus(tasks, 'done', 'done');
+  // tasks.forEach(task => renderSingleTask(task));
   triggerAvatarRendering();
   updateColumnStates();
 }
