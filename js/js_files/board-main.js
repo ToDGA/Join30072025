@@ -686,23 +686,6 @@ function wireAddTaskForm(){
 }
 
 /**
- * Groups tasks by their status
- * @returns {Promise<Object>} - { todo: [], inprogress: [], feedback: [], done: [] }
- */
-async function groupTasksByStatus() {
-  let tasks = await getData('task');
-  if (!tasks) return { todo: [], inprogress: [], feedback: [], done: [] };
-  tasks = Object.values(tasks);
-  const grouped = { todo: [], inprogress: [], feedback: [], done: [] };
-  for (const task of tasks) {
-    if (grouped[task.status]) grouped[task.status].push(task);
-    else grouped.todo.push(task); // fallback if status is missing
-  }
-  return grouped;
-}
-
-
-/**
  * Main initialization function
  */
 function initBoard(){
@@ -721,19 +704,6 @@ function initBoard(){
   document.addEventListener("keydown",e=>{ 
     if(e.key==="Escape") closeAllOpenModals(); 
   });
-
-  // Render tasks in columns by status
-  renderBoardTasks();
 }
-
-/**
- * Renders tasks into the correct board columns by status
- */
-async function renderBoardTasks() {
-  
-    }
-
-
-
 
 window.addEventListener("DOMContentLoaded", initBoard);
