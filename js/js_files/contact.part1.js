@@ -1,5 +1,5 @@
-const BASE_URL =
-    "https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/";
+// const BASE_URL =
+//     "https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/";
 let currentData = [];
 let selectedContactKey = null;
 
@@ -305,17 +305,28 @@ function buildContactFromForm() {
     const addName = document.getElementById("add-name");
     const addEmail = document.getElementById("add-email");
     const addPhone = document.getElementById("add-phone");
+    const initials = getInitials(addName.value);
     return {
         name: addName.value,
         email: addEmail.value,
-        phone: addPhone.value
+        phone: addPhone.value,
+        initials: initials
     };
+}
+
+function getInitials(name) {
+    const nameWords = name.split(' ');
+    const initials = nameWords.map(word => word.charAt(0).toUpperCase()).join('').substring(0, 2);
+    return initials;
 }
 
 /**
  * Posts new contact
  */
 async function postNewContact() {
+        const msg = document.getElementById("message-successfully-added");
+        msg.innerHTML = "";
+
     if (!validationAddContactInput()) {
         console.error("Validation failed.");
         return;
@@ -323,7 +334,7 @@ async function postNewContact() {
     const newContact = buildContactFromForm();
     try {
         await postData("contacts", newContact);
-        showSuccesfullyContactCreated();
+        msg.innerHTML = getMessageSuccessfullyAdded();
         closeAddContactOverlay();
     } catch (error) {
         console.error("Error posting new contact:", error);
