@@ -1,4 +1,10 @@
 /**
+ * Bridge Module Part 1 - FIXED
+ * NO localStorage - uses db.js functions
+ * Reusable utilities extracted
+ */
+
+/**
  * Adds event listener safely
  */
 const on = (el, evt, fn) => el && el.addEventListener(evt, fn);
@@ -218,6 +224,8 @@ function buildTaskObject(title, description, due, category, priority) {
     category: { name: category, color: getCategoryColor(category) },
     assigned: [],
     status: "todo",
+    subtasks: [],
+    createdAt: new Date().toISOString()
   };
 }
 
@@ -245,36 +253,57 @@ function validateFormFields(title, due, category) {
 }
 
 /**
- * Saves task to localStorage
+ * Saves task to Firebase using db.js
+ * FIXED: No localStorage - uses postData from db.js
  */
-function saveTask(task) {
-  const arr = JSON.parse(localStorage.getItem("tasks") || "[]");
-  arr.push(task);
-  localStorage.setItem("tasks", JSON.stringify(arr));
+async function saveTask(task) {
+  try {
+    const firebaseId = await postData("/task", task);
+    if (firebaseId) {
+      console.log("✅ Task saved to Firebase:", firebaseId);
+      return firebaseId;
+    }
+  } catch (error) {
+    console.error("❌ Error saving task:", error);
+  }
+  return null;
 }
 
 /**
  * Validates and submits form
+ * FIXED: Uses Firebase instead of localStorage
  */
-function validateAndSubmitForm(form) {
+async function validateAndSubmitForm(form) {
   const title = getFormFieldValue(form, "title");
   const due = getFormFieldValue(form, "due");
   const category = getFormFieldValue(form, "category");
+  
   if (!validateFormFields(title, due, category)) return false;
+  
   const task = createTaskFromForm(form);
-  saveTask(task);
-  return true;
+  const firebaseId = await saveTask(task);
+  
+  return !!firebaseId;
 }
 
 /**
  * Handles form submission
+ * FIXED: Async to support Firebase operations
  */
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
   const form = document.getElementById("taskForm");
   if (!form) return;
-  if (!validateAndSubmitForm(form)) return;
-  document.getElementById("at-close")?.click();
+  
+  const success = await validateAndSubmitForm(form);
+  if (success) {
+    document.getElementById("at-close")?.click();
+    
+    // Reload tasks if function exists
+    if (typeof loadTasksFromFirebase === 'function') {
+      await loadTasksFromFirebase();
+    }
+  }
 }
 
 /**

@@ -29,7 +29,8 @@ function renderTasksInContainer(container, tasks) {
  */
 function loadTasksIntoBoard() {
   const container = document.getElementById('task-board');
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = getData(path = "tasks");
+  
   
   if (container) {
     renderTasksInContainer(container, tasks);

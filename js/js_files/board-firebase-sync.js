@@ -1,11 +1,13 @@
 /**
- * Firebase Task Updates & Deletes - NO localStorage - FIXED
+ * Firebase Task Updates & Deletes - FIXED
+ * NO localStorage - NO duplicate BASE_URL
+ * Uses db.js functions exclusively
  * Handles drag-drop, edits, and deletions directly with Firebase
  */
 
-
 /**
  * Updates task status in Firebase when moved
+ * FIXED: Uses putData from db.js
  * @param {string} firebaseId - Firebase task ID
  * @param {string} newStatus - New status
  */
@@ -13,45 +15,26 @@ async function updateTaskStatusInFirebase(firebaseId, newStatus) {
   try {
     console.log(`🔄 Updating task ${firebaseId} status to: ${newStatus}`);
     
-    // FIXED URL
-    const url = `https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/task/${firebaseId}/status.json`;
-    
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newStatus)
-    });
-    
-    if (response.ok) {
-      console.log(`✅ Task status updated in Firebase`);
-    } else {
-      console.error("❌ Failed to update status in Firebase");
-    }
+    await putData(`/task/${firebaseId}/status`, newStatus);
+    console.log(`✅ Task status updated in Firebase`);
     
   } catch (error) {
     console.error("❌ Error updating task status:", error);
   }
 }
 
-
 /**
  * Deletes task from Firebase
+ * FIXED: Uses deleteData from db.js
  * @param {string} firebaseId - Firebase task ID
  */
 async function deleteTaskFromFirebase(firebaseId) {
   try {
     console.log(`🗑️ Deleting task ${firebaseId} from Firebase...`);
     
-    // FIXED URL
-    const url = `https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/task/${firebaseId}.json`;
+    const success = await deleteData(`/task/${firebaseId}`);
     
-    const response = await fetch(url, {
-      method: "DELETE"
-    });
-    
-    if (response.ok) {
+    if (success) {
       console.log(`✅ Task deleted from Firebase`);
       return true;
     } else {
@@ -65,9 +48,9 @@ async function deleteTaskFromFirebase(firebaseId) {
   }
 }
 
-
 /**
  * Updates entire task in Firebase
+ * FIXED: Uses putData from db.js
  * @param {string} firebaseId - Firebase task ID
  * @param {Object} updatedTask - Updated task data
  */
@@ -75,18 +58,9 @@ async function updateEntireTaskInFirebase(firebaseId, updatedTask) {
   try {
     console.log(`🔄 Updating entire task ${firebaseId} in Firebase...`);
     
-    // FIXED URL
-    const url = `https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/task/${firebaseId}.json`;
+    const result = await putData(`/task/${firebaseId}`, updatedTask);
     
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(updatedTask)
-    });
-    
-    if (response.ok) {
+    if (result) {
       console.log(`✅ Task updated in Firebase`);
       return true;
     } else {
@@ -100,31 +74,20 @@ async function updateEntireTaskInFirebase(firebaseId, updatedTask) {
   }
 }
 
-
 /**
  * Updates subtasks in Firebase
+ * FIXED: Uses putData from db.js
  * @param {string} firebaseId - Firebase task ID
  * @param {Array} subtasks - Updated subtasks array
  */
 async function updateSubtasksInFirebase(firebaseId, subtasks) {
   try {
-    // FIXED URL
-    const url = `https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/task/${firebaseId}/subtasks.json`;
-    
-    await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(subtasks)
-    });
-    
+    await putData(`/task/${firebaseId}/subtasks`, subtasks);
     console.log(`✅ Subtasks updated in Firebase`);
   } catch (error) {
     console.error("❌ Error updating subtasks:", error);
   }
 }
-
 
 /**
  * Listens for task:moved events and syncs to Firebase
@@ -143,7 +106,6 @@ function setupFirebaseStatusSync() {
   
   console.log("✅ Firebase status sync enabled (drag & drop)");
 }
-
 
 /**
  * Listens for task:deleted events and syncs to Firebase
@@ -173,7 +135,6 @@ function setupFirebaseDeleteSync() {
   console.log("✅ Firebase delete sync enabled");
 }
 
-
 /**
  * Listens for task:updated events and syncs to Firebase
  */
@@ -202,7 +163,6 @@ function setupFirebaseUpdateSync() {
   
   console.log("✅ Firebase update sync enabled");
 }
-
 
 /**
  * Extracts task data from card element
@@ -259,32 +219,10 @@ function extractTaskDataFromCard(card) {
   };
 }
 
-
 /**
- * Prevents localStorage updates
+ * REMOVED: preventLocalStorageUpdates - no longer needed
+ * We're not using localStorage at all
  */
-function preventLocalStorageUpdates() {
-  // Override any localStorage update functions
-  if (window.beUpdateTaskStatusInStorage) {
-    window.beUpdateTaskStatusInStorage = function() {
-      console.log("ℹ️ localStorage updates disabled - using Firebase only");
-    };
-  }
-  
-  if (window.beRemoveTaskFromStorage) {
-    window.beRemoveTaskFromStorage = function() {
-      console.log("ℹ️ localStorage removal disabled - using Firebase only");
-    };
-  }
-  
-  // Monitor and clear localStorage if tasks get added
-  setInterval(() => {
-    if (localStorage.getItem('tasks')) {
-      localStorage.removeItem('tasks');
-    }
-  }, 1000);
-}
-
 
 /**
  * Initialize Firebase sync handlers
@@ -298,9 +236,6 @@ function initFirebaseSyncHandlers() {
   window.__firebaseSyncInit = true;
   console.log("🚀 Initializing Firebase Sync Handlers (NO localStorage)...");
   
-  // Prevent localStorage operations
-  preventLocalStorageUpdates();
-  
   // Setup Firebase sync for all operations
   setupFirebaseStatusSync();
   setupFirebaseDeleteSync();
@@ -308,7 +243,6 @@ function initFirebaseSyncHandlers() {
   
   console.log("✅ Firebase Sync Handlers initialized!");
 }
-
 
 /**
  * Auto-initialize
@@ -318,7 +252,6 @@ if (document.readyState === "loading") {
 } else {
   setTimeout(initFirebaseSyncHandlers, 100);
 }
-
 
 /**
  * Export functions

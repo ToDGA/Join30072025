@@ -1,63 +1,37 @@
 /**
- * Firebase Task Loader - NO localStorage - FIXED
+ * Firebase Task Loader - FIXED
+ * NO localStorage - NO duplicate BASE_URL
+ * Uses db.js functions
  * Loads all tasks ONLY from Firebase on page load
  */
 
-
 /**
  * Loads all tasks from Firebase on page initialization
- * Replaces the localStorage loading logic
+ * FIXED: Uses getData from db.js
  */
 async function loadAllTasksFromFirebase() {
-  console.log("🔄 Loading tasks from Firebase...");
-  
   try {
-    // FIXED URL - removed the console redirect
-    const url = "https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/task.json";
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    
+    const data = await getData("/tasks");
     if (!data) {
-      console.log("ℹ️ No tasks found in Firebase");
       updateAllColumnStates();
       return;
     }
-    
-    // Convert Firebase object to array
     const tasks = Object.entries(data).map(([firebaseId, task]) => ({
       ...task,
       firebaseId: firebaseId
     }));
-    
-    console.log(`✅ Loaded ${tasks.length} tasks from Firebase`);
-    
-    // Clear all columns first
     clearAllColumnContainers();
-    
-    // Render each task
     tasks.forEach(task => {
       renderTaskInColumn(task);
     });
-    
-    // Update UI
     if (typeof renderAvatars === 'function') {
       renderAvatars();
     }
-    
     updateAllColumnStates();
-    
-    console.log("✅ All tasks rendered on board");
-    
   } catch (error) {
-    console.error("❌ Error loading tasks from Firebase:", error);
+    console.error("Error loading tasks:", error);
   }
 }
-
 
 /**
  * Clears all column containers
@@ -68,7 +42,6 @@ function clearAllColumnContainers() {
     container.innerHTML = '';
   });
 }
-
 
 /**
  * Renders task in appropriate column
@@ -92,7 +65,6 @@ function renderTaskInColumn(task) {
     container.appendChild(card);
   }
 }
-
 
 /**
  * Creates task card element
@@ -119,7 +91,6 @@ function createTaskCard(task) {
   
   return card;
 }
-
 
 /**
  * Generates card HTML
@@ -149,7 +120,6 @@ function generateTaskCardHTML(task) {
     </div>
   `;
 }
-
 
 /**
  * Helper functions
@@ -199,7 +169,6 @@ function generateProgressHTML(subtasks) {
   `;
 }
 
-
 /**
  * Updates all column states (empty/not empty)
  */
@@ -220,26 +189,10 @@ function updateAllColumnStates() {
   }
 }
 
-
 /**
- * Prevents localStorage loading
- * Overrides any localStorage-based loading
+ * REMOVED: preventLocalStorageLoading - no longer needed
+ * We're not using localStorage at all
  */
-function preventLocalStorageLoading() {
-  // Override beLoadTasks if it exists
-  if (window.beLoadTasks) {
-    window.beLoadTasks = function() {
-      console.log("ℹ️ localStorage loading disabled - using Firebase only");
-    };
-  }
-  
-  // Clear any existing localStorage tasks
-  if (localStorage.getItem('tasks')) {
-    console.log("🗑️ Clearing localStorage tasks (Firebase-only mode)");
-    localStorage.removeItem('tasks');
-  }
-}
-
 
 /**
  * Initialize Firebase loader
@@ -253,15 +206,11 @@ async function initFirebaseLoader() {
   window.__firebaseLoaderInit = true;
   console.log("🚀 Initializing Firebase Loader (NO localStorage)...");
   
-  // Prevent localStorage loading
-  preventLocalStorageLoading();
-  
-  // Load tasks from Firebase
+  // Load tasks from Firebase using db.js
   await loadAllTasksFromFirebase();
   
   console.log("✅ Firebase Loader initialized!");
 }
-
 
 /**
  * Auto-initialize on DOM ready
@@ -269,10 +218,8 @@ async function initFirebaseLoader() {
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initFirebaseLoader, { once: true });
 } else {
-  // DOM already loaded
   initFirebaseLoader();
 }
-
 
 /**
  * Export for manual reload

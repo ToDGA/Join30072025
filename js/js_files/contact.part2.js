@@ -1,4 +1,9 @@
 /**
+ * Contact Module Part 2 - FIXED
+ * Uses putData from db.js
+ */
+
+/**
  * Validates phone input
  */
 function validatePhoneInput(inputElement) {
@@ -163,6 +168,7 @@ function hasChanges(oldName, oldEmail, oldPhone, editName, editEmail, editPhone)
 
 /**
  * Updates contact in database and UI
+ * FIXED: Uses putData from db.js
  */
 async function updateContact(editName, editEmail, editPhone) {
   const updatedContact = {
@@ -170,10 +176,12 @@ async function updateContact(editName, editEmail, editPhone) {
       email: editEmail,
       phone: editPhone
   };
-  await updateContactInDatabase(selectedContactKey, updatedContact);
-  await loadContactList();
-  const randomColor = getRandomColorClass();
-  showContactDetails(updatedContact.name, updatedContact.email, updatedContact.phone, selectedContactKey, randomColor);
+  const success = await putData("/contacts/" + selectedContactKey, updatedContact);
+  if (success) {
+      await loadContactList();
+      const randomColor = getRandomColorClass();
+      showContactDetails(updatedContact.name, updatedContact.email, updatedContact.phone, selectedContactKey, randomColor);
+  }
 }
 
 /**
@@ -200,20 +208,8 @@ async function saveEditedContact() {
 }
 
 /**
- * Updates contact in Firebase
+ * REMOVED: updateContactInDatabase - now uses putData from db.js
  */
-async function updateContactInDatabase(firebaseKey, contactData) {
-  let response = await fetch(BASE_URL + "contacts/" + firebaseKey + ".json", {
-      method: "PUT",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify(contactData)
-  });
-  if (!response.ok) {
-      console.error(error);
-  }
-}
 
 /**
  * Closes edit contact overlay

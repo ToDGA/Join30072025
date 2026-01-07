@@ -1,4 +1,9 @@
 /**
+ * Board Enhancements Edit Part 2 - FIXED
+ * NO localStorage - uses Firebase through db.js
+ */
+
+/**
  * Patches openDetails function
  * @returns {Promise<void>}
  */
@@ -18,7 +23,6 @@ function bePatchOpenDetails() {
   window.openDetails.__bePatched = true;
 }
 
-
 /**
  * Gets current details card
  * @returns {HTMLElement|null}
@@ -27,7 +31,6 @@ function beGetCurrentDetailsCard() {
   const id = window.__beCurrentDetailsCardId;
   return id ? document.querySelector(`.kb-card[data-id="${id}"]`) : null;
 }
-
 
 /**
  * Gets card title text
@@ -38,7 +41,6 @@ function beGetCardTitle(card) {
   return (card.querySelector(".kb-card-title")?.textContent || "").trim();
 }
 
-
 /**
  * Shows delete confirmation
  * @param {string} title - Task title
@@ -47,7 +49,6 @@ function beGetCardTitle(card) {
 function beConfirmDelete(title) {
   return confirm(`Delete task${title ? ` "${title}"` : ""}?`);
 }
-
 
 /**
  * Removes card from DOM
@@ -59,7 +60,6 @@ function beRemoveCard(card) {
   if (col) beUpdateColumnState(col);
 }
 
-
 /**
  * Dispatches task deleted event
  * @param {string} id - Task ID
@@ -69,7 +69,6 @@ function beDispatchTaskDeleted(id) {
     detail: { id: id || "" }
   }));
 }
-
 
 /**
  * Deletes card with confirmation
@@ -83,7 +82,6 @@ function beDelete(card) {
   beDispatchTaskDeleted(card.dataset.id || "");
 }
 
-
 /**
  * Handles edit button click
  * @param {HTMLElement} card - Card element
@@ -95,7 +93,6 @@ function beHandleEditClick(card) {
   const form = beGetForm();
   if (form) beInterceptSave(form);
 }
-
 
 /**
  * Handles card action (edit or delete)
@@ -109,7 +106,6 @@ function beHandleCardAction(card, isDelete) {
     beHandleEditClick(card);
   }
 }
-
 
 /**
  * Handles board click events
@@ -131,7 +127,6 @@ function beOnBoardClick(e) {
   beHandleCardAction(card, !!delBtn);
 }
 
-
 /**
  * Closes details modal with overlay
  */
@@ -140,7 +135,6 @@ function beCloseDetailsModalWithOverlay() {
   const hideOverlay = window.hideOverlay || (() => { });
   hideOverlay();
 }
-
 
 /**
  * Handles details edit click
@@ -154,7 +148,6 @@ function beHandleDetailsEditClick(card) {
   if (form) beInterceptSave(form);
 }
 
-
 /**
  * Handles details delete click
  * @param {HTMLElement} card - Card element
@@ -163,7 +156,6 @@ function beHandleDetailsDeleteClick(card) {
   beDelete(card);
   beCloseDetailsModalWithOverlay();
 }
-
 
 /**
  * Handles details action (edit or delete)
@@ -177,7 +169,6 @@ function beHandleDetailsAction(card, isDelete) {
     beHandleDetailsEditClick(card);
   }
 }
-
 
 /**
  * Handles details modal click events
@@ -199,64 +190,22 @@ function beOnDetailsClick(e) {
   beHandleDetailsAction(card, !!delBtn);
 }
 
-
 /**
- * Finds task in storage by title and date
- * @param {Array} tasks - Tasks array
- * @param {string} title - Task title
- * @param {string} dueDate - Due date
- * @returns {Object|null}
+ * REMOVED: beFindTaskByTitleAndDate - no longer needed with Firebase
+ * REMOVED: beGetFallbackTaskId - no longer needed with Firebase
+ * REMOVED: beRemoveTaskFromStorage - Firebase deletion handled by board-firebase-sync.js
  */
-function beFindTaskByTitleAndDate(tasks, title, dueDate) {
-  return tasks.find(t =>
-    (t.title || '') === title &&
-    (t.dueDate || '') === dueDate
-  );
-}
-
-
-/**
- * Gets fallback task ID from modal
- * @param {Array} tasks - Tasks array
- * @returns {string}
- */
-function beGetFallbackTaskId(tasks) {
-  const modalTitle = document.getElementById('td-title')?.textContent?.trim() || '';
-  const modalDue = document.getElementById('td-due')?.textContent?.trim() || '';
-  
-  const hit = beFindTaskByTitleAndDate(tasks, modalTitle, modalDue);
-  return hit ? String(hit.id) : '';
-}
-
-
-/**
- * Removes task from storage
- * @param {string} id - Task ID
- */
-function beRemoveTaskFromStorage(id) {
-  let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  tasks = tasks.filter(t => String(t.id) !== id);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
 
 /**
  * Handles task deleted event
- * @param {CustomEvent} e - Custom event
+ * Firebase deletion is handled automatically by board-firebase-sync.js
  */
 function beOnTaskDeleted(e) {
-  let id = String(e.detail?.id || '');
-  let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  
-  if (!tasks.some(t => String(t.id) === id)) {
-    id = beGetFallbackTaskId(tasks);
-  }
-  
+  const id = String(e.detail?.id || '');
   if (!id) return;
   
-  beRemoveTaskFromStorage(id);
+  console.log(`Task ${id} deleted - Firebase sync handles removal`);
 }
-
 
 /**
  * Binds board event listeners
@@ -266,7 +215,6 @@ function beBindBoardListeners(board) {
   board.addEventListener("click", beOnBoardClick, true);
 }
 
-
 /**
  * Binds details modal listeners
  */
@@ -274,7 +222,6 @@ function beBindDetailsListeners() {
   document.addEventListener("click", beOnDetailsClick, true);
   document.addEventListener("task:deleted", beOnTaskDeleted);
 }
-
 
 /**
  * Initializes openDetails patch
@@ -286,7 +233,6 @@ function beInitializeOpenDetailsPatch() {
     bePatchOpenDetails();
   }
 }
-
 
 /**
  * Main edit initialization
@@ -302,7 +248,6 @@ function beInitEdit() {
   beBindDetailsListeners();
   beInitializeOpenDetailsPatch();
 }
-
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", beInitEdit, { once: true });

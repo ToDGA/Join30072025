@@ -1,8 +1,8 @@
 /**
- * Firebase + Subtasks Integration Module - Part 2
+ * Firebase + Subtasks Integration Module - Part 2 - FIXED
+ * NO localStorage - fully Firebase-based
  * Handles modal interactions, checkbox toggles, and initialization
  */
-
 
 /**
  * Syncs task status to Firebase on move
@@ -10,7 +10,6 @@
 function syncTaskStatusToFirebase() {
   document.addEventListener("task:moved", handleTaskMoved);
 }
-
 
 /**
  * Handles task moved event
@@ -24,7 +23,6 @@ async function handleTaskMoved(e) {
   console.log(`✅ Task ${id} status updated to ${status}`);
 }
 
-
 /**
  * Hides or shows subtasks block
  * @param {HTMLElement} block - Subtasks block element
@@ -33,7 +31,6 @@ async function handleTaskMoved(e) {
 function toggleSubtasksBlock(block, show) {
   if (block) block.hidden = !show;
 }
-
 
 /**
  * Creates subtask checkbox element
@@ -50,7 +47,6 @@ function createSubtaskCheckbox(index, firebaseId, completed) {
   return checkbox;
 }
 
-
 /**
  * Creates subtask label element
  * @param {Object} subtask - Subtask object
@@ -62,7 +58,6 @@ function createSubtaskLabel(subtask) {
   label.textContent = subtask.name || subtask;
   return label;
 }
-
 
 /**
  * Creates subtask list item
@@ -83,7 +78,6 @@ function createSubtaskItem(subtask, index, firebaseId) {
   
   return li;
 }
-
 
 /**
  * Renders subtasks in modal list
@@ -110,7 +104,6 @@ function renderSubtasksInModal(subtasks, firebaseId) {
   });
 }
 
-
 /**
  * Gets subtasks from card
  * @param {HTMLElement} card - Card element
@@ -125,7 +118,6 @@ function getSubtasksFromCard(card) {
   }
 }
 
-
 /**
  * Updates card dataset with subtasks
  * @param {HTMLElement} card - Card element
@@ -134,7 +126,6 @@ function getSubtasksFromCard(card) {
 function updateCardSubtasks(card, subtasks) {
   card.dataset.subtasks = JSON.stringify(subtasks);
 }
-
 
 /**
  * Toggles subtask completed status
@@ -149,7 +140,6 @@ function toggleSubtaskStatus(subtasks, index) {
   return subtasks;
 }
 
-
 /**
  * Updates checkbox UI
  * @param {HTMLElement} checkbox - Checkbox element
@@ -158,7 +148,6 @@ function updateCheckboxUI(checkbox) {
   checkbox.classList.toggle("checked");
   checkbox.parentElement.classList.toggle("completed");
 }
-
 
 /**
  * Updates progress bar in card
@@ -178,7 +167,6 @@ function updateProgressBar(card, subtasks) {
   if (fill) fill.style.width = `${progress}%`;
   if (text) text.textContent = countText;
 }
-
 
 /**
  * Handles subtask checkbox toggle
@@ -206,14 +194,12 @@ async function handleSubtaskToggle(e) {
   console.log(`✅ Subtask toggled`);
 }
 
-
 /**
  * Binds subtask checkbox events
  */
 function bindSubtaskCheckboxes() {
   document.addEventListener("click", handleSubtaskToggle);
 }
-
 
 /**
  * Enhances openDetails to show subtasks
@@ -226,7 +212,6 @@ function enhanceOpenDetails() {
     handleOpenDetailsSubtasks(data);
   };
 }
-
 
 /**
  * Handles subtasks in openDetails
@@ -241,61 +226,21 @@ function handleOpenDetailsSubtasks(data) {
   renderSubtasksInModal(subtasks, firebaseId);
 }
 
-
 /**
- * Gets latest task from localStorage
- * @returns {Object|null} Latest task or null
+ * REMOVED: getLatestTask - no longer uses localStorage
+ * REMOVED: updateTaskWithFirebaseId - no longer uses localStorage
+ * Task creation now handled directly in Firebase via board-firebase-only.js
  */
-function getLatestTask() {
-  const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  return tasks.length > 0 ? tasks[tasks.length - 1] : null;
-}
-
-
-/**
- * Prepares task for Firebase
- * @param {Object} task - Task from localStorage
- * @returns {Object} Firebase-ready task
- */
-function prepareTaskForFirebase(task) {
-  return {
-    ...task,
-    status: task.status || 'todo',
-    subtasks: task.subtasks || []
-  };
-}
-
-
-/**
- * Updates task with Firebase ID
- * @param {Object} task - Task object
- * @param {string} firebaseId - Firebase ID
- */
-function updateTaskWithFirebaseId(task, firebaseId) {
-  const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  const index = tasks.findIndex(t => t.id === task.id);
-  
-  if (index > -1) {
-    tasks[index].firebaseId = firebaseId;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-}
-
 
 /**
  * Handles task creation in Firebase
+ * This is now fully handled by board-firebase-only.js
  * @param {Object} task - Created task
  */
 async function handleTaskCreation(task) {
-  const firebaseTask = prepareTaskForFirebase(task);
-  const firebaseId = await fbCreateTask(firebaseTask);
-  
-  if (firebaseId) {
-    console.log(`✅ Task created in Firebase: ${firebaseId}`);
-    updateTaskWithFirebaseId(task, firebaseId);
-  }
+  // Firebase creation is now handled by board-firebase-only.js
+  console.log("Task creation handled by board-firebase-only.js");
 }
-
 
 /**
  * Checks if form is in edit mode
@@ -306,33 +251,23 @@ function isFormEditing(form) {
   return form && form.dataset.editingId;
 }
 
-
 /**
  * Handles create button click
+ * No longer needed - board-firebase-only.js handles this
  */
 async function handleCreateClick() {
-  const form = document.getElementById("taskForm") || 
-                document.querySelector("#at-modal form");
-  
-  if (isFormEditing(form)) return;
-  
-  setTimeout(async () => {
-    const task = getLatestTask();
-    if (task) await handleTaskCreation(task);
-  }, 100);
+  // Handled by board-firebase-only.js
+  console.log("Create handled by board-firebase-only.js");
 }
-
 
 /**
  * Enhances add task form
+ * No longer needed - board-firebase-only.js handles this
  */
 function enhanceAddTaskForm() {
-  const createBtn = document.getElementById("at-create");
-  if (createBtn) {
-    createBtn.addEventListener("click", handleCreateClick);
-  }
+  // Handled by board-firebase-only.js
+  console.log("Form enhancement handled by board-firebase-only.js");
 }
-
 
 /**
  * Checks if already initialized
@@ -343,7 +278,6 @@ function isAlreadyInitialized() {
   window.__firebaseSubtasksInit = true;
   return false;
 }
-
 
 /**
  * Runs all initializations
@@ -356,11 +290,10 @@ async function runInitializations() {
   syncTaskStatusToFirebase();
   bindSubtaskCheckboxes();
   enhanceOpenDetails();
-  enhanceAddTaskForm();
+  // REMOVED: enhanceAddTaskForm - handled by board-firebase-only.js
   
   console.log("✅ Firebase + Subtasks module initialized!");
 }
-
 
 /**
  * Main initialization function
@@ -369,7 +302,6 @@ async function initFirebaseSubtasks() {
   if (isAlreadyInitialized()) return;
   await runInitializations();
 }
-
 
 /**
  * Initializes on DOM ready
@@ -381,6 +313,5 @@ function initOnDOMReady() {
     initFirebaseSubtasks();
   }
 }
-
 
 initOnDOMReady();

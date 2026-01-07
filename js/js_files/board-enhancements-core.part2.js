@@ -1,4 +1,9 @@
 /**
+ * Board Enhancements Core Part 2 - FIXED
+ * NO localStorage - uses Firebase through db.js
+ */
+
+/**
  * Creates card element
  * @param {Object} task - Task data
  * @returns {HTMLElement}
@@ -8,7 +13,10 @@ function beCreateCardElement(task) {
   el.className = 'kb-card';
   el.dataset.due = task.dueDate || '';
   
-  if (task.id != null) {
+  // Use firebaseId if available, otherwise fallback to id
+  if (task.firebaseId) {
+    el.dataset.id = task.firebaseId;
+  } else if (task.id != null) {
     el.dataset.id = String(task.id);
   }
   
@@ -16,7 +24,6 @@ function beCreateCardElement(task) {
   
   return el;
 }
-
 
 /**
  * Appends card to list
@@ -28,7 +35,6 @@ function beAppendCardToList(list, task) {
   list.appendChild(card);
 }
 
-
 /**
  * Renders avatars after loading
  */
@@ -38,48 +44,25 @@ function beRenderAvatarsIfAvailable() {
   }
 }
 
-
 /**
- * Loads tasks from localStorage
+ * REMOVED: beLoadTasks - no longer uses localStorage
+ * Tasks are now loaded from Firebase in board-firebase-loader.js
  */
-function beLoadTasks() {
-  const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  const list = document.querySelector('.kb-col[data-status="todo"] [data-cards]');
-  
-  if (!list || !tasks.length) return;
-  
-  tasks.forEach(task => beAppendCardToList(list, task));
-  
-  beRenderAvatarsIfAvailable();
-}
-
 
 /**
- * Finds task in storage by ID
- * @param {Array} tasks - Tasks array
- * @param {string} id - Task ID
+ * Finds task in Firebase data by ID
+ * @param {Array} tasks - Tasks array from Firebase
+ * @param {string} id - Firebase task ID
  * @returns {number}
  */
 function beFindTaskIndex(tasks, id) {
-  return tasks.findIndex(t => String(t.id) === String(id));
+  return tasks.findIndex(t => t.firebaseId === id || String(t.id) === String(id));
 }
-
 
 /**
- * Updates task status in storage
- * @param {string} id - Task ID
- * @param {string} status - New status
+ * REMOVED: beUpdateTaskStatusInStorage - no longer uses localStorage
+ * Status updates now handled by Firebase sync in board-firebase-sync.js
  */
-function beUpdateTaskStatusInStorage(id, status) {
-  const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-  const index = beFindTaskIndex(tasks, id);
-  
-  if (index > -1) {
-    tasks[index].status = status;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-}
-
 
 /**
  * Handles task moved event
@@ -89,9 +72,9 @@ function beOnTaskMoved(e) {
   const { id, status } = e.detail || {};
   if (!id || !status) return;
   
-  beUpdateTaskStatusInStorage(id, status);
+  // Firebase sync is handled automatically by board-firebase-sync.js
+  console.log(`Task ${id} moved to ${status}`);
 }
-
 
 /**
  * Ensures all cards have IDs
@@ -100,7 +83,6 @@ function beOnTaskMoved(e) {
 function beEnsureAllCardsHaveIds(board) {
   board.querySelectorAll(".kb-card").forEach(card => beEnsureId(card));
 }
-
 
 /**
  * Binds all event listeners
@@ -112,7 +94,6 @@ function beBindEventListeners() {
   document.addEventListener("task:moved", beOnTaskMoved);
 }
 
-
 /**
  * Sets up board functionality
  * @param {HTMLElement} board - Board element
@@ -123,10 +104,9 @@ function beSetupBoard(board) {
   beWatchNewCards(board);
   beSyncAllColumns();
   beWireFeedback();
-  beLoadTasks();
+  // REMOVED: beLoadTasks() - Firebase loader handles this
   beBindEventListeners();
 }
-
 
 /**
  * Main core initialization
@@ -140,7 +120,6 @@ function beInitCore() {
   
   beSetupBoard(board);
 }
-
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", beInitCore, { once: true });

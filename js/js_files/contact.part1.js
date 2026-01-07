@@ -1,5 +1,10 @@
-const BASE_URL =
-    "https://join-1314-default-rtdb.europe-west1.firebasedatabase.app/";
+/**
+ * Contact Module Part 1 - FIXED
+ * NO duplicate functions - uses db.js
+ * Removed BASE_URL duplication
+ */
+
+// REMOVED: const BASE_URL - now using db.js
 let currentData = [];
 let selectedContactKey = null;
 
@@ -32,6 +37,7 @@ async function loadContactList() {
 
 /**
  * Fetches all contacts from Firebase
+ * FIXED: Uses getData from db.js
  */
 async function fetchContactsFromDatabase() {
     const data = await getData("/contacts");
@@ -197,6 +203,7 @@ async function cleanupAfterDelete() {
 
 /**
  * Deletes selected contact
+ * FIXED: Uses deleteData from db.js
  */
 async function deleteSelectedContact() {
     if (!selectedContactKey) {
@@ -204,21 +211,18 @@ async function deleteSelectedContact() {
         return;
     }
     try {
-        await deleteContactFromDatabase(selectedContactKey);
-        await cleanupAfterDelete();
+        const success = await deleteData("/contacts/" + selectedContactKey);
+        if (success) {
+            await cleanupAfterDelete();
+        }
     } catch (error) {
         console.error("Error deleting contact:", error);
     }
 }
 
 /**
- * Deletes contact from database
+ * REMOVED: deleteContactFromDatabase - now uses deleteData from db.js
  */
-async function deleteContactFromDatabase(firebaseKey) {
-    await fetch(BASE_URL + "contacts/" + firebaseKey + ".json", {
-        method: "DELETE"
-    });
-}
 
 /**
  * Hides contact details section
@@ -252,32 +256,9 @@ async function closeAddContactOverlay() {
 }
 
 /**
- * Posts data to Firebase
+ * REMOVED: postData - now using db.js version
+ * REMOVED: getData - now using db.js version
  */
-async function postData(path = "", data) {
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    if (!response.ok) {
-        console.error(`POST request failed: ${response.status} ${response.statusText}`);
-    }
-}
-
-/**
- * Fetches data from Firebase
- */
-async function getData(path = "") {
-    let response = await fetch(BASE_URL + path + ".json");
-    if (!response.ok) {
-        console.error(`GET request failed: ${response.status} ${response.statusText}`);
-    }
-    let responseData = await response.json();
-    return responseData;
-}
 
 /**
  * Validates add contact input
@@ -314,6 +295,7 @@ function buildContactFromForm() {
 
 /**
  * Posts new contact
+ * FIXED: Uses postData from db.js
  */
 async function postNewContact() {
     if (!validationAddContactInput()) {
@@ -322,9 +304,11 @@ async function postNewContact() {
     }
     const newContact = buildContactFromForm();
     try {
-        await postData("contacts", newContact);
-        showSuccesfullyContactCreated();
-        closeAddContactOverlay();
+        const firebaseKey = await postData("/contacts", newContact);
+        if (firebaseKey) {
+            showSuccesfullyContactCreated();
+            closeAddContactOverlay();
+        }
     } catch (error) {
         console.error("Error posting new contact:", error);
     }
