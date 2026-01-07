@@ -44,25 +44,18 @@ html, body {
     0% {
         transform: translateX(400px);
         opacity: 0;
-        display: block;
-    }
-    1% {
-        display: block;
     }
     33% {
         transform: translateX(0);
         opacity: 1;
-        display: block;
     }
     66% {
         transform: translateX(0);
         opacity: 1;
-        display: block;
     }
     99% {
         transform: translateX(400px);
         opacity: 0;
-        display: block;
     }
     100% {
         transform: translateX(400px);
