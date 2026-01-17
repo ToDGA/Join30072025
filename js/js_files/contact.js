@@ -271,6 +271,24 @@ function toggleMobileButtons(showEdit) {
 }
 
 /**
+ * Opens the mobile edit/delete menu
+ */
+function openMobileEditMenu() {
+    const menuHTML = getMobileEditDeleteMenu();
+    document.body.insertAdjacentHTML('beforeend', menuHTML);
+}
+
+/**
+ * Closes the mobile edit/delete menu
+ */
+function closeMobileEditMenu() {
+    const overlay = document.getElementById('mobile-menu-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+/**
  * Shows the contact details section by removing hidden class from elements
  */
 function showContactDetailsSection() {

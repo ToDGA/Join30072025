@@ -366,6 +366,23 @@ html, body {
     text-align: center;
 }
 
+/* Mobile adjustment for success notification */
+@media (max-width: 1150px) {
+    .succesfully-creat {
+        bottom: 140px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 90%;
+        max-width: 326px;
+    }
+}
+
+@media (max-width: 950px) {
+    .succesfully-creat {
+        bottom: 180px;
+    }
+}
+
 /* Animation trigger for success notification */
 .succesfully-creat, .show-animation {
     animation: slideInOut 3s ease-in-out forwards;
@@ -406,14 +423,53 @@ html, body {
 /* ===================================================================
    8. MOBILE EDIT DELETE
    =================================================================== */
+
+/* Overlay for mobile edit/delete menu */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 200;
+}
+
+/* Mobile edit/delete menu popup */
 .mobile-edit-delete {
     width: 116px;
     height: 100px;
     border-radius: 20px 20px 0 20px;
     background-color: var(--white-color);
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 8px;
+    position: fixed;
+    bottom: 48px;
+    right: 24px;
+    z-index: 201;
 }
 
+.mobile-edit-delete > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-edit-delete img {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 950px) {
+    .mobile-edit-delete {
+        bottom: 120px;
+    }
+}
 
 /* ===================================================================
    9. SCROLLBAR CUSTOMIZATION
