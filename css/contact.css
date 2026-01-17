@@ -366,20 +366,10 @@ html, body {
     text-align: center;
 }
 
-/* Mobile adjustment for success notification */
+/* Hide success notification on mobile */
 @media (max-width: 1150px) {
     .succesfully-creat {
-        bottom: 140px;
-        right: 50%;
-        transform: translateX(50%);
-        width: 90%;
-        max-width: 326px;
-    }
-}
-
-@media (max-width: 950px) {
-    .succesfully-creat {
-        bottom: 180px;
+        display: none !important;
     }
 }
 
