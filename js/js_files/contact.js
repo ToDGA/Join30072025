@@ -72,6 +72,9 @@ function handleWindowResize() {
         if (backArrow) {
             backArrow.remove();
         }
+        
+        // Reset buttons when switching to desktop
+        toggleMobileButtons(false);
     }
 }
 
@@ -204,6 +207,9 @@ function showMobileContactDetails() {
 
         // Add back arrow to contact details
         addMobileBackArrow();
+        
+        // Show edit button and hide add button in mobile
+        toggleMobileButtons(true);
     }
 }
 
@@ -241,6 +247,26 @@ function hideMobileContactDetails() {
 
     if (backArrow) {
         backArrow.remove();
+    }
+    
+    // Hide edit button and show add button
+    toggleMobileButtons(false);
+}
+
+/**
+ * Toggles between add and edit buttons in mobile view
+ * @param {boolean} showEdit - If true, shows edit button and hides add button
+ */
+function toggleMobileButtons(showEdit) {
+    const addButton = document.querySelector('.add-contact-mobile');
+    const editButton = document.getElementById('edit-contact-mobile');
+    
+    if (showEdit) {
+        if (addButton) addButton.classList.add('hidden');
+        if (editButton) editButton.classList.remove('hidden');
+    } else {
+        if (addButton) addButton.classList.remove('hidden');
+        if (editButton) editButton.classList.add('hidden');
     }
 }
 
