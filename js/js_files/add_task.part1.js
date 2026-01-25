@@ -392,3 +392,17 @@ function createCategoryChip(cat) {
   
   return chip;
 }
+
+
+/**
+ * Closes dropdown on outside click
+ */
+function closeDropdownOnOutsideClick(event) {
+  const openDropdown = document.querySelector('.dropdown.open');
+  if (!openDropdown) return;
+  if (openDropdown.contains(event.target)) return;
+  openDropdown.classList.remove('open');
+}
+
+
+document.addEventListener('click', closeDropdownOnOutsideClick);
