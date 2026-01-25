@@ -1,13 +1,11 @@
 /**
- * FIREBASE-ONLY Integration Module
- * Uses db.js functions - NO localStorage
+ * Firebase Task Creation & Rendering
+ * All logic functions
  */
 
 
 /**
  * Creates task in Firebase
- * @param {Object} taskData Task data
- * @returns {Promise<string|null>} Firebase ID
  */
 async function createTaskDirectlyInFirebase(taskData) {
   try {
@@ -28,8 +26,6 @@ async function createTaskDirectlyInFirebase(taskData) {
 
 /**
  * Builds Firebase task object
- * @param {Object} taskData Task data
- * @returns {Object} Firebase task
  */
 function buildFirebaseTask(taskData) {
   return {
@@ -48,7 +44,6 @@ function buildFirebaseTask(taskData) {
 
 /**
  * Renders task on board
- * @param {Object} task Task object
  */
 function renderTaskOnBoard(task) {
   if (typeof renderSingleTask === 'function') {
@@ -63,7 +58,6 @@ function renderTaskOnBoard(task) {
 
 /**
  * Manually renders task
- * @param {Object} task Task object
  */
 function manualRenderTask(task) {
   const column = document.querySelector(`[data-status="${task.status}"] [data-cards]`);
@@ -74,8 +68,6 @@ function manualRenderTask(task) {
 
 /**
  * Creates card element
- * @param {Object} task Task object
- * @returns {HTMLElement} Card element
  */
 function createCardElement(task) {
   const card = document.createElement('article');
@@ -92,24 +84,7 @@ function createCardElement(task) {
 
 
 /**
- * Generates card HTML
- * @param {Object} task Task object
- * @returns {string} HTML string
- */
-function generateCardHTML(task) {
-  const color = getCategoryColor(task.category);
-  const cls = getCategoryClass(task.category);
-  const icon = getPriorityIcon(task.priority);
-  const assignees = getAssigneesString(task.assigned);
-  const progress = createSubtasksProgressHTML(task.subtasks);
-  return `<div class="kb-chip kb-chip--${cls}" style="background-color: ${color}">${task.category?.name || 'Task'}</div><h3 class="kb-card-title">${task.title || ''}</h3><p class="kb-card-desc">${task.description || ''}</p>${progress}<div class="kb-card-footer"><div class="kb-avatars" data-assignees="${assignees}"></div><div class="kb-prio kb-prio--${task.priority || 'medium'}"><img src="${icon}" alt="${task.priority || 'medium'}" /></div></div>`;
-}
-
-
-/**
  * Gets category color
- * @param {Object} category Category
- * @returns {string} Color hex
  */
 function getCategoryColor(category) {
   if (!category) return "#999";
@@ -120,8 +95,6 @@ function getCategoryColor(category) {
 
 /**
  * Gets category class
- * @param {Object} category Category
- * @returns {string} CSS class
  */
 function getCategoryClass(category) {
   return category?.name === 'Technical Task' ? 'technical' : 'story';
@@ -130,8 +103,6 @@ function getCategoryClass(category) {
 
 /**
  * Gets priority icon
- * @param {string} priority Priority
- * @returns {string} Icon path
  */
 function getPriorityIcon(priority) {
   const icons = {
@@ -145,8 +116,6 @@ function getPriorityIcon(priority) {
 
 /**
  * Gets assignees string
- * @param {Array} assigned Assignees
- * @returns {string} Initials
  */
 function getAssigneesString(assigned) {
   if (!assigned || assigned.length === 0) return "";
@@ -155,22 +124,7 @@ function getAssigneesString(assigned) {
 
 
 /**
- * Creates progress HTML
- * @param {Array} subtasks Subtasks
- * @returns {string} HTML
- */
-function createSubtasksProgressHTML(subtasks) {
-  if (!subtasks || subtasks.length === 0) return "";
-  const completed = subtasks.filter(st => st.completed).length;
-  const progress = Math.round((completed / subtasks.length) * 100);
-  return `<div class="kb-subtasks-progress"><div class="kb-progress-bar"><div class="kb-progress-fill" style="width: ${progress}%"></div></div><span class="kb-progress-text">${completed}/${subtasks.length} Subtasks</span></div>`;
-}
-
-
-/**
  * Extracts form data
- * @param {HTMLFormElement} form Form
- * @returns {Object} Task data
  */
 function extractFormDataForFirebase(form) {
   const formData = new FormData(form);
@@ -187,8 +141,6 @@ function extractFormDataForFirebase(form) {
 
 /**
  * Extracts basic data
- * @param {FormData} formData FormData
- * @returns {Object} Basic data
  */
 function extractBasicFormData(formData) {
   return {
@@ -203,8 +155,6 @@ function extractBasicFormData(formData) {
 
 /**
  * Builds category object
- * @param {string} categoryName Name
- * @returns {Object} Category
  */
 function buildCategoryObject(categoryName) {
   return {
@@ -217,8 +167,6 @@ function buildCategoryObject(categoryName) {
 
 /**
  * Extracts assigned contacts
- * @param {HTMLFormElement} form Form
- * @returns {Array} Assigned
  */
 function extractAssignedContacts(form) {
   const select = form.querySelector('[name="assignees"]');
@@ -235,8 +183,6 @@ function extractAssignedContacts(form) {
 
 /**
  * Extracts subtasks
- * @param {HTMLFormElement} form Form
- * @returns {Array} Subtasks
  */
 function extractSubtasks(form) {
   const subtasks = [];
@@ -253,8 +199,6 @@ function extractSubtasks(form) {
 
 /**
  * Converts ISO to display date
- * @param {string} isoDate ISO date
- * @returns {string} Display date
  */
 function convertISOToDisplay(isoDate) {
   if (!isoDate) return '';
@@ -265,8 +209,6 @@ function convertISOToDisplay(isoDate) {
 
 /**
  * Converts name to initials
- * @param {string} fullName Name
- * @returns {string|null} Initials
  */
 function nameToInitials(fullName) {
   const list = window.contacts || contacts;
@@ -280,8 +222,6 @@ function nameToInitials(fullName) {
 
 /**
  * Validates task data
- * @param {Object} data Task data
- * @returns {boolean} Valid
  */
 function validateTaskData(data) {
   if (!data.title || data.title.length < 1) {
@@ -302,7 +242,6 @@ function validateTaskData(data) {
 
 /**
  * Handles form submit
- * @param {Event} e Event
  */
 async function handleFormSubmitFirebaseOnly(e) {
   e.preventDefault();
@@ -335,7 +274,6 @@ function closeAddTaskModal() {
 
 /**
  * Checks initialization
- * @returns {boolean} Initialized
  */
 function isFirebaseOnlyInitialized() {
   return !!window.__firebaseOnlyInit;
@@ -352,8 +290,6 @@ function markAsInitialized() {
 
 /**
  * Clones and replaces form
- * @param {HTMLFormElement} form Original form
- * @returns {HTMLFormElement} New form
  */
 function cloneAndReplaceForm(form) {
   const newForm = form.cloneNode(true);
@@ -364,7 +300,6 @@ function cloneAndReplaceForm(form) {
 
 /**
  * Sets up form handler
- * @returns {boolean} Success
  */
 function setupFormHandler() {
   const form = document.getElementById('taskForm');
@@ -380,7 +315,6 @@ function setupFormHandler() {
 
 /**
  * Handles create button click
- * @param {Event} e Click event
  */
 function handleCreateClick(e) {
   const form = document.getElementById('taskForm');

@@ -59,3 +59,53 @@ function createTaskCardHTML(task) {
   <p><b>Priority:</b> ${task.priority}</p>
 `;
 }
+
+
+/**
+ * Board Templates
+ * ONLY HTML generation - no logic!
+ */
+
+
+/**
+ * Generates card HTML template
+ */
+function generateCardHTML(task) {
+  const color = getCategoryColor(task.category);
+  const cls = getCategoryClass(task.category);
+  const icon = getPriorityIcon(task.priority);
+  const assignees = getAssigneesString(task.assigned);
+  const progress = createSubtasksProgressHTML(task.subtasks);
+  return `
+    <div class="kb-chip kb-chip--${cls}" style="background-color: ${color}">
+      ${task.category?.name || 'Task'}
+    </div>
+    <h3 class="kb-card-title">${task.title || ''}</h3>
+    <p class="kb-card-desc">${task.description || ''}</p>
+    ${progress}
+    <div class="kb-card-footer">
+      <div class="kb-avatars" data-assignees="${assignees}"></div>
+      <div class="kb-prio kb-prio--${task.priority || 'medium'}">
+        <img src="${icon}" alt="${task.priority || 'medium'}" />
+      </div>
+    </div>
+  `;
+}
+
+
+/**
+ * Creates subtasks progress HTML
+ */
+function createSubtasksProgressHTML(subtasks) {
+  if (!subtasks || subtasks.length === 0) return "";
+  const completed = subtasks.filter(st => st.completed).length;
+  const progress = Math.round((completed / subtasks.length) * 100);
+  return `
+    <div class="kb-subtasks-progress">
+      <div class="kb-progress-bar">
+        <div class="kb-progress-fill" style="width: ${progress}%"></div>
+      </div>
+      <span class="kb-progress-text">${completed}/${subtasks.length} Subtasks</span>
+    </div>
+  `;
+}
