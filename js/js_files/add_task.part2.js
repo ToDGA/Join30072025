@@ -252,4 +252,27 @@ async function initializeAddTask() {
 }
 
 
-document.addEventListener('DOMContentLoaded', initializeAddTask);
+/**
+ * Closes assignees dropdown on outside click
+ */
+function closeAssigneesOnOutsideClick(event) {
+  const dropdown = document.getElementById('assignees');
+  if (!dropdown) return;
+  if (dropdown.contains(event.target)) return;
+  const menu = dropdown.querySelector('.dropdown-menu');
+  if (menu) {
+    menu.style.display = 'none';
+    dropdown.classList.remove('open', 'active', 'show', 'expanded');
+  }
+}
+
+
+/**
+ * Initializes outside click for assignees
+ */
+function initAssigneesOutsideClick() {
+  document.addEventListener('click', closeAssigneesOnOutsideClick);
+}
+
+
+initAssigneesOutsideClick();
