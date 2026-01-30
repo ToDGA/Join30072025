@@ -124,8 +124,8 @@ async function createTaskObject() {
  * Saves task to localStorage
  * @param {Object} task - Task object
  */
-function saveTaskToStorage(task) {
-  postData((path = "task"), task);
+async function saveTaskToStorage(task) {
+  await postData("task", task);
 }
 
 
@@ -139,7 +139,7 @@ async function handleCreateTask(e) {
   if (!validateRequiredFields()) return;
   
   const task = await createTaskObject();
-  saveTaskToStorage(task);
+  await saveTaskToStorage(task);
   location.href = 'board.html';
 }
 
